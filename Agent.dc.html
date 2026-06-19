@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+    :root{
+      --gray-0:#ffffff;--gray-25:#fbfbfc;--gray-50:#f7f8f9;--gray-100:#f0f1f3;--gray-150:#e8eaed;--gray-200:#dfe2e6;--gray-300:#cbcfd4;--gray-400:#a4a9b0;--gray-500:#787e87;--gray-600:#565c65;--gray-700:#3c424b;--gray-800:#272c33;--gray-900:#181c22;--gray-950:#0e1116;
+      --green-50:#ecf5f0;--green-600:#166848;--green-700:#11543a;--amber-50:#fbf1df;--amber-600:#a8720f;--amber-700:#875b0c;--blue-50:#eaf1fb;--blue-600:#275ea0;--violet-50:#f0edfb;--violet-600:#5b43b3;--red-50:#fcecec;--red-600:#bb3a3a;
+      --font-sans:'Geist','Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--font-mono:'Geist Mono','JetBrains Mono',ui-monospace,'SFMono-Regular','Menlo',monospace;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:#fff; color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    a{ color:inherit; text-decoration:none; }
+    ::selection{ background:var(--gray-950); color:#fff; }
+    .ag-cta{ transition:transform .16s cubic-bezier(.22,1,.36,1), opacity .18s ease, box-shadow .2s ease; }
+    .ag-cta:hover{ transform:translateY(-1px); opacity:.94; }
+    .ag-cta:active{ transform:translateY(.5px) scale(.99); }
+    .ag-cta svg{ transition:transform .22s cubic-bezier(.22,1,.36,1); }
+    .ag-cta:hover svg{ transform:translate(3px,-3px); }
+    .ag-card{ transition:border-color .25s ease, transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
+    .ag-card:hover{ transform:translateY(-3px); border-color:var(--gray-300); box-shadow:0 18px 42px -28px rgba(14,17,22,.42); }
+    .ag-pill{ transition:background .18s ease, color .18s ease, border-color .18s ease; }
+    .ag-pill:hover{ background:var(--gray-100); }
+    .ag-link{ position:relative; }
+    .ag-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .ag-link:hover::after{ width:100%; }
+    [data-rv]{ will-change:transform,opacity; }
+    .ag-rail::-webkit-scrollbar{ display:none; }
+    .ag-rail{ scrollbar-width:none; }
+    @media(max-width:860px){ .ag-hide-sm{ display:none !important; } .ag-2{ grid-template-columns:1fr !important; } .ag-4{ grid-template-columns:1fr 1fr !important; } .ag-3{ grid-template-columns:1fr !important; } }
+  </style>
+</helmet>
+
+<div style="--ac:{{ accent }}; --acT:{{ accentTint }}; font-family:var(--font-sans); color:var(--gray-950); background:#fff; overflow-x:hidden;">
+
+  <!-- top bar -->
+  <nav style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(14px); background:rgba(255,255,255,.82); border-bottom:1px solid var(--gray-150);">
+    <div style="max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,40px); height:62px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+      <a class="ag-link" href="Home.dc.html#engine" style="display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:500; color:var(--gray-600); flex:none;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+        Branch Avenue
+      </a>
+      <div class="ag-hide-sm ag-rail" style="display:flex; align-items:center; gap:6px; overflow-x:auto;">
+        <sc-for list="{{ agentNav }}" as="a" hint-placeholder-count="6">
+          <a class="ag-pill" href="{{ a.href }}" style="white-space:nowrap; font-size:13px; font-weight:500; padding:7px 13px; border-radius:999px; border:1px solid {{ a.border }}; background:{{ a.bg }}; color:{{ a.fg }};">{{ a.short }}</a>
+        </sc-for>
+      </div>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <header style="max-width:1180px; margin:0 auto; padding:clamp(56px,8vh,104px) clamp(20px,5vw,40px) clamp(36px,5vh,64px);">
+    <div data-rv style="display:inline-flex; align-items:center; gap:9px; margin-bottom:22px;">
+      <span style="width:8px; height:8px; border-radius:999px; background:var(--ac);"></span>
+      <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">{{ kicker }} · Autonomous agent</span>
+    </div>
+    <div class="ag-2" style="display:grid; grid-template-columns:1.45fr 1fr; gap:clamp(32px,5vw,64px); align-items:end;">
+      <div>
+        <h1 data-rv style="margin:0; font-weight:600; font-size:clamp(40px,6.2vw,80px); line-height:.97; letter-spacing:-.035em;">{{ name }}</h1>
+        <p data-rv style="margin:22px 0 0; font-size:clamp(17px,1.4vw,20px); line-height:1.5; color:var(--gray-600); max-width:46ch;">{{ oneLiner }}</p>
+        <div data-rv style="margin-top:30px; display:flex; flex-wrap:wrap; gap:12px;">
+          <a class="ag-cta" href="Home.dc.html#contact" style="display:inline-flex; align-items:center; gap:9px; background:var(--gray-950); color:#fff; font-size:15px; font-weight:500; padding:14px 24px; border-radius:999px;">Get a free growth audit<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <a class="ag-cta" href="Home.dc.html#engine" style="display:inline-flex; align-items:center; background:#fff; color:var(--gray-950); border:1px solid var(--gray-300); font-size:15px; font-weight:500; padding:14px 24px; border-radius:999px;">See all six agents</a>
+        </div>
+      </div>
+      <div data-rv style="border:1px solid var(--gray-200); border-radius:20px; background:var(--acT); padding:clamp(26px,3vw,38px);">
+        <div style="font-family:var(--font-mono); font-size:clamp(44px,6vw,68px); font-weight:500; letter-spacing:-.03em; line-height:1; color:var(--ac); font-feature-settings:'tnum';">{{ heroStatValue }}</div>
+        <div style="margin-top:10px; font-size:14px; line-height:1.5; color:var(--gray-600);">{{ heroStatLabel }}</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- what it does -->
+  <section style="max-width:1180px; margin:0 auto; padding:clamp(40px,6vh,80px) clamp(20px,5vw,40px) 0;">
+    <div data-rv style="display:flex; align-items:center; gap:14px; margin-bottom:34px;">
+      <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">What it does</span>
+      <span style="flex:1; height:1px; background:var(--gray-200);"></span>
+    </div>
+    <div class="ag-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <sc-for list="{{ whatItDoes }}" as="w" hint-placeholder-count="3">
+        <div class="ag-card" data-rv style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.4vw,32px); background:#fff;">
+          <div style="font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--ac); border:1px solid var(--gray-200); width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;">{{ w.n }}</div>
+          <h3 style="margin:0 0 9px; font-size:19px; font-weight:600; letter-spacing:-.02em; color:var(--gray-950);">{{ w.title }}</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">{{ w.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- impact pillars -->
+  <section style="max-width:1180px; margin:0 auto; padding:clamp(48px,7vh,90px) clamp(20px,5vw,40px) 0;">
+    <h2 data-rv style="margin:0 0 8px; font-weight:600; font-size:clamp(28px,3.6vw,46px); letter-spacing:-.03em; text-wrap:balance;">Where it moves the needle.</h2>
+    <p data-rv style="margin:0 0 34px; font-size:16px; line-height:1.6; color:var(--gray-600); max-width:54ch;">Every agent earns its keep against the four things that actually run your business — not vanity metrics.</p>
+    <div class="ag-4" data-rv style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--gray-200); border:1px solid var(--gray-200); border-radius:18px; overflow:hidden;">
+      <div style="background:#fff; padding:clamp(22px,2.2vw,30px);">
+        <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:var(--acT); align-items:center; justify-content:center; color:var(--ac); margin-bottom:16px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-400); margin-bottom:8px;">Leads</div>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--gray-700);">{{ impactLeads }}</p>
+      </div>
+      <div style="background:#fff; padding:clamp(22px,2.2vw,30px);">
+        <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:var(--acT); align-items:center; justify-content:center; color:var(--ac); margin-bottom:16px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-400); margin-bottom:8px;">Calls</div>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--gray-700);">{{ impactCalls }}</p>
+      </div>
+      <div style="background:#fff; padding:clamp(22px,2.2vw,30px);">
+        <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:var(--acT); align-items:center; justify-content:center; color:var(--ac); margin-bottom:16px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></span>
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-400); margin-bottom:8px;">Revenue</div>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--gray-700);">{{ impactRevenue }}</p>
+      </div>
+      <div style="background:#fff; padding:clamp(22px,2.2vw,30px);">
+        <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:var(--acT); align-items:center; justify-content:center; color:var(--ac); margin-bottom:16px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"></line><line x1="4" x2="4" y1="10" y2="3"></line><line x1="12" x2="12" y1="21" y2="12"></line><line x1="12" x2="12" y1="8" y2="3"></line><line x1="20" x2="20" y1="21" y2="16"></line><line x1="20" x2="20" y1="12" y2="3"></line><line x1="2" x2="6" y1="14" y2="14"></line><line x1="10" x2="14" y1="8" y2="8"></line><line x1="18" x2="22" y1="16" y2="16"></line></svg></span>
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-400); margin-bottom:8px;">Control</div>
+        <p style="margin:0; font-size:14px; line-height:1.5; color:var(--gray-700);">{{ impactControl }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIIFM (dark) -->
+  <section style="background:var(--gray-950); color:#fff; margin-top:clamp(64px,9vh,110px); padding:clamp(64px,9vh,110px) 0; overflow:hidden;">
+    <div class="ag-2" style="max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,40px); display:grid; grid-template-columns:1fr 1.08fr; gap:clamp(36px,5vw,72px); align-items:center;">
+      <div data-rv>
+        <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); filter:brightness(1.7);">What's in it for you</span>
+        <h2 style="margin:16px 0 18px; font-weight:600; font-size:clamp(30px,3.8vw,50px); line-height:1.04; letter-spacing:-.03em;">You get the outcome. Not the homework.</h2>
+        <p style="margin:0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:rgba(255,255,255,.62); max-width:42ch;">This agent exists to give you back time and certainty — more of the right customers, and a clear answer to "is it working?"</p>
+      </div>
+      <div data-rv style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ wiffms }}" as="b" hint-placeholder-count="4">
+          <div style="display:flex; gap:13px; align-items:flex-start; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.04);">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px; filter:brightness(1.7);"><path d="M20 6 9 17l-5-5"></path></svg>
+            <span style="font-size:15px; color:rgba(255,255,255,.88); line-height:1.5;">{{ b }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- human oversight -->
+  <section style="max-width:1180px; margin:0 auto; padding:clamp(64px,9vh,110px) clamp(20px,5vw,40px) 0;">
+    <div class="ag-2" style="display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(36px,5vw,72px); align-items:start;">
+      <div data-rv>
+        <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Human oversight</span>
+        <h2 style="margin:16px 0 18px; font-weight:600; font-size:clamp(28px,3.6vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">The agent proposes. A human disposes.</h2>
+        <p style="margin:0; font-size:clamp(16px,1.3vw,18px); line-height:1.62; color:var(--gray-600); max-width:46ch;">{{ oversightIntro }}</p>
+        <div style="margin-top:26px; display:flex; flex-direction:column; gap:13px;">
+          <sc-for list="{{ governance }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex; gap:11px; align-items:flex-start;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ac)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg><span style="font-size:14.5px; line-height:1.5; color:var(--gray-700);">{{ g }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div data-rv style="border:1px solid var(--gray-200); border-radius:18px; padding:clamp(24px,2.6vw,34px); background:var(--gray-25);">
+        <div style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-400); margin-bottom:22px;">Planned, governed check-ins</div>
+        <sc-for list="{{ checkpoints }}" as="c" hint-placeholder-count="3">
+          <div style="display:flex; gap:15px; padding-bottom:18px;">
+            <span style="width:11px; height:11px; border-radius:999px; background:var(--ac); margin-top:5px; flex:none; box-shadow:0 0 0 4px var(--acT);"></span>
+            <div><div style="font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--gray-950);">{{ c.when }}</div><div style="margin-top:3px; font-size:14px; line-height:1.5; color:var(--gray-600);">{{ c.what }}</div></div>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid var(--gray-150); padding-top:16px; font-size:13px; line-height:1.5; color:var(--gray-500);">A dedicated strategist owns this relationship. The agent never acts outside the lane you've approved.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- how much it helps -->
+  <section style="max-width:1180px; margin:0 auto; padding:clamp(56px,8vh,100px) clamp(20px,5vw,40px) 0;">
+    <h2 data-rv style="margin:0 0 30px; font-weight:600; font-size:clamp(28px,3.6vw,46px); letter-spacing:-.03em;">How much it helps.</h2>
+    <div class="ag-3" data-rv style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="3">
+        <div style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(26px,2.6vw,34px); background:#fff;">
+          <div style="font-family:var(--font-mono); font-size:clamp(40px,5vw,58px); font-weight:500; letter-spacing:-.03em; line-height:1; color:var(--ac); font-feature-settings:'tnum';">{{ m.value }}</div>
+          <div style="margin-top:12px; font-size:14.5px; line-height:1.5; color:var(--gray-600);">{{ m.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA + cross-links -->
+  <section style="max-width:1180px; margin:clamp(64px,9vh,110px) auto 0; padding:0 clamp(20px,5vw,40px);">
+    <div data-rv style="background:var(--gray-950); color:#fff; border-radius:26px; padding:clamp(48px,7vw,92px) clamp(28px,5vw,72px); text-align:center; position:relative; overflow:hidden;">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(80% 120% at 50% 0%, color-mix(in srgb, var(--ac) 30%, transparent), transparent 60%); opacity:.5; pointer-events:none;"></div>
+      <h2 style="position:relative; margin:0 auto; font-weight:600; font-size:clamp(32px,4.6vw,60px); line-height:1.0; letter-spacing:-.035em; max-width:18ch;">Put {{ name }} to work on your market.</h2>
+      <p style="position:relative; margin:22px auto 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:rgba(255,255,255,.64); max-width:52ch;">One free audit shows exactly what this agent — and the five working beside it — would do for your calls and revenue this quarter.</p>
+      <div style="position:relative; display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:34px;">
+        <a class="ag-cta" href="Home.dc.html#contact" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--gray-950); font-size:15px; font-weight:600; padding:15px 28px; border-radius:999px;">Get my free audit<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        <a class="ag-cta" href="Home.dc.html#pricing" style="display:inline-flex; align-items:center; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.3); font-size:15px; font-weight:500; padding:15px 28px; border-radius:999px;">View pricing</a>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(40px,6vh,64px);">
+      <div data-rv style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+        <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">The rest of your team</span>
+        <span style="flex:1; height:1px; background:var(--gray-200);"></span>
+      </div>
+      <div class="ag-3" data-rv style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+        <sc-for list="{{ otherAgents }}" as="a" hint-placeholder-count="5">
+          <a class="ag-card" href="{{ a.href }}" style="display:flex; align-items:center; gap:14px; border:1px solid var(--gray-200); border-radius:14px; padding:18px 20px; background:#fff;">
+            <span style="width:10px; height:10px; border-radius:999px; flex:none; background:{{ a.dot }};"></span>
+            <div style="flex:1; min-width:0;"><div style="font-size:15px; font-weight:600; color:var(--gray-950);">{{ a.name }}</div><div style="font-size:13px; color:var(--gray-500); margin-top:2px;">{{ a.role }}</div></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1180px; margin:clamp(56px,8vh,96px) auto 0; padding:28px clamp(20px,5vw,40px) 40px; border-top:1px solid var(--gray-150); display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center;">
+    <span style="font-family:var(--font-mono); font-size:12px; color:var(--gray-400);">© 2026 Branch Avenue — agents propose, humans dispose.</span>
+    <a class="ag-link" href="Home.dc.html" style="font-size:13.5px; font-weight:500; color:var(--gray-600);">Back to Branch Avenue</a>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:2600},&quot;agentKey&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;seo&quot;,&quot;ads&quot;,&quot;cro&quot;,&quot;web&quot;,&quot;call&quot;,&quot;report&quot;],&quot;default&quot;:&quot;call&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this._reveal(); }
+
+  _reveal() {
+    if (this.props.reduceMotion) return;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-rv]'));
+    const g = window.gsap;
+    const hide = (el) => { if (g) g.set(el, { opacity: 0, y: 26, filter: 'blur(8px)' }); else { el.style.opacity = '0'; el.style.transform = 'translateY(26px)'; el.style.transition = 'opacity .8s ease, transform .8s ease'; } };
+    const show = (el) => { if (g) g.to(el, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.85, ease: 'power3.out' }); else { el.style.opacity = '1'; el.style.transform = 'none'; } };
+    const vh = window.innerHeight || 800;
+    els.forEach((el) => { if (el.getBoundingClientRect().top < vh * 0.92) { el._d = 1; } else { hide(el); } });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting && !e.target._d) { e.target._d = 1; show(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach((el) => { if (!el._d) io.observe(el); });
+      setTimeout(() => els.forEach((el) => { if (!el._d) { el._d = 1; show(el); } }), 1800);
+    } else { els.forEach(show); }
+  }
+
+  renderVals() {
+    const DATA = {
+      seo: {
+        name: 'SEO Agent', kicker: 'Organic growth', accent: '#166848', accentTint: '#ecf5f0',
+        oneLiner: 'The agent that makes you the first organic result your customers find — and keeps you there.',
+        heroStat: { value: '312%', label: 'average organic call lift in the first 9 months' },
+        whatItDoes: [
+          { title: 'Finds searches that convert', desc: 'Mines the exact phrases your customers type when they are ready to buy — not vanity keywords.' },
+          { title: 'Builds pages that rank', desc: 'Writes and ships location and service pages structured to win Google, then updates them as rankings move.' },
+          { title: 'Defends your position', desc: 'Watches competitors and algorithm shifts daily and reworks content before you slip.' }
+        ],
+        impact: {
+          leads: 'More qualified organic leads every month — without paying per click.',
+          calls: 'Local and service searches route straight to a tracked phone number.',
+          revenue: 'Compounding pipeline that costs less the longer it runs.',
+          control: 'You approve the content plan; nothing publishes without your yes.'
+        },
+        wiffms: ['Stop renting traffic from ads — own it.', 'Show up first in the moments that drive calls.', 'A library of ranking pages working while you sleep.', 'No SEO jargon — just more of the right people finding you.'],
+        oversight: {
+          intro: 'The SEO Agent drafts the strategy and the pages; a senior strategist signs off before anything reaches Google.',
+          checkpoints: [
+            { when: 'Week 1', what: 'Keyword and content strategy delivered for your sign-off.' },
+            { when: 'Monthly', what: 'Ranking review plus the next month of content — you approve the queue.' },
+            { when: 'Quarterly', what: 'Strategist-led deep dive on competitive position and big bets.' }
+          ],
+          governance: ['Every page is reviewed by a senior strategist before it goes live.', 'You see what is queued, what is published, and why.', 'Brand voice and claims are guard-railed — the agent cannot go off-message.']
+        },
+        metrics: [{ value: '312%', label: 'average organic traffic lift' }, { value: '9 mo', label: 'to category-leading local rankings' }, { value: '24/7', label: 'monitoring and content updates' }]
+      },
+      ads: {
+        name: 'Ads Agent', kicker: 'Paid acquisition', accent: '#a8720f', accentTint: '#fbf1df',
+        oneLiner: 'The agent that spends every ad dollar where it turns into a booked call — and cuts the rest.',
+        heroStat: { value: '4.1x', label: 'median return on ad spend across accounts' },
+        whatItDoes: [
+          { title: 'Follows the calls, not clicks', desc: 'Shifts budget in real time toward the keywords, audiences, and creatives that produce real customers.' },
+          { title: 'Kills waste automatically', desc: 'Pauses the ads, placements, and search terms quietly draining your budget.' },
+          { title: 'Tests creative continuously', desc: 'Always running fresh ad variations so your cost per call keeps dropping.' }
+        ],
+        impact: {
+          leads: 'A steady, predictable flow of ready-to-buy leads on demand.',
+          calls: 'Spend is optimized against tracked calls, not surface metrics.',
+          revenue: 'Higher return on every dollar — and headroom to scale what works.',
+          control: 'You set the budget and guardrails; the agent works inside them.'
+        },
+        wiffms: ['Know exactly what you get for every dollar.', 'Turn ad spend up or down like a dial.', 'Stop funding clicks that never call.', 'Beat bigger competitors with smarter spend, not deeper pockets.'],
+        oversight: {
+          intro: 'You own the budget and the rules. The Ads Agent optimizes inside them and brings strategy shifts to you as proposals.',
+          checkpoints: [
+            { when: 'Launch', what: 'Budget, targets, and guardrails agreed before a dollar runs.' },
+            { when: 'Weekly', what: 'Spend and cost-per-call snapshot; scale decisions stay yours.' },
+            { when: 'Monthly', what: 'Strategist reviews performance and proposes the next move.' }
+          ],
+          governance: ['Hard budget caps the agent can never exceed.', 'Major strategy shifts come to you as proposals, not surprises.', 'Every change is logged with the reason behind it.']
+        },
+        metrics: [{ value: '4.1x', label: 'median return on ad spend' }, { value: '-50%', label: 'cost per call vs. prior agency' }, { value: 'Daily', label: 'budget reallocation' }]
+      },
+      cro: {
+        name: 'CRO Agent', kicker: 'Conversion', accent: '#5b43b3', accentTint: '#f0edfb',
+        oneLiner: 'The agent that turns more of the visitors you already have into booked jobs — no extra traffic required.',
+        heroStat: { value: '+38%', label: 'average lift in visitor-to-lead rate' },
+        whatItDoes: [
+          { title: 'Finds where visitors drop off', desc: 'Watches how people move through your site and pinpoints what is costing you calls.' },
+          { title: 'Tests the fix', desc: 'Runs controlled A/B experiments on headlines, layouts, and forms — only winners stay.' },
+          { title: 'Compounds the wins', desc: 'Every validated improvement stacks, so your site converts better every month.' }
+        ],
+        impact: {
+          leads: 'More leads from the same traffic — pure efficiency.',
+          calls: 'Clearer calls-to-action mean more completed calls and forms.',
+          revenue: 'A permanent lift to revenue that costs nothing more to acquire.',
+          control: 'Only changes you approve go live — no surprise redesigns.'
+        },
+        wiffms: ['Get more out of the traffic you already pay for.', 'Stop guessing what works — see it proven.', 'Small changes, measurable revenue.', 'A site that quietly gets better on its own.'],
+        oversight: {
+          intro: 'Every experiment is proposed before it runs and reported after it ends — you stay in the loop on each one.',
+          checkpoints: [
+            { when: 'Setup', what: 'Baseline conversion rates measured and shared.' },
+            { when: 'Per test', what: 'You approve each experiment before it goes live.' },
+            { when: 'Monthly', what: 'Win/loss report with the revenue impact of every change.' }
+          ],
+          governance: ['No experiment launches without your approval.', 'Statistical significance required before a change is permanent.', 'A full history of what was tested and what won.']
+        },
+        metrics: [{ value: '+38%', label: 'average conversion lift' }, { value: '100%', label: 'changes A/B-validated' }, { value: '0', label: 'surprise redesigns' }]
+      },
+      web: {
+        name: 'Web Agent', kicker: 'Website', accent: '#275ea0', accentTint: '#eaf1fb',
+        oneLiner: 'The agent that keeps your website fast, current, and built to convert as your business grows.',
+        heroStat: { value: '<1.2s', label: 'average page load — built to rank and convert' },
+        whatItDoes: [
+          { title: 'Keeps it fast', desc: 'Monitors speed and core web vitals around the clock and fixes regressions before they cost you.' },
+          { title: 'Keeps it current', desc: 'Updates offers, services, and locations so the site always reflects your business today.' },
+          { title: 'Keeps it converting', desc: 'Hands changes to the CRO Agent and ships the structure that turns visits into calls.' }
+        ],
+        impact: {
+          leads: 'A site that loads instantly and captures every visitor.',
+          calls: 'Click-to-call and forms that work flawlessly on every device.',
+          revenue: 'No lost sales to a slow, broken, or outdated page.',
+          control: 'Edits and new pages ship on your schedule, with your approval.'
+        },
+        wiffms: ['Never worry about your site breaking or aging.', 'Add locations and services without a developer.', 'A site that is an asset, not a liability.', 'Fast, secure, and always on-brand.'],
+        oversight: {
+          intro: 'Your site, your rules. The Web Agent maintains and proposes; nothing reaches your live site without sign-off.',
+          checkpoints: [
+            { when: 'Build', what: 'Site structure and design signed off before launch.' },
+            { when: 'Ongoing', what: 'Content and structural changes queued for your approval.' },
+            { when: 'Quarterly', what: 'Performance and security audit reviewed with your strategist.' }
+          ],
+          governance: ['Nothing publishes to your live site without sign-off.', 'Versioned changes — roll back anytime.', 'Security and uptime monitored continuously.']
+        },
+        metrics: [{ value: '<1.2s', label: 'average load time' }, { value: '99.9%', label: 'uptime' }, { value: '24/7', label: 'monitoring' }]
+      },
+      call: {
+        name: 'Call Agent', kicker: 'Lead intelligence', accent: '#166848', accentTint: '#ecf5f0',
+        oneLiner: 'The agent that tells you exactly which marketing made the phone ring — and never lets a lead slip.',
+        heroStat: { value: '100%', label: 'of calls tracked, scored, and sourced' },
+        whatItDoes: [
+          { title: 'Tracks every call to its source', desc: 'Ties each call back to the exact ad, keyword, or page that drove it.' },
+          { title: 'Scores lead quality with AI', desc: 'Listens, transcribes, and flags your best opportunities — and any missed calls.' },
+          { title: 'Syncs to your CRM', desc: 'Pushes every lead into your pipeline with its full source attached.' }
+        ],
+        impact: {
+          leads: 'Every lead captured, scored, and routed — none lost to a missed call.',
+          calls: 'You finally know which calls are customers and where they came from.',
+          revenue: 'Double down on what drives revenue; cut what does not.',
+          control: 'Complete visibility into every conversation and its source.'
+        },
+        wiffms: ['Stop guessing which marketing works — know it.', 'Catch the leads your team is missing.', 'Prove ROI with hard call data.', 'Fund what fills your calendar, defund the rest.'],
+        oversight: {
+          intro: 'The Call Agent surfaces the signal in real time; your team decides and acts on it.',
+          checkpoints: [
+            { when: 'Setup', what: 'Tracking numbers and CRM mapping configured with you.' },
+            { when: 'Daily', what: 'Missed-call and hot-lead alerts to your team in real time.' },
+            { when: 'Monthly', what: 'Call-source and quality review with your strategist.' }
+          ],
+          governance: ['Recordings and scoring criteria are transparent and tunable.', 'Privacy and consent handled to standard compliance.', 'You decide how leads are routed and prioritized.']
+        },
+        metrics: [{ value: '100%', label: 'of calls tracked and sourced' }, { value: 'AI', label: 'quality scoring on every call' }, { value: '0', label: 'leads lost to missed calls' }]
+      },
+      report: {
+        name: 'Report Agent', kicker: 'Clarity', accent: '#3c424b', accentTint: '#f0f1f3',
+        oneLiner: 'The agent that turns everything across your marketing into a plain-English answer to one question: is it working?',
+        heroStat: { value: '2 min', label: 'to know exactly where you stand' },
+        whatItDoes: [
+          { title: 'Translates the data', desc: 'Pulls every metric across SEO, ads, site, and calls into one clear story.' },
+          { title: 'Tells you what changed and why', desc: 'Plain-English updates that explain the moves, not just the numbers.' },
+          { title: 'Flags what needs you', desc: 'Surfaces the decisions waiting on your approval — and nothing else.' }
+        ],
+        impact: {
+          leads: 'See lead volume and quality at a glance, in context.',
+          calls: 'Know your cost per call and what is driving it this month.',
+          revenue: 'A clear line from marketing activity to pipeline and revenue.',
+          control: 'Total transparency without the time sink of dashboards.'
+        },
+        wiffms: ['Know if your marketing is working in two minutes.', 'No jargon, no spreadsheets, no babysitting.', 'Walk into any meeting with the numbers ready.', 'Spend your time on decisions, not data.'],
+        oversight: {
+          intro: 'The Report Agent informs; you direct. It measures everything against the goals you set — and recommends, never decides.',
+          checkpoints: [
+            { when: 'Onboarding', what: 'You choose the metrics and cadence that matter to you.' },
+            { when: 'Weekly', what: 'Plain-English summary with what is next for your approval.' },
+            { when: 'Quarterly', what: 'Strategist-led business review against your goals.' }
+          ],
+          governance: ['Every number is traceable back to its source.', 'Recommendations come as proposals you approve or decline.', 'You set the goals the agent measures everything against.']
+        },
+        metrics: [{ value: '2 min', label: 'to know if it is working' }, { value: '1', label: 'clear view across every channel' }, { value: '0', label: 'dashboards to babysit' }]
+      }
+    };
+
+    const META = {
+      seo: { short: 'SEO', name: 'SEO Agent', role: 'Owns your organic rankings', dot: '#166848', href: 'Agent-SEO.dc.html' },
+      ads: { short: 'Ads', name: 'Ads Agent', role: 'Runs your paid budget', dot: '#a8720f', href: 'Agent-Ads.dc.html' },
+      cro: { short: 'CRO', name: 'CRO Agent', role: 'Lifts your conversion rate', dot: '#5b43b3', href: 'Agent-CRO.dc.html' },
+      web: { short: 'Web', name: 'Web Agent', role: 'Keeps your site converting', dot: '#275ea0', href: 'Agent-Web.dc.html' },
+      call: { short: 'Call', name: 'Call Agent', role: 'Tracks every lead and call', dot: '#166848', href: 'Agent-Call.dc.html' },
+      report: { short: 'Report', name: 'Report Agent', role: 'Tells you if it is working', dot: '#3c424b', href: 'Agent-Report.dc.html' }
+    };
+    const ORDER = ['seo', 'ads', 'cro', 'web', 'call', 'report'];
+    const key = (this.props.agentKey && DATA[this.props.agentKey]) ? this.props.agentKey : 'call';
+    const A = DATA[key];
+
+    const agentNav = ORDER.map((k) => ({
+      short: META[k].short, href: META[k].href,
+      bg: k === key ? '#0e1116' : '#ffffff',
+      fg: k === key ? '#ffffff' : '#565c65',
+      border: k === key ? '#0e1116' : '#dfe2e6'
+    }));
+    const otherAgents = ORDER.filter((k) => k !== key).map((k) => ({ name: META[k].name, role: META[k].role, dot: META[k].dot, href: META[k].href }));
+
+    return {
+      name: A.name, kicker: A.kicker, oneLiner: A.oneLiner, accent: A.accent, accentTint: A.accentTint,
+      heroStatValue: A.heroStat.value, heroStatLabel: A.heroStat.label,
+      whatItDoes: A.whatItDoes.map((w, i) => ({ title: w.title, desc: w.desc, n: String(i + 1).padStart(2, '0') })),
+      impactLeads: A.impact.leads, impactCalls: A.impact.calls, impactRevenue: A.impact.revenue, impactControl: A.impact.control,
+      wiffms: A.wiffms, oversightIntro: A.oversight.intro, checkpoints: A.oversight.checkpoints, governance: A.oversight.governance,
+      metrics: A.metrics, agentNav, otherAgents
+    };
+  }
+}
+</script>
+</body>
+</html>

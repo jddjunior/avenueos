@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/spacing.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:#fff; color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    ::selection{ background:var(--gray-950); color:#fff; }
+    a{ color:inherit; text-decoration:none; }
+    [data-reveal], [data-reveal-group]>*{ will-change:transform,opacity; }
+    .ba-link{ position:relative; }
+    .ba-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .ba-link:hover::after{ width:100%; }
+    .ba-cta{ transition:transform .14s ease, opacity .18s ease, background .18s ease, color .18s ease, border-color .18s ease; }
+    .ba-cta:hover{ opacity:.9; }
+    .ba-cta:active{ transform:translateY(.5px) scale(.99); }
+    .ba-card-h{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,1,.36,1), background .2s ease; }
+    .ba-card-h:hover{ border-color:var(--svc-200); transform:translateY(-3px); background:color-mix(in srgb, var(--svc) 6%, #fff); }
+    .ba-btn-svc:hover{ background:color-mix(in srgb, var(--svc) 15%, #fff); color:var(--gray-950); }
+    @media (max-width:900px){ .ba-hide-md{ display:none !important; } .ba-grid-2{ grid-template-columns:1fr !important; } .ba-grid-3{ grid-template-columns:1fr !important; } .ba-grid-4{ grid-template-columns:1fr 1fr !important; } }
+  </style>
+</helmet>
+
+<div style="--svc: var(--violet-600); --svc-50: var(--violet-50); --svc-200: var(--violet-200); font-family:var(--font-sans); color:var(--gray-950); background:#fff; overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav style="position:fixed; top:0; left:0; width:100%; z-index:100; backdrop-filter:saturate(180%) blur(14px); background:rgba(255,255,255,.72); border-bottom:1px solid var(--gray-150);">
+    <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,48px); height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="Home.dc.html" style="display:flex; align-items:center; gap:11px;">
+        <span style="width:30px; height:30px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-weight:600; font-size:16px; letter-spacing:-.02em;">Branch Avenue</span>
+      </a>
+      <div class="ba-hide-md" style="display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; color:var(--gray-600);">
+        <a class="ba-link" href="Home.dc.html#services">Services</a>
+        <a class="ba-link" href="Home.dc.html#industries">Industries</a>
+        <a class="ba-link" href="Home.dc.html#results">Results</a>
+        <a class="ba-link" href="Home.dc.html#pricing">Pricing</a>
+      </div>
+      <a class="ba-cta" href="#contact" style="background:var(--gray-950); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px;">Book a strategy call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; max-width:1240px; margin:0 auto; padding:148px clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="display:flex; align-items:center; gap:13px; margin-bottom:26px;">
+      <a href="Home.dc.html#industries" class="ba-link" style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-400);">Industries</a>
+      <span style="color:var(--gray-300);">/</span>
+      <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--svc);">Franchise Owners</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1.5fr .9fr; gap:48px; align-items:end;" class="ba-grid-2">
+      <h1 data-reveal style="margin:0; font-weight:600; font-size:clamp(40px,5.8vw,78px); line-height:.98; letter-spacing:-.035em; text-wrap:balance;">Win every location. Stay on brand.</h1>
+      <div data-reveal style="padding-bottom:8px;">
+        <p style="margin:0 0 24px; font-size:clamp(16px,1.3vw,18px); line-height:1.62; color:var(--gray-600);">Whether you own one unit or fifty, we drive local demand to each location — on-brand, compliant, and tracked — so corporate guidelines and your growth finally pull in the same direction.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:11px;">
+          <a class="ba-cta" href="#contact" style="display:inline-flex; align-items:center; gap:8px; background:var(--gray-950); color:#fff; font-size:15px; font-weight:500; padding:13px 22px; border-radius:999px;">Get a free franchise audit<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <a class="ba-cta" href="#proof" style="display:inline-flex; align-items:center; background:#fff; color:var(--gray-950); border:1px solid var(--gray-300); font-size:15px; font-weight:500; padding:13px 22px; border-radius:999px;">See the proof</a>
+        </div>
+      </div>
+    </div>
+    <div data-reveal style="margin-top:40px; display:flex; flex-wrap:wrap; align-items:center; gap:14px; font-size:13px; color:var(--gray-600);">
+      <span style="display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); color:var(--svc); background:var(--svc-50); border:1px solid var(--svc-200); padding:6px 12px; border-radius:999px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Built for single &amp; multi-unit franchises</span>
+      <span style="display:inline-flex; align-items:center; gap:7px; color:var(--gray-500);">99% of clients rank on page one of Google</span>
+    </div>
+  </header>
+
+  <!-- PAINS -->
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="display:flex; align-items:center; gap:16px; margin-bottom:36px;"><span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Sound familiar?</span><span style="height:1px; flex:1; background:var(--gray-200);"></span></div>
+    <h2 data-reveal style="margin:0 0 36px; font-weight:600; font-size:clamp(28px,3.8vw,48px); line-height:1.03; letter-spacing:-.03em; max-width:20ch;">The headaches every franchise owner knows.</h2>
+    <div data-reveal-group class="ba-grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div style="border:1px solid var(--gray-200); border-radius:14px; padding:24px; display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--gray-300); font-family:var(--font-mono); font-size:13px;">01</span><p style="margin:0; font-size:15.5px; line-height:1.5; color:var(--gray-700);">Corporate brand rules slow your local marketing to a <strong style="color:var(--gray-950);">crawl</strong>.</p></div>
+      <div style="border:1px solid var(--gray-200); border-radius:14px; padding:24px; display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--gray-300); font-family:var(--font-mono); font-size:13px;">02</span><p style="margin:0; font-size:15.5px; line-height:1.5; color:var(--gray-700);">Every location markets differently — <strong style="color:var(--gray-950);">quality is all over the place</strong>.</p></div>
+      <div style="border:1px solid var(--gray-200); border-radius:14px; padding:24px; display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--gray-300); font-family:var(--font-mono); font-size:13px;">03</span><p style="margin:0; font-size:15.5px; line-height:1.5; color:var(--gray-700);">Units compete with <strong style="color:var(--gray-950);">each other</strong> for the same clicks.</p></div>
+      <div style="border:1px solid var(--gray-200); border-radius:14px; padding:24px; display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--gray-300); font-family:var(--font-mono); font-size:13px;">04</span><p style="margin:0; font-size:15.5px; line-height:1.5; color:var(--gray-700);">You can't see which locations are <strong style="color:var(--gray-950);">winning or bleeding</strong>.</p></div>
+    </div>
+  </section>
+
+  <!-- WIIFM -->
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="display:flex; align-items:center; gap:16px; margin-bottom:36px;"><span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">What's in it for you</span><span style="height:1px; flex:1; background:var(--gray-200);"></span></div>
+    <div class="ba-grid-2" style="display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:end; margin-bottom:44px;">
+      <h2 data-reveal style="margin:0; font-weight:600; font-size:clamp(30px,4.4vw,54px); line-height:1.02; letter-spacing:-.03em;">Consistent growth at every location.</h2>
+      <p data-reveal style="margin:0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:var(--gray-600);">We give each location local demand that's on-brand and compliant — with one scoreboard across the whole group.</p>
+    </div>
+    <div data-reveal-group class="ba-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <div style="border:1px solid var(--gray-200); border-radius:16px; padding:28px;"><div style="width:42px;height:42px;border-radius:11px;background:var(--svc-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></div><h3 style="margin:0 0 9px; font-size:19px; font-weight:600; letter-spacing:-.01em;">On-brand, everywhere</h3><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">Local pages and ads that stay compliant with corporate while winning each market.</p></div>
+      <div style="border:1px solid var(--gray-200); border-radius:16px; padding:28px;"><div style="width:42px;height:42px;border-radius:11px;background:var(--svc-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3 style="margin:0 0 9px; font-size:19px; font-weight:600; letter-spacing:-.01em;">Per-location scoreboards</h3><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">See leads, calls and ROAS for each unit — and act on the laggards fast.</p></div>
+      <div style="border:1px solid var(--gray-200); border-radius:16px; padding:28px;"><div style="width:42px;height:42px;border-radius:11px;background:var(--svc-50);display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><h3 style="margin:0 0 9px; font-size:19px; font-weight:600; letter-spacing:-.01em;">Roll out what works</h3><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">A win at one location becomes the playbook for all of them.</p></div>
+    </div>
+  </section>
+
+  <!-- GROWTH STACK -->
+  <section style="background:var(--gray-950); color:#fff; margin-top:clamp(80px,11vh,128px); padding:clamp(80px,11vh,128px) 0;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,48px);">
+      <div data-reveal style="display:flex; align-items:center; gap:16px; margin-bottom:36px;"><span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.5);">Your growth stack</span><span style="height:1px; flex:1; background:rgba(255,255,255,.14);"></span></div>
+      <h2 data-reveal style="margin:0 0 36px; font-weight:600; font-size:clamp(28px,3.8vw,48px); line-height:1.04; letter-spacing:-.03em; max-width:18ch;">Four services, run as one engine for every location.</h2>
+      <div data-reveal-group class="ba-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+        <a class="ba-card-h" href="Service-SEO.dc.html" style="border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:10px; color:#fff;"><span style="font-family:var(--font-mono); font-size:12px; color:var(--svc);">01</span><span style="font-size:16px; font-weight:600;">SEO &amp; local search</span><span style="font-size:13px; color:rgba(255,255,255,.6); line-height:1.5;">Own brand and "near me" searches.</span><span class="ba-link" style="margin-top:6px; font-size:13px; font-weight:500;">Explore →</span></a>
+        <a class="ba-card-h" href="Service-Ads.dc.html" style="border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:10px; color:#fff;"><span style="font-family:var(--font-mono); font-size:12px; color:var(--svc);">02</span><span style="font-size:16px; font-weight:600;">Google &amp; Meta ads</span><span style="font-size:13px; color:rgba(255,255,255,.6); line-height:1.5;">Spend that follows real sales.</span><span class="ba-link" style="margin-top:6px; font-size:13px; font-weight:500;">Explore →</span></a>
+        <a class="ba-card-h" href="Service-Web-Design.dc.html" style="border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:10px; color:#fff;"><span style="font-family:var(--font-mono); font-size:12px; color:var(--svc);">03</span><span style="font-size:16px; font-weight:600;">Website design</span><span style="font-size:13px; color:rgba(255,255,255,.6); line-height:1.5;">Inventory pages that convert.</span><span class="ba-link" style="margin-top:6px; font-size:13px; font-weight:500;">Explore →</span></a>
+        <a class="ba-card-h" href="Service-CRO.dc.html" style="border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:10px; color:#fff;"><span style="font-family:var(--font-mono); font-size:12px; color:var(--svc);">04</span><span style="font-size:16px; font-weight:600;">Conversion (CRO)</span><span style="font-size:13px; color:rgba(255,255,255,.6); line-height:1.5;">Turn lot traffic into leads.</span><span class="ba-link" style="margin-top:6px; font-size:13px; font-weight:500;">Explore →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="display:flex; align-items:center; gap:16px; margin-bottom:40px;"><span style="font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Proof</span><span style="height:1px; flex:1; background:var(--gray-200);"></span></div>
+    <div data-reveal-group class="ba-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--gray-200); border-radius:18px; overflow:hidden;">
+      <div style="padding:34px; border-right:1px solid var(--gray-200);"><div style="font-family:var(--font-mono); font-size:clamp(40px,5vw,58px); font-weight:500; letter-spacing:-.03em; color:var(--svc);">#1</div><p style="margin:12px 0 0; font-size:14.5px; line-height:1.5; color:var(--gray-600);">marketing partner to Porsche's largest U.S. dealership.</p></div>
+      <div style="padding:34px; border-right:1px solid var(--gray-200);"><div style="font-family:var(--font-mono); font-size:clamp(40px,5vw,58px); font-weight:500; letter-spacing:-.03em;">99%</div><p style="margin:12px 0 0; font-size:14.5px; line-height:1.5; color:var(--gray-600);">of our clients rank on page one of Google.</p></div>
+      <div style="padding:34px;"><div style="font-family:var(--font-mono); font-size:clamp(40px,5vw,58px); font-weight:500; letter-spacing:-.03em;">4.1x</div><p style="margin:12px 0 0; font-size:14.5px; line-height:1.5; color:var(--gray-600);">median return on ad spend across dealer clients.</p></div>
+    </div>
+    <figure data-reveal style="margin:24px 0 0; border:1px solid var(--gray-200); border-radius:18px; padding:clamp(28px,3vw,44px); background:var(--svc-50);">
+      <blockquote style="margin:0; font-size:clamp(19px,2vw,26px); line-height:1.4; letter-spacing:-.02em; color:var(--gray-950);">"We stopped renting leads from third parties and built our own pipeline. New-car and service leads are up, and we finally know which spend moves metal."</blockquote>
+      <figcaption style="margin-top:24px; display:flex; align-items:center; gap:12px;"><span style="width:38px; height:38px; border-radius:999px; background:#fff; border:1px solid var(--svc-200); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:13px; color:var(--svc);">JT</span><span><span style="display:block; font-size:14px; font-weight:600;">James Tran</span><span style="display:block; font-size:13px; color:var(--gray-500);">GM, Northgate Auto Group</span></span></figcaption>
+    </figure>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div class="ba-grid-2" style="display:grid; grid-template-columns:.8fr 1.2fr; gap:48px;">
+      <h2 data-reveal style="margin:0; font-weight:600; font-size:clamp(28px,3.6vw,44px); line-height:1.04; letter-spacing:-.03em;">Dealer questions, answered.</h2>
+      <div data-reveal-group style="display:flex; flex-direction:column;">
+        <div style="padding:20px 0; border-top:1px solid var(--gray-200);"><div style="font-size:16px; font-weight:600; margin-bottom:8px;">Do you work with our OEM co-op rules?</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">Yes. We build campaigns that stay compliant and help you claim the co-op dollars you're owed.</p></div>
+        <div style="padding:20px 0; border-top:1px solid var(--gray-200);"><div style="font-size:16px; font-weight:600; margin-bottom:8px;">Can you handle multiple rooftops?</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">Absolutely — single store to large groups. Each rooftop gets its own tracking and its own scoreboard.</p></div>
+        <div style="padding:20px 0; border-top:1px solid var(--gray-200);"><div style="font-size:16px; font-weight:600; margin-bottom:8px;">Will this fill the service drive too?</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">Yes. Fixed-ops is one of the fastest wins — we run dedicated service campaigns alongside sales.</p></div>
+        <div style="padding:20px 0; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200);"><div style="font-size:16px; font-weight:600; margin-bottom:8px;">Am I locked into a contract?</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:var(--gray-600);">No. We're month-to-month and earn your business every month.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" style="max-width:1240px; margin:clamp(80px,11vh,128px) auto 0; padding:0 clamp(20px,5vw,48px);">
+    <div data-reveal style="background:var(--gray-950); color:#fff; border-radius:28px; padding:clamp(52px,8vw,100px) clamp(28px,5vw,80px); text-align:center; position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:0; background:radial-gradient(90% 130% at 50% 0%, color-mix(in srgb, var(--svc) 35%, transparent), transparent 55%); pointer-events:none;"></div>
+      <h2 style="margin:0 auto; font-weight:600; font-size:clamp(34px,5vw,68px); line-height:1.0; letter-spacing:-.035em; max-width:18ch; position:relative;">Build a pipeline your store actually owns.</h2>
+      <p style="margin:22px auto 0; font-size:clamp(16px,1.4vw,19px); line-height:1.6; color:rgba(255,255,255,.62); max-width:52ch; position:relative;">Get a free dealership audit. We'll show you where your leads really come from and what it would take to own your market.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:34px; position:relative;">
+        <a class="ba-cta" href="Home.dc.html#contact" style="display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--gray-950); font-size:15px; font-weight:600; padding:15px 28px; border-radius:999px;">Get my free audit<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        <a class="ba-cta" href="Home.dc.html#pricing" style="display:inline-flex; align-items:center; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.3); font-size:15px; font-weight:500; padding:15px 28px; border-radius:999px;">View pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:clamp(72px,9vh,110px); border-top:1px solid var(--gray-150); padding:40px 0;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,48px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px;">
+      <a href="Home.dc.html" style="display:flex; align-items:center; gap:10px;"><span style="width:28px; height:28px; border-radius:7px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span style="font-weight:600; font-size:15px; letter-spacing:-.02em;">Branch Avenue</span></a>
+      <span style="font-family:var(--font-mono); font-size:12px; color:var(--gray-400);">© 2026 Branch Avenue. All rights reserved.</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._setupReveals();
+  }
+  _setupReveals() {
+    const g = window.gsap;
+    const items = [];
+    document.querySelectorAll('[data-reveal]').forEach((el) => items.push({ el: el, group: false }));
+    document.querySelectorAll('[data-reveal-group]').forEach((el) => items.push({ el: el, group: true }));
+    const vh = window.innerHeight || 800;
+    const inView = (el) => { const r = el.getBoundingClientRect(); return r.top < vh * 0.92 && r.bottom > 0; };
+    const hide = (el) => { if (g) g.set(el, { opacity: 0, y: 26 }); else { el.style.opacity = '0'; el.style.transform = 'translateY(26px)'; el.style.transition = 'opacity .8s ease, transform .8s ease'; } };
+    const show = (el, d) => { if (g) g.to(el, { opacity: 1, y: 0, duration: 0.8, delay: d || 0, ease: 'power3.out' }); else { el.style.opacity = '1'; el.style.transform = 'none'; } };
+    items.forEach((it) => {
+      if (inView(it.el)) { it._done = true; return; }
+      if (it.group) { it._kids = Array.prototype.slice.call(it.el.children); it._kids.forEach(hide); }
+      else hide(it.el);
+    });
+    const reveal = (it) => {
+      if (it._done) return; it._done = true;
+      if (it.group) { if (g) g.to(it._kids, { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: 'power3.out' }); else it._kids.forEach((k) => show(k)); }
+      else show(it.el);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { const it = items.find((x) => x.el === e.target); if (it) reveal(it); io.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      items.forEach((it) => { if (!it._done) io.observe(it.el); });
+    } else { items.forEach(reveal); }
+    setTimeout(() => items.forEach(reveal), 1800);
+  }
+}
+</script>
+</body>
+</html>
