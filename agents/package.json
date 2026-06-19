@@ -1,0 +1,17 @@
+{
+  "name": "avenueos-agents",
+  "version": "1.0.0",
+  "description": "AvenueOS AI agent orchestration system",
+  "type": "module",
+  "scripts": {
+    "setup": "bun agents/setup.ts",
+    "task": "bun agents/run-task.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "bun": ">=1.1"
+  }
+}
