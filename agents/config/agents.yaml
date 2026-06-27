@@ -140,6 +140,57 @@ agents:
       - type: file_editor
       - type: web_search
 
+  # ─── Platform Agents ──────────────────────────────────────────────────────────
+  wordpress-agent:
+    name: "WordPress Agent"
+    description: >
+      Full-stack WordPress developer for any client running a WordPress site.
+      Covers REST API v2, WooCommerce REST API, ACF, WP-CLI, custom post types,
+      custom endpoints, Gutenberg blocks, headless/decoupled architecture,
+      WPGraphQL, MCP server integration, webhooks, multisite, and security best
+      practices. Works alongside the SEO, Ads, CRO, and Web agents for clients
+      whose sites are built on WordPress.
+    skills:
+      - path: agents/skills/wordpress/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+        config:
+          allowed_domains:
+            - developer.wordpress.org
+            - woocommerce.com
+            - wp-cli.org
+            - github.com
+
+  webflow-agent:
+    name: "Webflow Agent"
+    description: >
+      Full-stack Webflow developer for any client running a Webflow site.
+      Covers Webflow Data API v2, CMS Collections CRUD, Ecommerce API,
+      Memberships API, Logic automation, Webhooks, Designer Extension API,
+      Webflow.js scripting, registered scripts, custom code injection,
+      MCP server integration, localization, and publishing workflow.
+      Works alongside the SEO, Ads, CRO, and Web agents for clients whose
+      sites are built on Webflow.
+    skills:
+      - path: agents/skills/webflow/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+        config:
+          allowed_domains:
+            - developers.webflow.com
+            - university.webflow.com
+            - github.com
+
   # ─── Validation Agent ─────────────────────────────────────────────────────
   validator-agent:
     name: "Validator Agent"

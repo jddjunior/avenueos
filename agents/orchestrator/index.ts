@@ -2,7 +2,7 @@
  * AvenueOS Master Orchestrator
  *
  * Entry point for all agent-driven marketing tasks.
- * Coordinates specialist agents (SEO, Ads, CRO, Web, Call, Report) with:
+ * Coordinates specialist agents (SEO, Ads, CRO, Web, Call, Report, WordPress, Webflow) with:
  *   - Orchestration oversight (coordinator pattern)
  *   - Triple-check validation before committing any output
  *   - Self-healing sessions with circuit breakers + fallback
@@ -90,6 +90,18 @@ export async function registerAgents(): Promise<Record<string, string>> {
       name: "AvenueOS Report Agent",
       description: "KPI aggregation, executive summaries, and client-ready performance reports.",
       skillPaths: ["agents/skills/report/SKILL.md", "agents/skills/github/SKILL.md"],
+    },
+    {
+      envKey: "AVENUEOS_WORDPRESS_AGENT_ID",
+      name: "AvenueOS WordPress Agent",
+      description: "Full-stack WordPress developer: REST API, WooCommerce, ACF, WP-CLI, Gutenberg, WPGraphQL, MCP, webhooks, and multisite.",
+      skillPaths: ["agents/skills/wordpress/SKILL.md", "agents/skills/seo/SKILL.md", "agents/skills/cro/SKILL.md", "agents/skills/github/SKILL.md"],
+    },
+    {
+      envKey: "AVENUEOS_WEBFLOW_AGENT_ID",
+      name: "AvenueOS Webflow Agent",
+      description: "Full-stack Webflow developer: Data API v2, CMS Collections, Ecommerce, Memberships, Logic, Webhooks, Designer Extensions, MCP, and publishing workflow.",
+      skillPaths: ["agents/skills/webflow/SKILL.md", "agents/skills/seo/SKILL.md", "agents/skills/cro/SKILL.md", "agents/skills/github/SKILL.md"],
     },
     {
       envKey: "AVENUEOS_VALIDATOR_AGENT_ID",

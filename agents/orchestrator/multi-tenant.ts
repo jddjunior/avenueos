@@ -13,13 +13,25 @@ import Anthropic from "@anthropic-ai/sdk";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type Vertical = "automotive" | "contractors" | "franchise" | "shopify" | "general";
+export type CmsPlatform = "dc" | "builderio" | "wordpress" | "webflow";
 
 export interface TenantConfig {
   id: string;
   name: string;
   vertical: Vertical;
-  builderIoSpaceId: string;
-  builderIoApiKey: string;
+  cmsPlatform: CmsPlatform;
+  // Builder.io (used when cmsPlatform === "builderio" or alongside DC)
+  builderIoSpaceId?: string;
+  builderIoApiKey?: string;
+  // WordPress (used when cmsPlatform === "wordpress")
+  wordpressBaseUrl?: string;
+  wordpressUsername?: string;
+  wordpressAppPassword?: string;
+  wordpressConsumerKey?: string;      // WooCommerce REST API
+  wordpressConsumerSecret?: string;   // WooCommerce REST API
+  // Webflow (used when cmsPlatform === "webflow")
+  webflowSiteId?: string;
+  webflowApiToken?: string;
   githubOwner: string;
   githubRepo: string;
   githubBranch: string;
@@ -39,7 +51,7 @@ export interface TenantContext {
 export interface AgentTask {
   id: string;
   tenantId: string;
-  channel: "seo" | "ads" | "cro" | "web" | "call" | "report";
+  channel: "seo" | "ads" | "cro" | "web" | "call" | "report" | "wordpress" | "webflow";
   instruction: string;
   priority: number;   // lower = higher priority
   createdAt: number;
@@ -81,14 +93,25 @@ function buildSystemPrefix(cfg: TenantConfig): string {
     general: "Apply universal digital marketing best practices.",
   };
 
+  const platformLines: Record<CmsPlatform, string> = {
+    dc: `Builder.io Space: ${cfg.builderIoSpaceId ?? "N/A"}.`,
+    builderio: `Builder.io Space: ${cfg.builderIoSpaceId ?? "N/A"}.`,
+    wordpress: [
+      `WordPress Base URL: ${cfg.wordpressBaseUrl ?? "N/A"}.`,
+      `WordPress Username: ${cfg.wordpressUsername ?? "N/A"}.`,
+      cfg.wordpressConsumerKey ? `WooCommerce REST API: consumer key configured.` : "",
+    ].filter(Boolean).join("\n"),
+    webflow: `Webflow Site ID: ${cfg.webflowSiteId ?? "N/A"}.`,
+  };
+
   return `You are operating for tenant: ${cfg.name} (ID: ${cfg.id}).
-Vertical: ${cfg.vertical}. Domain: ${cfg.primaryDomain}.
-Builder.io Space: ${cfg.builderIoSpaceId}.
+Vertical: ${cfg.vertical}. CMS Platform: ${cfg.cmsPlatform}. Domain: ${cfg.primaryDomain}.
+${platformLines[cfg.cmsPlatform]}
 GitHub: ${cfg.githubOwner}/${cfg.githubRepo} (branch: ${cfg.githubBranch}).
 Accent colour: ${cfg.accentColor} (tint: ${cfg.accentTint}).
 Vertical guidance: ${verticalGuide[cfg.vertical]}
 All file edits must be committed to the tenant's GitHub branch before returning.
-Never mix assets or content between different tenants.`;
+Never mix assets, API keys, or content between different tenants.`;
 }
 
 // ─── Per-Tenant Rate Limiter ──────────────────────────────────────────────────
@@ -147,12 +170,14 @@ export function getQueueLength(): number {
 
 type Channel = AgentTask["channel"];
 const CHANNEL_AGENT_ENV_KEYS: Record<Channel, string> = {
-  seo:    "AVENUEOS_SEO_AGENT_ID",
-  ads:    "AVENUEOS_ADS_AGENT_ID",
-  cro:    "AVENUEOS_CRO_AGENT_ID",
-  web:    "AVENUEOS_WEB_AGENT_ID",
-  call:   "AVENUEOS_CALL_AGENT_ID",
-  report: "AVENUEOS_REPORT_AGENT_ID",
+  seo:       "AVENUEOS_SEO_AGENT_ID",
+  ads:       "AVENUEOS_ADS_AGENT_ID",
+  cro:       "AVENUEOS_CRO_AGENT_ID",
+  web:       "AVENUEOS_WEB_AGENT_ID",
+  call:      "AVENUEOS_CALL_AGENT_ID",
+  report:    "AVENUEOS_REPORT_AGENT_ID",
+  wordpress: "AVENUEOS_WORDPRESS_AGENT_ID",
+  webflow:   "AVENUEOS_WEBFLOW_AGENT_ID",
 };
 
 export function resolveAgentId(channel: Channel): string {
