@@ -16,9 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} style={{ scrollBehavior: 'smooth' }}>
-      <body style={{ margin: 0, background: '#fff', color: '#181c22', fontFamily: 'var(--font-sans)', WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility' }}>
-        {children}
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} style={{ scrollBehavior: 'smooth', height: '100%' }}>
+      <body style={{ margin: 0, background: '#fff', color: '#181c22', fontFamily: 'var(--font-sans)', WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility', height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+          {children}
+        </div>
       </body>
     </html>
   )
