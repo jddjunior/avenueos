@@ -1,10 +1,22 @@
+@import './styles/avenue-fonts.css';
+@import './styles/avenue-colors.css';
+@import './styles/avenue-typography.css';
+@import './styles/avenue-spacing.css';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html {
   width: 100%;
   height: 100%;
+}
+
+body {
+  width: 100%;
+  background: var(--canvas);
+  color: var(--text-body);
+  font-family: var(--font-sans);
 }

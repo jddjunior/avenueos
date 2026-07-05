@@ -1,0 +1,38 @@
+/* AvenueOS — Typography tokens
+   Inter for everything; JetBrains Mono for all numerical/technical data. */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  /* Font sizes */
+  --text-display: 32px;   /* Display: 28–40, weight 700–800, tracking -0.025em */
+  --text-h1: 24px;        /* Heading large */
+  --text-h2: 20px;        /* Heading */
+  --text-h3: 18px;        /* Heading small */
+  --text-body-lg: 15px;
+  --text-body-md: 14px;   /* Body default */
+  --text-body-sm: 13px;
+  --text-label: 12px;     /* Label / UI, weight 500 */
+  --text-eyebrow: 11px;   /* Uppercase tracked section labels */
+  --text-data: 14px;      /* Mono data default */
+  --text-data-sm: 12px;
+  --text-kpi: 30px;       /* KPI mono number (28–32) */
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Tracking */
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.02em;
+  --tracking-label: 0.01em;
+  --tracking-eyebrow: 0.08em;
+
+  /* Line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+}

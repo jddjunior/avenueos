@@ -1,0 +1,45 @@
+/* AvenueOS — Spacing, radii, shadow, motion, z-index
+   4px base scale. Density without chaos — whitespace is earned. */
+:root {
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii — crisp. This is a tool, not a consumer product. */
+  --radius-sm: 4px;     /* small controls */
+  --radius-md: 6px;     /* inputs, buttons */
+  --radius-lg: 8px;     /* cards, panels */
+  --radius-pill: 9999px;
+
+  /* Shadows — minimal; opacity layers do the work */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 64px;
+  --topbar-height: 56px;
+
+  /* Motion — purposeful. ease-out, 100–200ms. No bounce, no spring. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --duration-fast: 100ms; /* @kind other */
+  --duration-normal: 150ms; /* @kind other */
+  --duration-slow: 200ms; /* @kind other */
+
+  /* Z-index scale */
+  --z-sidebar: 100; /* @kind other */
+  --z-topbar: 200; /* @kind other */
+  --z-dropdown: 300; /* @kind other */
+  --z-modal: 400; /* @kind other */
+  --z-toast: 500; /* @kind other */
+  --z-command: 600; /* @kind other */
+}
