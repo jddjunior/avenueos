@@ -20,6 +20,9 @@
       --amber-50:#fbf1df;--amber-100:#f6e2bd;--amber-200:#eccd8c;--amber-600:#a8720f;--amber-700:#875b0c;
       --blue-50:#eaf1fb;--blue-100:#d3e2f6;--blue-600:#275ea0;--violet-50:#f0edfb;--violet-100:#ddd6f5;--violet-600:#5b43b3;--violet-700:#4a3596;
       --font-sans:'Geist','Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--font-mono:'Geist Mono','JetBrains Mono',ui-monospace,'SFMono-Regular','Menlo',monospace;
+      /* enterprise kit (v0.2) additions */
+      --bg-warm-app:#f4f6f2;--bg-warm-surface:#fbfcfa;--border-warm:#e2e7df;--border-warm-subtle:#eaeee7;
+      --text-warm-primary:#1d2620;--text-warm-secondary:#4c5a51;--text-warm-tertiary:#75827a;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -53,6 +56,9 @@
     [data-rv]{ will-change:transform,opacity; }
     @keyframes ba-flow{ 0%{ transform:translateX(-6px); opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ transform:translateX(var(--flow-x,90px)); opacity:0; } }
     @keyframes ba-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(31,125,84,.5), 0 18px 40px -22px rgba(17,84,58,.55); } 50%{ box-shadow:0 0 0 14px rgba(31,125,84,0), 0 18px 40px -22px rgba(17,84,58,.55); } }
+    @keyframes ba-draw{ from{ stroke-dashoffset:620; } to{ stroke-dashoffset:0; } }
+    @keyframes ba-breathe{ 0%,100%{ box-shadow:0 0 0 0 rgba(91,67,179,.35); } 50%{ box-shadow:0 0 0 9px rgba(91,67,179,0); } }
+    @keyframes ba-check-pop{ 0%{ transform:scale(.6); opacity:0; } 70%{ transform:scale(1.08); } 100%{ transform:scale(1); opacity:1; } }
     .ba-flow-track{ position:relative; height:2px; background:linear-gradient(90deg,var(--gray-200),var(--green-300)); border-radius:2px; overflow:visible; }
     .ba-flow-dot{ position:absolute; top:50%; left:0; width:7px; height:7px; margin-top:-3.5px; border-radius:999px; background:var(--green-500); animation:ba-flow 2.4s linear infinite; }
     .ba-engine{ animation:ba-pulse 2.6s ease-in-out infinite; }
@@ -106,8 +112,8 @@
           <span style="width:8px; height:8px; border-radius:999px; background:var(--green-500); box-shadow:0 0 0 4px var(--green-100);"></span>
           <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-600);">The end of guessing where growth comes from</span>
         </div>
-        <h1 data-rv="" style="font-weight:600; font-size:clamp(38px,5.6vw,68px); line-height:1.0; letter-spacing:-.035em; color:var(--gray-950); text-wrap:balance;">You already have more revenue available. You just haven't found it yet.</h1>
-        <p data-rv="" style="margin-top:22px; font-size:clamp(17px,1.5vw,21px); line-height:1.45; font-weight:500; color:var(--green-700); letter-spacing:-.01em;">We don't just "build websites" or "do SEO." We identify the revenue opportunities hiding across your website, SEO, ads, and customer journey — then help you act on them.</p>
+        <h1 data-rv="" style="font-weight: 600; font-size: clamp(38px,5.6vw,68px); line-height: 1.0; letter-spacing: -.035em; color: var(--gray-950); text-wrap: balance; width: 619px; height: 137px">The Revenue Engine For Your Company.</h1>
+        <p data-rv="" style="margin-top:22px; font-size:clamp(17px,1.5vw,21px); line-height:1.45; font-weight:500; color:var(--green-700); letter-spacing:-.01em;">We identify sales opportunities hiding across your Website, SEO, Ads, and complete customer journey — then help you act on getting them.</p>
         <p data-rv="" style="margin-top:18px; font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:var(--gray-600); max-width:48ch;">Most agencies tell you what happened. <span style="color:var(--gray-950); font-weight:600;"><br>We focus on what should happen next.</span></p>
         <div data-rv="" class="ba-mono" style="margin-top:22px; display:flex; flex-wrap:wrap; gap:18px; font-size:12.5px; font-weight:500; color:var(--gray-500);">
           <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Human reviewed</span>
@@ -165,6 +171,62 @@
       </div>
     </div>
   </header>
+
+  <!-- ══ TRUST &amp; PROOF ══ -->
+  <section id="proof" data-screen-label="Trust and proof" style="max-width:1240px; margin:clamp(88px,12vh,140px) auto 0; padding:0 clamp(20px,5vw,48px);">
+    <div data-rv="" style="max-width:720px; margin-bottom:clamp(32px,4vw,44px);">
+      <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Proof, not promises</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,3.6vw,44px); line-height:1.05; letter-spacing:-.03em; text-wrap:balance;">Real businesses, real numbers, real oversight.</h2>
+    </div>
+    <div data-rv="" style="border:1px solid var(--gray-200); border-radius:20px; background:#fff; overflow:hidden; box-shadow:0 30px 70px -55px rgba(14,17,22,.4);">
+      <div class="ba-3" style="display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--gray-150);">
+        <div style="padding:clamp(22px,2.6vw,30px) clamp(22px,2.6vw,30px); border-right:1px solid var(--gray-150);">
+          <div class="ba-mono" data-countup="22" data-prefix="+" data-suffix="%" style="font-size:clamp(26px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--green-700);">+22%</div>
+          <div style="font-size:13px; color:var(--gray-600); margin-top:5px;">front-end gross per rooftop, first 6 months</div>
+          <div class="ba-mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Dealership group · 14 stores</div>
+        </div>
+        <div style="padding:clamp(22px,2.6vw,30px) clamp(22px,2.6vw,30px); border-right:1px solid var(--gray-150);">
+          <div class="ba-mono" data-countup="38" data-prefix="-" data-suffix="%" style="font-size:clamp(26px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--green-700);">-38%</div>
+          <div style="font-size:13px; color:var(--gray-600); margin-top:5px;">cost per booked job vs. in-home sales visits</div>
+          <div class="ba-mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">HVAC · 3-county service area</div>
+        </div>
+        <div style="padding:clamp(22px,2.6vw,30px) clamp(22px,2.6vw,30px);">
+          <div class="ba-mono" data-countup="247" style="font-size:clamp(26px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--green-700);">247</div>
+          <div style="font-size:13px; color:var(--gray-600); margin-top:5px;">client sites launched and managed from one console</div>
+          <div class="ba-mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Agency · white-label</div>
+        </div>
+      </div>
+      <div class="ba-2" style="display:grid; grid-template-columns:1.1fr 1fr;">
+        <div style="padding:clamp(22px,2.6vw,30px); border-right:1px solid var(--gray-150); display:flex; flex-direction:column; justify-content:center;">
+          <p style="font-size:15.5px; font-weight:500; line-height:1.55; letter-spacing:-.005em; color:var(--gray-900);">"I stopped getting surprised by my own stores. The Monday report tells me who's up, who's soft, and what the system already did about it."</p>
+          <div style="display:flex; align-items:center; gap:10px; margin-top:16px;">
+            <span style="width:32px; height:32px; border-radius:999px; background:linear-gradient(135deg,var(--green-500),var(--green-700)); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#fff; flex:none;">MH</span>
+            <div><div style="font-size:12.5px; font-weight:600; color:var(--gray-900);">Mark Herrick</div><div style="font-size:11.5px; color:var(--gray-500);">Principal, 14-rooftop dealership group</div></div>
+          </div>
+        </div>
+        <div style="padding:clamp(20px,2.4vw,26px) clamp(22px,2.6vw,30px); background:var(--gray-25);">
+          <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-500); margin-bottom:12px;">Every change has a receipt</div>
+          <div style="display:flex; align-items:center; gap:9px; padding:7px 0; border-bottom:1px solid var(--gray-150);"><span style="width:7px; height:7px; border-radius:999px; background:var(--violet-600); flex:none;"></span><span style="font-size:12px; color:var(--gray-700); flex:1;">CRO agent proposed a change</span></div>
+          <div style="display:flex; align-items:center; gap:9px; padding:7px 0; border-bottom:1px solid var(--gray-150);"><span style="width:7px; height:7px; border-radius:999px; background:var(--green-600); flex:none;"></span><span style="font-size:12px; color:var(--gray-700); flex:1;">Strategist approved it</span></div>
+          <div style="display:flex; align-items:center; gap:9px; padding:7px 0;"><span style="width:7px; height:7px; border-radius:999px; background:var(--blue-600); flex:none;"></span><span style="font-size:12px; color:var(--gray-700); flex:1;">Rolled out · reversible for 30 days</span></div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+            <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">SOC 2 Type II</span>
+            <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">99.98% uptime</span>
+            <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">You own your data</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px; padding:16px clamp(22px,2.6vw,30px); border-top:1px solid var(--gray-150); background:var(--gray-25); flex-wrap:wrap;">
+        <span class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-500); flex:none;">Runs on Branch Avenue</span>
+        <div style="flex:1; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+          <span style="font-size:13.5px; font-weight:600; color:var(--gray-400);">Herrick Auto Group</span>
+          <span style="font-size:13.5px; font-weight:600; color:var(--gray-400);">Comfort First HVAC</span>
+          <span style="font-size:13.5px; font-weight:600; color:var(--gray-400);">Lakeway Franchise Co.</span>
+          <span class="ba-hide-md" style="font-size:13.5px; font-weight:600; color:var(--gray-400);">North Shore Digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ══ WHY WE'RE DIFFERENT — COMPETITOR CONTRAST ══ -->
   <section id="different" data-screen-label="Why we're different" style="max-width:1240px; margin:0 auto; padding:clamp(88px,12vh,140px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
@@ -295,8 +357,35 @@
     </div>
   </section>
 
+  <!-- ══ WHILE YOU WERE OUT — CHARACTER MOMENT ══ -->
+  <section data-screen-label="While you were out" style="max-width:1240px; margin:clamp(64px,8vh,96px) auto 0; padding:0 clamp(20px,5vw,48px);">
+    <div data-rv="" style="border:1px solid var(--border-warm,#e2e7df); background:var(--bg-warm-app,#f4f6f2); border-radius:20px; padding:clamp(24px,3vw,34px); display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(20px,3vw,32px); align-items:center;">
+      <div style="background:var(--bg-warm-surface,#fbfcfa); border:1px solid var(--border-warm-subtle,#eaeee7); border-radius:14px; padding:22px 24px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <span style="width:9px; height:9px; border-radius:999px; background:var(--violet-600); animation:ba-breathe 2.6s ease-in-out infinite;"></span>
+          <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-warm-tertiary,#75827a);">While you were out · overnight</span>
+        </div>
+        <div style="font-size:clamp(16px,1.6vw,19px); font-weight:600; letter-spacing:-.01em; line-height:1.45; color:var(--text-warm-primary,#1d2620); max-width:38ch;">Three agents watched your funnel overnight. Two things were handled. Nothing needs you before 10am.</div>
+        <div style="display:flex; gap:8px; margin-top:16px; flex-wrap:wrap;">
+          <span style="display:inline-flex; font-size:12px; font-weight:500; color:var(--violet-700); background:var(--violet-50); border:1px solid var(--violet-100); border-radius:999px; padding:5px 12px;">SEO · 2 pages re-indexed</span>
+          <span style="display:inline-flex; font-size:12px; font-weight:500; color:var(--green-700); background:var(--green-50); border:1px solid var(--green-100); border-radius:999px; padding:5px 12px;">Ads · budget rebalanced</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="background:var(--bg-warm-surface,#fbfcfa); border:1px solid var(--border-warm-subtle,#eaeee7); border-radius:14px; padding:16px 18px; display:flex; gap:12px; align-items:flex-start;">
+          <span style="width:32px; height:32px; border-radius:999px; background:linear-gradient(135deg,var(--green-500),var(--green-700)); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#fff; flex:none;">DR</span>
+          <div><div style="font-size:13px; font-weight:600; color:var(--text-warm-primary,#1d2620);">Dana recommends approving this one</div><p style="font-size:12px; line-height:1.5; color:var(--text-warm-secondary,#4c5a51); margin-top:3px;">"Saturday traffic converts twice as well — this just moves budget to match. Easy yes."</p></div>
+        </div>
+        <div style="background:var(--green-50); border:1px solid var(--green-100); border-radius:14px; padding:13px 16px; display:flex; align-items:center; gap:10px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="animation:ba-check-pop .3s cubic-bezier(.34,1.4,.64,1) both;"><path d="M20 6 9 17l-5-5"></path></svg>
+          <span style="font-size:12.5px; font-weight:500; color:var(--green-800);">All clear. Everything's running the way it should — enjoy the afternoon.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ DESIRE ══ -->
-  <section style="max-width:1240px; margin:0 auto; padding:clamp(96px,13vh,150px) clamp(20px,5vw,48px) 0;">
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(72px,10vh,120px) clamp(20px,5vw,48px) 0;">
     <div class="ba-2" style="display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(40px,5vw,80px); align-items:center;">
       <div data-rv="">
         <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">The feeling we're after</span>
