@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <iframe
-      src="/Home v8 (agentic).dc.html"
+      src="/Home-v8-(agentic).dc.html"
       style={{
         width: '100%',
         height: '100vh',
