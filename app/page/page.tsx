@@ -22,10 +22,10 @@ function PageViewerContent() {
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', flex: 1 }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}>
       <Link
         href="/"
-        className="absolute top-4 left-4 z-50 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 50, padding: '0.5rem 1rem', backgroundColor: '#2563eb', color: 'white', borderRadius: '0.5rem', textDecoration: 'none' }}
       >
         ← Back
       </Link>
@@ -33,7 +33,7 @@ function PageViewerContent() {
         src={`/${file}`}
         style={{
           width: '100%',
-          flex: 1,
+          height: '100%',
           border: 'none',
           display: 'block',
         }}
