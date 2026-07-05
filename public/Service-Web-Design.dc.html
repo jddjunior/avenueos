@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Website Design &amp; Development That Ranks, Converts &amp; Closes | Branch Avenue</title>
+  <meta name="description" content="Custom website design and development for companies that take their site seriously — engineered for Core Web Vitals, SEO, and conversion. Done-for-you, human-reviewed, month-to-month.">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/branch-avenue-design-system-044fddac-9d2b-440b-a70e-f52070e32ca2/tokens/spacing.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Service","serviceType":"Website design and development","name":"Website design & development","provider":{"@type":"Organization","name":"Branch Avenue"},"areaServed":"US","description":"Custom website design and development engineered for Core Web Vitals, technical SEO, and conversion — done-for-you and human-reviewed.","hasOfferCatalog":{"@type":"OfferCatalog","name":"Website services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom website design & UX"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Frontend & backend development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Website redesign & migration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Core Web Vitals & performance"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ecommerce & Shopify builds"}}]}},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How fast will my website launch?","acceptedAnswer":{"@type":"Answer","text":"Most sites launch in 3 to 6 weeks depending on scope, and the conversion difference shows the moment it is live."}},
+      {"@type":"Question","name":"Do I have to do anything?","acceptedAnswer":{"@type":"Answer","text":"No. It is fully done-for-you. We handle the work and bring you plain-English updates and the occasional yes/no decision."}},
+      {"@type":"Question","name":"Do I own the website?","acceptedAnswer":{"@type":"Answer","text":"Yes. You own the site, the code, the content, and every account. Full export any time, no lock-in."}},
+      {"@type":"Question","name":"Am I locked into a contract?","acceptedAnswer":{"@type":"Answer","text":"No. We are month-to-month. We keep your business by earning it."}},
+      {"@type":"Question","name":"What platform do you build on?","acceptedAnswer":{"@type":"Answer","text":"Whatever fits: Webflow for fast marketing sites, Sanity plus custom code for content-heavy or high-performance builds, WordPress or Shopify when you already live there."}}
+    ]}
+  ]}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:#fff; color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    ::selection{ background:var(--svc); color:#fff; }
+    a{ color:inherit; text-decoration:none; }
+    h1,h2,h3,p{ margin:0; }
+    .mono{ font-family:var(--font-mono); font-feature-settings:'tnum'; }
+    [data-reveal],[data-reveal-group]>*{ will-change:transform,opacity; }
+    .ba-link{ position:relative; }
+    .ba-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .ba-link:hover::after{ width:100%; }
+    .ba-cta{ transition:transform .14s ease, opacity .18s ease, background .18s ease, box-shadow .22s ease; }
+    .ba-cta:hover{ transform:translateY(-1px); opacity:.97; }
+    .ba-cta:active{ transform:translateY(.5px) scale(.99); }
+    .ba-cta svg.arr{ transition:transform .22s cubic-bezier(.22,1,.36,1); }
+    .ba-cta:hover svg.arr{ transform:translate(3px,-3px); }
+    .ba-card-h{ transition:border-color .2s ease, transform .3s cubic-bezier(.22,1,.36,1), background .2s ease, box-shadow .3s ease; }
+    .ba-card-h:hover{ border-color:var(--svc-200); transform:translateY(-3px); box-shadow:0 20px 44px -30px rgba(14,17,22,.4); }
+    #ba-progress{ position:fixed; top:0; left:0; height:2px; width:0; background:var(--svc); z-index:200; pointer-events:none; }
+    #ba-nav{ transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, background .3s ease; }
+    @media (max-width:900px){ .ba-hide-md{ display:none !important; } .ba-grid-2{ grid-template-columns:1fr !important; } .ba-grid-3{ grid-template-columns:1fr !important; } .ba-grid-4{ grid-template-columns:1fr 1fr !important; } .ba-hero-grid{ grid-template-columns:1fr !important; } }
+    @keyframes ba-sweep{ 0%{ transform:translateX(-110%); } 100%{ transform:translateX(320%); } }
+    @keyframes ba-blink{ 0%,100%{ opacity:1; } 50%{ opacity:.15; } }
+    @keyframes ba-draw{ from{ stroke-dashoffset:1400; } to{ stroke-dashoffset:0; } }
+    .ba-cursor{ animation:ba-blink 1.1s step-end infinite; }
+    @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } [data-reveal],[data-reveal-group]>*{ opacity:1 !important; transform:none !important; } }
+  </style>
+</helmet>
+
+<div style="--svc: var(--violet-600); --svc-50: var(--violet-50); --svc-100: var(--violet-100); --svc-200: var(--violet-200); --svc-700: var(--violet-700); font-family:var(--font-sans); color:var(--gray-950); background:#fff; overflow-x:hidden; position:relative;">
+  <div id="ba-progress"></div>
+
+  <!-- NAV -->
+  <nav id="ba-nav" style="position:fixed; top:0; left:0; width:100%; z-index:100; backdrop-filter:saturate(180%) blur(14px); background:rgba(255,255,255,.72); border-bottom:1px solid var(--gray-150);">
+    <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,5vw,48px); height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="Home.dc.html" style="display:flex; align-items:center; gap:11px;">
+        <span style="width:30px; height:30px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-weight:600; font-size:16px; letter-spacing:-.02em;">Branch Avenue</span>
+      </a>
+      <div class="ba-hide-md" style="display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; color:var(--gray-600);">
+        <a class="ba-link" href="#build">What we build</a>
+        <a class="ba-link" href="#process">Process</a>
+        <a class="ba-link" href="#proof">Proof</a>
+        <a class="ba-link" href="#packages">Packages</a>
+      </div>
+      <a class="ba-cta" href="#contact" style="display:inline-flex; align-items:center; gap:8px; background:var(--gray-950); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px;">Get a free site review<svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="position:relative; overflow:hidden; padding:132px clamp(20px,5vw,48px) clamp(64px,8vh,96px);">
+    <svg aria-hidden="true" viewBox="0 0 1200 520" preserveAspectRatio="none" style="position:absolute; left:0; top:60px; width:100%; height:78%; pointer-events:none; opacity:.9;">
+      <path d="M -20 400 C 280 400 380 400 520 300 C 630 220 780 220 1220 220" fill="none" stroke="var(--svc-100)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .2s both;"></path>
+      <path d="M 520 300 C 660 372 820 420 1220 420" fill="none" stroke="var(--svc-100)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .5s both;"></path>
+      <path d="M 520 300 C 660 210 830 96 1220 84" fill="none" stroke="var(--svc-200)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .8s both;"></path>
+      <circle cx="520" cy="300" r="5" fill="var(--svc)"></circle>
+    </svg>
+    <div style="position:relative; max-width:1240px; margin:0 auto;">
+      <div data-reveal style="display:flex; align-items:center; gap:13px; margin-bottom:26px;">
+        <a href="Home.dc.html#services" class="ba-link mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-400);">Services</a>
+        <span style="color:var(--gray-300);">/</span>
+        <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--svc);">Website Design &amp; Development</span>
+      </div>
+      <div class="ba-hero-grid" style="display:grid; grid-template-columns:1.45fr .95fr; gap:clamp(36px,5vw,64px); align-items:end;">
+        <div>
+          <h1 data-reveal style="font-weight:600; font-size:clamp(40px,6vw,80px); line-height:.97; letter-spacing:-.04em; text-wrap:balance;">A website built to rank, convert, and close.</h1>
+          <p data-reveal style="margin-top:24px; font-size:clamp(17px,1.5vw,20px); line-height:1.58; color:var(--gray-600); max-width:54ch;">Most sites just sit there looking nice. Yours will earn trust in seconds, rank on Google, and turn visitors into customers — engineered from the ground up, and owned entirely by you.</p>
+          <div data-reveal style="margin-top:32px; display:flex; flex-wrap:wrap; gap:12px;">
+            <a class="ba-cta" href="#contact" style="display:inline-flex; align-items:center; gap:9px; background:var(--svc); color:#fff; font-size:15px; font-weight:600; padding:16px 28px; border-radius:999px; box-shadow:0 14px 34px -14px color-mix(in srgb, var(--svc) 70%, transparent);">Get a free site review<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+            <a class="ba-cta" href="#build" style="display:inline-flex; align-items:center; background:#fff; color:var(--gray-950); border:1px solid var(--gray-300); font-size:15px; font-weight:500; padding:16px 28px; border-radius:999px;">See what we build</a>
+          </div>
+          <div data-reveal class="mono" style="margin-top:28px; display:flex; flex-wrap:wrap; gap:18px; font-size:12.5px; font-weight:500; color:var(--gray-500);">
+            <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>You own everything</span>
+            <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Launch in 3–6 weeks</span>
+            <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Month-to-month</span>
+          </div>
+        </div>
+        <div data-reveal style="position:relative;">
+          <div style="border:1px solid var(--gray-200); border-radius:16px; background:var(--gray-25); box-shadow:0 40px 80px -50px rgba(14,17,22,.5); overflow:hidden;">
+            <div style="display:flex; align-items:center; gap:7px; padding:12px 15px; border-bottom:1px solid var(--gray-150); background:#fff;">
+              <span style="width:10px; height:10px; border-radius:999px; background:#e5564b;"></span>
+              <span style="width:10px; height:10px; border-radius:999px; background:#e9b03a;"></span>
+              <span style="width:10px; height:10px; border-radius:999px; background:#3fb068;"></span>
+              <span class="mono" style="margin-left:10px; flex:1; font-size:11px; color:var(--gray-500); background:var(--gray-50); border:1px solid var(--gray-150); border-radius:7px; padding:5px 10px;">yourcompany.com<span class="ba-cursor" style="color:var(--svc);">▍</span></span>
+            </div>
+            <div style="position:relative; padding:16px; display:flex; flex-direction:column; gap:11px; height:250px; overflow:hidden;">
+              <div style="position:absolute; top:0; left:0; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); animation:ba-sweep 2.8s ease-in-out infinite; pointer-events:none; z-index:2;"></div>
+              <div style="display:flex; gap:9px; align-items:center;"><div style="width:26px; height:26px; border-radius:7px; background:var(--svc);"></div><div style="flex:1; height:9px; border-radius:5px; background:var(--gray-200);"></div><div style="width:54px; height:22px; border-radius:6px; background:var(--gray-900);"></div></div>
+              <div style="display:flex; gap:11px; align-items:flex-end; flex:1;">
+                <div style="flex:1.4; display:flex; flex-direction:column; gap:8px; justify-content:flex-end; height:100%;">
+                  <div style="width:82%; height:15px; border-radius:6px; background:var(--gray-900);"></div>
+                  <div style="width:60%; height:9px; border-radius:5px; background:var(--gray-200);"></div>
+                  <div style="width:108px; height:28px; border-radius:8px; background:var(--svc); margin-top:5px;"></div>
+                </div>
+                <div data-grow="84" style="flex:1; border-radius:10px; background:linear-gradient(180deg,var(--svc-50),var(--gray-100)); border:1px solid var(--gray-200); transform-origin:bottom; height:84%;"></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:9px;">
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:42px; transform-origin:bottom;"></div>
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:42px; transform-origin:bottom;"></div>
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:42px; transform-origin:bottom;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="position:absolute; bottom:-16px; right:-10px; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:10px 14px; box-shadow:0 18px 40px -22px rgba(14,17,22,.5);">
+            <span style="position:relative; width:36px; height:36px;"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--gray-150)" stroke-width="4"></circle><circle cx="18" cy="18" r="15" fill="none" stroke="var(--svc)" stroke-width="4" stroke-linecap="round" stroke-dasharray="94.2" stroke-dashoffset="0" transform="rotate(-90 18 18)"></circle></svg><span class="mono" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:var(--svc-700);">100</span></span>
+            <div><div class="mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500);">Lighthouse</div><div style="font-size:13px; font-weight:600;">Performance</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST STRIP -->
+  <section style="border-top:1px solid var(--gray-150); border-bottom:1px solid var(--gray-150); background:var(--gray-25);">
+    <div data-reveal-group style="max-width:1240px; margin:0 auto; padding:26px clamp(20px,5vw,48px); display:grid; grid-template-columns:repeat(4,1fr); gap:20px;" class="ba-grid-4">
+      <div><div class="mono" data-count="100" style="font-size:clamp(24px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--svc-700);">0</div><div style="font-size:12.5px; color:var(--gray-600); margin-top:2px;">Lighthouse performance target</div></div>
+      <div><div class="mono"><span data-count="1.5" data-dec="1">0</span>s</div><div style="font-size:12.5px; color:var(--gray-600); margin-top:2px;">Typical load time</div></div>
+      <div><div class="mono" data-count="240" data-suffix="+" style="font-size:clamp(24px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--svc-700);">0</div><div style="font-size:12.5px; color:var(--gray-600); margin-top:2px;">Sites launched &amp; managed</div></div>
+      <div><div class="mono" data-count="3" data-suffix="–6 wks" style="font-size:clamp(24px,2.6vw,32px); font-weight:600; letter-spacing:-.02em; color:var(--svc-700);">0</div><div style="font-size:12.5px; color:var(--gray-600); margin-top:2px;">From kickoff to launch</div></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="max-width:720px;">
+      <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc);">The problem</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,48px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">A pretty website that doesn't sell is just an expensive brochure.</h2>
+      <p style="margin-top:18px; font-size:17px; line-height:1.6; color:var(--gray-600); max-width:60ch;">You didn't get into business to worry about bounce rates and Core Web Vitals. But a slow, generic, hard-to-find site quietly costs you customers every single day. We fix the three places most sites leak.</p>
+    </div>
+    <div data-reveal-group class="ba-grid-3" style="margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:26px;">
+        <div style="display:inline-flex; width:42px; height:42px; border-radius:11px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700); margin-bottom:18px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+        <h3 style="font-size:18px; font-weight:600; letter-spacing:-.01em;">It's too slow</h3>
+        <p style="margin-top:9px; font-size:14px; line-height:1.6; color:var(--gray-600);">Every extra second of load time sheds visitors before they see a word. We engineer sub-1.5s loads and perfect Core Web Vitals.</p>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:26px;">
+        <div style="display:inline-flex; width:42px; height:42px; border-radius:11px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700); margin-bottom:18px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></div>
+        <h3 style="font-size:18px; font-weight:600; letter-spacing:-.01em;">Nobody finds it</h3>
+        <p style="margin-top:9px; font-size:14px; line-height:1.6; color:var(--gray-600);">A beautiful site on page 3 of Google is invisible. We build technical SEO into the foundation so you're findable from day one.</p>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:26px;">
+        <div style="display:inline-flex; width:42px; height:42px; border-radius:11px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700); margin-bottom:18px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></div>
+        <h3 style="font-size:18px; font-weight:600; letter-spacing:-.01em;">It doesn't convert</h3>
+        <p style="margin-top:9px; font-size:14px; line-height:1.6; color:var(--gray-600);">Traffic means nothing if it doesn't call, book, or buy. Every page is designed around one clear action and the trust to take it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD -->
+  <section id="build" style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0; scroll-margin-top:90px;">
+    <div data-reveal style="max-width:720px;">
+      <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc);">What we build</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,48px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Everything your site needs. Nothing it doesn't.</h2>
+    </div>
+    <div data-reveal-group class="ba-grid-2" style="margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:28px; display:flex; gap:18px;">
+        <div style="flex:none; display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg></div>
+        <div><h3 style="font-size:19px; font-weight:600; letter-spacing:-.01em;">Custom design &amp; UX</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Designed around your customer and your goals — not a template every competitor also bought. Mobile-first, accessible, and built to convert.</p></div>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:28px; display:flex; gap:18px;">
+        <div style="flex:none; display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+        <div><h3 style="font-size:19px; font-weight:600; letter-spacing:-.01em;">Frontend &amp; backend development</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Custom functionality, integrations, inventory feeds, booking flows — engineered in GitHub with real code review. Webflow, Sanity, WordPress, or Shopify.</p></div>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:28px; display:flex; gap:18px;">
+        <div style="flex:none; display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="m17 5-5-3-5 3"></path><path d="m17 19-5 3-5-3"></path><path d="M2 12h20"></path></svg></div>
+        <div><h3 style="font-size:19px; font-weight:600; letter-spacing:-.01em;">Redesign &amp; migration</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Move off a slow, dated, or fragile platform without losing rankings. We migrate content, preserve SEO equity, and redirect cleanly.</p></div>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:16px; padding:28px; display:flex; gap:18px;">
+        <div style="flex:none; display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--svc-50); align-items:center; justify-content:center; color:var(--svc-700);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.9 4.9 1.4 1.4"></path><path d="m17.7 17.7 1.4 1.4"></path></svg></div>
+        <div><h3 style="font-size:19px; font-weight:600; letter-spacing:-.01em;">Performance &amp; Core Web Vitals</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Green scores across the board — the speed and stability Google rewards and customers feel. Analytics and call tracking wired in from day one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="position:relative; margin-top:clamp(80px,11vh,128px); background:var(--gray-950); color:var(--gray-100); padding:clamp(64px,9vh,110px) clamp(20px,5vw,48px); scroll-margin-top:90px;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div data-reveal style="max-width:720px;">
+        <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc-200);">How it works</span>
+        <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,48px); line-height:1.04; letter-spacing:-.03em; color:#fff; text-wrap:balance;">Four steps. You approve, we do everything.</h2>
+      </div>
+      <div data-reveal-group class="ba-grid-4" style="margin-top:48px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.1); border-radius:16px; overflow:hidden;">
+        <div style="background:var(--gray-950); padding:28px 24px;"><div class="mono" style="font-size:12px; color:var(--svc-200); font-weight:600;">01</div><h3 style="margin-top:16px; font-size:18px; font-weight:600; color:#fff;">Free site review</h3><p style="margin-top:9px; font-size:13.5px; line-height:1.6; color:var(--gray-400);">We audit your current site, your market, and your competitors — then show you exactly what's leaking and what's possible.</p></div>
+        <div style="background:var(--gray-950); padding:28px 24px;"><div class="mono" style="font-size:12px; color:var(--svc-200); font-weight:600;">02</div><h3 style="margin-top:16px; font-size:18px; font-weight:600; color:#fff;">Design &amp; build</h3><p style="margin-top:9px; font-size:13.5px; line-height:1.6; color:var(--gray-400);">We design, write, and engineer the site. You see progress in plain English and approve the direction — no jargon, no homework.</p></div>
+        <div style="background:var(--gray-950); padding:28px 24px;"><div class="mono" style="font-size:12px; color:var(--svc-200); font-weight:600;">03</div><h3 style="margin-top:16px; font-size:18px; font-weight:600; color:#fff;">Launch</h3><p style="margin-top:9px; font-size:13.5px; line-height:1.6; color:var(--gray-400);">We ship it fast and clean, with analytics, tracking, and SEO in place. The conversion difference shows the moment it's live.</p></div>
+        <div style="background:var(--gray-950); padding:28px 24px;"><div class="mono" style="font-size:12px; color:var(--svc-200); font-weight:600;">04</div><h3 style="margin-top:16px; font-size:18px; font-weight:600; color:#fff;">Grow</h3><p style="margin-top:9px; font-size:13.5px; line-height:1.6; color:var(--gray-400);">SEO, CRO, and ads compound on top — with AI agents watching the numbers and a strategist approving every move.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0; scroll-margin-top:90px;">
+    <div data-reveal style="max-width:680px; margin:0 auto; text-align:center;">
+      <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc);">Proof, not promises</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,48px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Real businesses. Real numbers.</h2>
+    </div>
+    <div data-reveal style="margin-top:44px; border:1px solid var(--gray-200); border-radius:20px; background:#fff; overflow:hidden; box-shadow:0 30px 70px -55px rgba(14,17,22,.4);">
+      <div class="ba-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--gray-150);">
+        <div style="padding:clamp(22px,2.6vw,30px); border-right:1px solid var(--gray-150);"><div class="mono" data-count="118" data-prefix="+" data-suffix="%" style="font-size:clamp(26px,2.8vw,34px); font-weight:600; letter-spacing:-.02em; color:var(--svc-700);">0</div><div style="font-size:13.5px; color:var(--gray-600); margin-top:5px;">form leads after redesign &amp; speed rebuild</div><div class="mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Contractor · home services</div></div>
+        <div style="padding:clamp(22px,2.6vw,30px); border-right:1px solid var(--gray-150);"><div class="mono"><span data-count="0.9" data-dec="1">0</span>s</div><div style="font-size:13.5px; color:var(--gray-600); margin-top:5px;">load time, down from 6.2s on the old site</div><div class="mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Dealership group · 14 rooftops</div></div>
+        <div style="padding:clamp(22px,2.6vw,30px);"><div class="mono" data-count="1" style="font-size:clamp(26px,2.8vw,34px); font-weight:600; letter-spacing:-.02em; color:var(--svc-700);">0</div><div style="font-size:13.5px; color:var(--gray-600); margin-top:5px;">Google ranking in a top-10 metro market</div><div class="mono" style="margin-top:10px; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Local service · #1 position</div></div>
+      </div>
+      <div style="padding:clamp(22px,2.6vw,30px); display:flex; gap:16px; align-items:flex-start;">
+        <span style="width:36px; height:36px; border-radius:999px; background:linear-gradient(135deg,var(--svc),var(--svc-700)); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:#fff; flex:none;">JT</span>
+        <div><p style="font-size:16px; font-weight:500; line-height:1.55; letter-spacing:-.005em; color:var(--gray-900); max-width:64ch;">"Our old site loaded like it was 2009 and the phone barely rang. The new one is fast, we're finally on page one, and the leads actually come in now."</p><div style="margin-top:8px; font-size:12.5px; color:var(--gray-500);"><b style="color:var(--gray-800); font-weight:600;">Jordan T.</b> · Owner, regional HVAC company</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0; scroll-margin-top:90px;">
+    <div data-reveal style="max-width:680px; margin:0 auto; text-align:center;">
+      <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc);">Ways to work together</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,48px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Start with the site. Grow when you're ready.</h2>
+    </div>
+    <div data-reveal-group class="ba-grid-3" style="margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:start;">
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:18px; padding:30px;">
+        <h3 style="font-size:20px; font-weight:600; letter-spacing:-.01em;">Launch</h3>
+        <p style="margin-top:8px; font-size:13.5px; line-height:1.55; color:var(--gray-600);">A fast, conversion-ready site for businesses that need to look serious and start earning.</p>
+        <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--gray-150); display:flex; flex-direction:column; gap:11px; font-size:13.5px; color:var(--gray-700);">
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Custom design, up to 8 pages</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Core Web Vitals tuned</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>SEO foundation &amp; tracking</span>
+        </div>
+        <a class="ba-cta ba-btn-svc" href="#contact" style="display:flex; align-items:center; justify-content:center; margin-top:24px; border:1px solid var(--gray-300); color:var(--gray-950); font-size:14px; font-weight:600; padding:13px; border-radius:999px;">Get a quote</a>
+      </div>
+      <div style="border:1.5px solid var(--svc); border-radius:18px; padding:30px; position:relative; box-shadow:0 30px 70px -45px color-mix(in srgb, var(--svc) 60%, transparent); background:linear-gradient(180deg, color-mix(in srgb, var(--svc) 5%, #fff), #fff);">
+        <span style="position:absolute; top:-11px; left:30px; background:var(--svc); color:#fff; font-size:11px; font-weight:600; padding:4px 11px; border-radius:999px;">Most popular</span>
+        <h3 style="font-size:20px; font-weight:600; letter-spacing:-.01em;">Build &amp; Grow</h3>
+        <p style="margin-top:8px; font-size:13.5px; line-height:1.55; color:var(--gray-600);">The full asset plus the team that makes it rank, convert, and scale month after month.</p>
+        <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--svc-100); display:flex; flex-direction:column; gap:11px; font-size:13.5px; color:var(--gray-700);">
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Everything in Launch, unlimited pages</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Ongoing SEO + CRO + ads</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>AI agents + dedicated strategist</span>
+        </div>
+        <a class="ba-cta" href="#contact" style="display:flex; align-items:center; justify-content:center; margin-top:24px; background:var(--svc); color:#fff; font-size:14px; font-weight:600; padding:13px; border-radius:999px;">Book a strategy call</a>
+      </div>
+      <div class="ba-card-h" style="border:1px solid var(--gray-200); border-radius:18px; padding:30px;">
+        <h3 style="font-size:20px; font-weight:600; letter-spacing:-.01em;">Enterprise</h3>
+        <p style="margin-top:8px; font-size:13.5px; line-height:1.55; color:var(--gray-600);">Multi-location, dealerships, and franchises that need scale, control, and reporting.</p>
+        <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--gray-150); display:flex; flex-direction:column; gap:11px; font-size:13.5px; color:var(--gray-700);">
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Multi-site / multi-location builds</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>SSO, roles &amp; white-label reporting</span>
+          <span style="display:flex; gap:10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Executive dashboards &amp; SLAs</span>
+        </div>
+        <a class="ba-cta ba-btn-svc" href="#contact" style="display:flex; align-items:center; justify-content:center; margin-top:24px; border:1px solid var(--gray-300); color:var(--gray-950); font-size:14px; font-weight:600; padding:13px; border-radius:999px;">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width:900px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0;">
+    <div data-reveal style="text-align:center; margin-bottom:40px;">
+      <span class="mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--svc);">Questions</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(28px,4vw,44px); line-height:1.04; letter-spacing:-.03em;">The things everyone asks.</h2>
+    </div>
+    <div data-reveal-group style="display:flex; flex-direction:column; gap:0;">
+      <div data-faq style="border-top:1px solid var(--gray-200); padding:4px 0;"><button data-faq-btn type="button" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:0; cursor:pointer; padding:22px 4px; text-align:left; font-family:var(--font-sans); font-size:17px; font-weight:600; color:var(--gray-950); letter-spacing:-.01em;">How fast will my website launch?<svg data-faq-ic width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; transition:transform .3s ease;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></button><div data-faq-body style="max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);"><p style="padding:0 4px 22px; font-size:15px; line-height:1.6; color:var(--gray-600); max-width:70ch;">Most sites launch in 3 to 6 weeks depending on scope. The conversion difference shows the moment it's live, and you'll see measurable movement within 90 days.</p></div></div>
+      <div data-faq style="border-top:1px solid var(--gray-200); padding:4px 0;"><button data-faq-btn type="button" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:0; cursor:pointer; padding:22px 4px; text-align:left; font-family:var(--font-sans); font-size:17px; font-weight:600; color:var(--gray-950); letter-spacing:-.01em;">Do I have to do anything?<svg data-faq-ic width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; transition:transform .3s ease;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></button><div data-faq-body style="max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);"><p style="padding:0 4px 22px; font-size:15px; line-height:1.6; color:var(--gray-600); max-width:70ch;">No. It's fully done-for-you. We handle the work and bring you plain-English updates and the occasional yes/no decision — never homework.</p></div></div>
+      <div data-faq style="border-top:1px solid var(--gray-200); padding:4px 0;"><button data-faq-btn type="button" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:0; cursor:pointer; padding:22px 4px; text-align:left; font-family:var(--font-sans); font-size:17px; font-weight:600; color:var(--gray-950); letter-spacing:-.01em;">Do I own the website?<svg data-faq-ic width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; transition:transform .3s ease;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></button><div data-faq-body style="max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);"><p style="padding:0 4px 22px; font-size:15px; line-height:1.6; color:var(--gray-600); max-width:70ch;">Yes — completely. You own the site, the code, the content, and every account. Full export any time, no lock-in, ever.</p></div></div>
+      <div data-faq style="border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); padding:4px 0;"><button data-faq-btn type="button" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:0; cursor:pointer; padding:22px 4px; text-align:left; font-family:var(--font-sans); font-size:17px; font-weight:600; color:var(--gray-950); letter-spacing:-.01em;">What platform do you build on?<svg data-faq-ic width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--svc)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; transition:transform .3s ease;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></button><div data-faq-body style="max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);"><p style="padding:0 4px 22px; font-size:15px; line-height:1.6; color:var(--gray-600); max-width:70ch;">Whatever fits you best: Webflow for fast marketing sites, Sanity plus custom code for content-heavy or high-performance builds, and WordPress or Shopify when you already live there.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" style="max-width:1240px; margin:0 auto; padding:clamp(80px,11vh,128px) clamp(20px,5vw,48px) 0; scroll-margin-top:90px;">
+    <div data-reveal style="position:relative; overflow:hidden; border-radius:28px; background:linear-gradient(160deg, var(--svc), var(--svc-700)); padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px); text-align:center;">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(60% 80% at 50% 0%, rgba(255,255,255,.22), transparent 60%); pointer-events:none;"></div>
+      <div style="position:relative;">
+        <h2 style="font-weight:600; font-size:clamp(32px,5vw,60px); line-height:1.02; letter-spacing:-.035em; color:#fff; text-wrap:balance; max-width:18ch; margin:0 auto;">Let's build the website your business deserves.</h2>
+        <p style="margin:22px auto 0; font-size:clamp(16px,1.5vw,19px); line-height:1.55; color:rgba(255,255,255,.85); max-width:52ch;">Start with a free site review. We'll show you what's leaking, what's possible, and the fastest path to a site that sells — no obligation.</p>
+        <div style="margin-top:36px; display:flex; flex-wrap:wrap; gap:13px; justify-content:center;">
+          <a class="ba-cta" href="#" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--svc-700); font-size:15px; font-weight:600; padding:16px 30px; border-radius:999px;">Get a free site review<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <a class="ba-cta" href="Home.dc.html#pricing" style="display:inline-flex; align-items:center; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.4); font-size:15px; font-weight:500; padding:16px 30px; border-radius:999px;">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:clamp(80px,11vh,128px); background:var(--gray-950); color:var(--gray-300); padding:clamp(56px,8vh,88px) clamp(20px,5vw,48px) 36px;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div class="ba-grid-2" style="display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; padding-bottom:clamp(36px,4vw,52px); border-bottom:1px solid rgba(255,255,255,.12);">
+        <div>
+          <a href="Home.dc.html" style="display:flex; align-items:center; gap:12px;"><span style="width:34px; height:34px; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--gray-950)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span style="font-size:19px; font-weight:600; letter-spacing:-.02em; color:#fff;">Branch Avenue</span></a>
+          <p style="margin:18px 0 0; font-size:14.5px; line-height:1.65; color:var(--gray-400); max-width:52ch;">One team for your <a class="ba-link" href="Service-Web-Design.dc.html" style="color:var(--gray-200);">website</a>, <a class="ba-link" href="Service-SEO.dc.html" style="color:var(--gray-200);">SEO</a>, <a class="ba-link" href="Service-CRO.dc.html" style="color:var(--gray-200);">conversion rate</a>, and <a class="ba-link" href="Service-Ads.dc.html" style="color:var(--gray-200);">paid ads</a> — AI agents watch the numbers around the clock, and a human strategist approves every move before it ships.</p>
+          <a class="ba-cta" href="#contact" style="display:inline-flex; align-items:center; gap:9px; margin-top:24px; background:var(--svc); color:#fff; font-size:14px; font-weight:600; padding:13px 24px; border-radius:999px;">Book a strategy call<svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+        <div class="ba-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,36px);">
+          <div>
+            <div class="mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">Services</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;"><a class="ba-link" href="Service-Web-Design.dc.html" style="color:var(--gray-300);">Website design</a><a class="ba-link" href="Service-SEO.dc.html" style="color:var(--gray-300);">SEO</a><a class="ba-link" href="Service-Ads.dc.html" style="color:var(--gray-300);">Ads management</a><a class="ba-link" href="Service-CRO.dc.html" style="color:var(--gray-300);">CRO</a></div>
+          </div>
+          <div>
+            <div class="mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">Agents</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;"><a class="ba-link" href="Agent.dc.html" style="color:var(--gray-300);">Meet the agents</a><a class="ba-link" href="Agent-SEO.dc.html" style="color:var(--gray-300);">SEO agent</a><a class="ba-link" href="Agent-Ads.dc.html" style="color:var(--gray-300);">Ads agent</a><a class="ba-link" href="Agent-CRO.dc.html" style="color:var(--gray-300);">CRO agent</a></div>
+          </div>
+          <div>
+            <div class="mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">Industries</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;"><a class="ba-link" href="Industry-Automotive.dc.html" style="color:var(--gray-300);">Dealerships</a><a class="ba-link" href="Industry-Contractors.dc.html" style="color:var(--gray-300);">Contractors</a><a class="ba-link" href="Industry-Franchise.dc.html" style="color:var(--gray-300);">Franchises</a><a class="ba-link" href="Industry-Shopify.dc.html" style="color:var(--gray-300);">Shopify stores</a></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:clamp(26px,3vw,36px) 0; border-bottom:1px solid rgba(255,255,255,.12);">
+        <div class="mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">What we build, in plain terms</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Custom website design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Web development · frontend &amp; backend</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Website redesign &amp; migration</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Responsive &amp; mobile-first</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Core Web Vitals &amp; speed</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Landing page design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Ecommerce &amp; Shopify</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">CMS &amp; content architecture</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Technical SEO built in</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Analytics &amp; call tracking</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:5px 12px;">Website maintenance &amp; support</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; padding-top:26px;">
+        <span class="mono" style="font-size:12px; color:var(--gray-500);">© 2026 Branch Avenue · Website design &amp; development</span>
+        <div style="display:flex; gap:22px; font-size:12.5px; color:var(--gray-500);"><a class="ba-link" href="Home v8 (agentic).dc.html" style="color:var(--gray-500);">Digital marketing</a><a class="ba-link" href="Home v9 (web-first).dc.html" style="color:var(--gray-500);">Website development</a><a class="ba-link" href="Home.dc.html#pricing" style="color:var(--gray-500);">Pricing</a></div>
+        <span class="mono" style="font-size:12px; color:var(--gray-600);">You approve, we do everything.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._progress();
+    this._nav();
+    this._reveal();
+    this._counters();
+    this._faq();
+  }
+
+  _progress() {
+    const bar = document.getElementById('ba-progress');
+    if (!bar) return;
+    const upd = () => {
+      const se = document.scrollingElement || document.documentElement;
+      const max = se.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (se.scrollTop / max) * 100 : 0).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+
+  _nav() {
+    const nav = document.getElementById('ba-nav');
+    if (!nav) return;
+    let last = 0;
+    const onScroll = () => {
+      const y = (document.scrollingElement || document.documentElement).scrollTop;
+      nav.style.boxShadow = y > 12 ? '0 12px 34px -24px rgba(14,17,22,.55)' : 'none';
+      nav.style.background = y > 12 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.72)';
+      if (y > 300 && y > last + 4) nav.style.transform = 'translateY(-100%)';
+      else if (y < last - 4 || y < 300) nav.style.transform = 'translateY(0)';
+      last = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  _reveal() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const singles = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    const groups = Array.prototype.slice.call(document.querySelectorAll('[data-reveal-group]'));
+    const hasGsap = typeof window.gsap !== 'undefined';
+    if (reduce || !hasGsap) {
+      singles.concat(groups).forEach((el) => { el.style.opacity = '1'; });
+      groups.forEach((g) => Array.prototype.slice.call(g.children).forEach((c) => { c.style.opacity = '1'; }));
+      return;
+    }
+    const gsap = window.gsap;
+    singles.forEach((el) => {
+      gsap.set(el, { opacity: 0, y: 26 });
+      this._io(el, () => gsap.to(el, { opacity: 1, y: 0, duration: .8, ease: 'power3.out' }));
+    });
+    groups.forEach((g) => {
+      const kids = Array.prototype.slice.call(g.children);
+      gsap.set(kids, { opacity: 0, y: 26 });
+      this._io(g, () => gsap.to(kids, { opacity: 1, y: 0, duration: .7, ease: 'power3.out', stagger: .08 }));
+    });
+  }
+
+  _io(el, cb) {
+    if (!('IntersectionObserver' in window)) { cb(); return; }
+    const vh = window.innerHeight || 800;
+    if (el.getBoundingClientRect().top < vh * 0.92) { cb(); return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => { if (e.isIntersecting) { cb(); io.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -7% 0px' });
+    io.observe(el);
+  }
+
+  _counters() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+    if (!els.length || !('IntersectionObserver' in window)) { els.forEach((el) => this._runCount(el)); return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => { if (e.isIntersecting && !e.target._c) { e.target._c = 1; this._runCount(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    els.forEach((el) => io.observe(el));
+  }
+
+  _runCount(el) {
+    const target = parseFloat(el.getAttribute('data-count'));
+    const dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    const dur = 1200, t0 = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - t, 3);
+      const val = target * e;
+      el.textContent = prefix + (dec ? val.toFixed(dec) : Math.round(val).toLocaleString('en-US')) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  _faq() {
+    Array.prototype.slice.call(document.querySelectorAll('[data-faq]')).forEach((item) => {
+      const btn = item.querySelector('[data-faq-btn]');
+      const body = item.querySelector('[data-faq-body]');
+      const ic = item.querySelector('[data-faq-ic]');
+      if (!btn || !body) return;
+      btn.addEventListener('click', () => {
+        const open = body.style.maxHeight && body.style.maxHeight !== '0px';
+        if (open) { body.style.maxHeight = '0px'; if (ic) ic.style.transform = 'rotate(0deg)'; }
+        else { body.style.maxHeight = body.scrollHeight + 'px'; if (ic) ic.style.transform = 'rotate(45deg)'; }
+      });
+    });
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* ============================================================
+   AtHome — Webfonts
+   NOTE: Loaded from Google Fonts as a substitution for licensed
+   binaries. For production, self-host the .woff2 files and replace
+   these @import lines with @font-face rules pointing at them.
+   Families: Manrope (display + UI), Spline Sans Mono (mono).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500;600&display=swap');

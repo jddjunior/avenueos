@@ -1,0 +1,53 @@
+/* ============================================================
+   AtHome — Typography tokens
+   Display & UI: Manrope (clean, precise, modern — SF-adjacent
+   without being Inter). Mono: Spline Sans Mono for specs/IDs/data.
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-display: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-sans:    "Manrope", system-ui, -apple-system, sans-serif;
+  --font-mono:    "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* Type scale — fixed steps */
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  14px;
+  --text-md:  16px;   /* base body */
+  --text-lg:  18px;
+  --text-xl:  21px;
+  --text-2xl: 26px;
+  --text-3xl: 32px;
+  --text-4xl: 40px;
+  --text-5xl: 52px;
+  --text-6xl: 66px;
+  --text-7xl: 84px;
+
+  /* Line heights */
+  --leading-tight:   1.08;
+  --leading-snug:    1.22;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter spacing — Manrope wants a touch tighter on display */
+  --tracking-tight:  -0.03em;
+  --tracking-snug:   -0.015em;
+  --tracking-normal: 0em;
+  --tracking-wide:   0.04em;
+  --tracking-caps:   0.10em;
+
+  /* Semantic roles */
+  --type-display-font:  var(--font-display);
+  --type-heading-font:  var(--font-display);
+  --type-body-font:     var(--font-sans);
+  --type-label-font:    var(--font-sans);
+  --type-mono-font:     var(--font-mono);
+}

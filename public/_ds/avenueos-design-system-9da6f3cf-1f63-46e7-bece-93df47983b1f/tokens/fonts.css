@@ -1,0 +1,5 @@
+/* AvenueOS — Webfonts
+   Inter + JetBrains Mono from Google Fonts.
+   For production, self-host the .woff2 binaries and replace these @import lines
+   with local @font-face rules. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');

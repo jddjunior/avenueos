@@ -1,0 +1,113 @@
+/* ============================================================
+   AtHome — Color tokens
+   Light, cool, confident: white + cool gray (Slate), one decisive
+   Blue doing the work, a Sky cyan for quiet "cooling" cues.
+   Apple restraint · Zillow approachability · serious A/C trust.
+   ============================================================ */
+
+:root {
+  /* --- Slate: cool neutrals (white → ink) --- */
+  --slate-50:  #F7F9FC;
+  --slate-100: #F1F4F9;
+  --slate-200: #E7EBF2;
+  --slate-300: #D6DCE6;
+  --slate-400: #AEB7C5;
+  --slate-500: #7C8696;
+  --slate-600: #5A6473;
+  --slate-700: #3C4656;
+  --slate-800: #222B3A;
+  --slate-900: #0B1220;
+
+  /* --- Blue: primary, the brand --- */
+  --blue-50:  #EEF4FF;
+  --blue-100: #DBE8FF;
+  --blue-200: #B8D2FF;
+  --blue-300: #85B2FF;
+  --blue-400: #3E8AF7;
+  --blue-500: #0A6CF0;
+  --blue-600: #0556CC;
+  --blue-700: #0A47A0;
+  --blue-800: #0E3A80;
+  --blue-900: #102E5E;
+
+  /* --- Sky: cool secondary / "cooling" accent (used sparingly) --- */
+  --sky-50:  #E8F7FC;
+  --sky-100: #C9ECF5;
+  --sky-200: #95DBEC;
+  --sky-500: #0AA6C7;
+  --sky-600: #0883A0;
+
+  /* --- Semantic hues --- */
+  --green-50:  #E7F6EE;
+  --green-100: #C5E9D4;
+  --green-500: #1FA463;
+  --green-600: #178A51;
+
+  --amber-50:  #FEF3DA;
+  --amber-100: #FAE1A6;
+  --amber-500: #E2A012;
+  --amber-600: #B57F0C;
+
+  --red-50:    #FDECEC;
+  --red-100:   #F8CFCD;
+  --red-500:   #E03C3C;
+  --red-600:   #BC2C2C;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components, not raws.
+     ============================================================ */
+
+  /* Brand */
+  --brand:          var(--blue-500);
+  --brand-hover:    var(--blue-600);
+  --brand-active:   var(--blue-700);
+  --brand-soft:     var(--blue-50);
+  --brand-soft-fg:  var(--blue-600);
+  --on-brand:       #FFFFFF;
+
+  --accent:         var(--blue-700);   /* deep navy-blue secondary */
+  --accent-hover:   var(--blue-800);
+  --accent-soft:    var(--blue-50);
+  --accent-soft-fg: var(--blue-700);
+  --on-accent:      #FFFFFF;
+
+  /* Text */
+  --text-strong:   var(--slate-900);
+  --text-body:     var(--slate-700);
+  --text-muted:    var(--slate-500);
+  --text-faint:    var(--slate-400);
+  --text-inverse:  var(--slate-50);
+  --text-link:     var(--blue-600);
+
+  /* Surfaces */
+  --surface-page:    var(--slate-50);
+  --surface-sunken:  var(--slate-100);
+  --surface-card:    #FFFFFF;
+  --surface-raised:  #FFFFFF;
+  --surface-inverse: var(--slate-900);
+  --surface-overlay: rgba(11, 18, 32, 0.50);
+
+  /* Borders */
+  --border-subtle:  var(--slate-200);
+  --border-default: var(--slate-300);
+  --border-strong:  var(--slate-400);
+  --border-brand:   var(--blue-200);
+
+  /* Focus ring */
+  --ring:        var(--blue-400);
+  --ring-offset: var(--surface-page);
+
+  /* Status */
+  --success:      var(--green-500);
+  --success-soft: var(--green-50);
+  --success-fg:   var(--green-600);
+  --warning:      var(--amber-500);
+  --warning-soft: var(--amber-50);
+  --warning-fg:   var(--amber-600);
+  --danger:       var(--red-500);
+  --danger-soft:  var(--red-50);
+  --danger-fg:    var(--red-600);
+  --info:         var(--blue-500);
+  --info-soft:    var(--blue-50);
+  --info-fg:      var(--blue-600);
+}

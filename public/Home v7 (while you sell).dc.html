@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Branch Avenue — You sell cars. We'll handle the rest.</title>
+  <meta name="description" content="Done-for-you marketing for dealership owners who'd rather be on the floor than in a dashboard. We build it, run it, and bring you the wins to approve. SEO, websites, ads, and conversion — handled.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+    :root{
+      --gray-0:#ffffff;--gray-25:#fbfbfc;--gray-50:#f7f8f9;--gray-100:#f0f1f3;--gray-150:#e8eaed;--gray-200:#dfe2e6;--gray-300:#cbcfd4;--gray-400:#a4a9b0;--gray-500:#787e87;--gray-600:#565c65;--gray-700:#3c424b;--gray-800:#272c33;--gray-900:#181c22;--gray-950:#0e1116;
+      --green-50:#ecf5f0;--green-100:#d3e8dd;--green-200:#a9d2bd;--green-300:#74b596;--green-400:#3f9670;--green-500:#1f7d54;--green-600:#166848;--green-700:#11543a;--green-800:#0e442f;
+      --paper:#f6f3ed;--paper-2:#efe9df;--ink:#1a1814;
+      --font-sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;--font-mono:'Geist Mono',ui-monospace,'SFMono-Regular','Menlo',monospace;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:var(--paper); color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    a{ color:inherit; text-decoration:none; }
+    h1,h2,h3,p{ margin:0; }
+    ::selection{ background:var(--green-700); color:#fff; }
+    .w-mono{ font-family:var(--font-mono); font-feature-settings:'tnum'; }
+    .w-cta{ transition:transform .16s cubic-bezier(.22,1,.36,1), box-shadow .22s ease, background .18s ease; }
+    .w-cta:hover{ transform:translateY(-1px); }
+    .w-cta:active{ transform:translateY(.5px) scale(.99); }
+    .w-cta svg{ transition:transform .22s cubic-bezier(.22,1,.36,1); }
+    .w-cta:hover svg{ transform:translate(3px,-3px); }
+    .w-link{ position:relative; }
+    .w-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .w-link:hover::after{ width:100%; }
+    [data-rv]{ opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+    [data-rv].in{ opacity:1; transform:none; }
+    .w-card{ transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+    .w-card:hover{ transform:translateY(-3px); box-shadow:0 26px 56px -36px rgba(26,24,20,.4); }
+    .w-faq{ border-bottom:1px solid var(--gray-200); }
+    .w-faq summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:24px 4px; font-size:19px; font-weight:600; letter-spacing:-.01em; }
+    .w-faq summary::-webkit-details-marker{ display:none; }
+    .w-faq summary svg{ flex:none; transition:transform .28s cubic-bezier(.22,1,.36,1); color:var(--gray-400); }
+    .w-faq[open] summary svg{ transform:rotate(45deg); }
+    .w-faq .w-a{ padding:0 4px 26px; font-size:16px; line-height:1.62; color:var(--gray-600); max-width:64ch; }
+    image-slot{ display:block; background:var(--paper-2); border:1px solid var(--gray-200); }
+    @media (max-width:940px){ .w-2{ grid-template-columns:1fr !important; } .w-3{ grid-template-columns:1fr !important; } .w-hide-md{ display:none !important; } .w-hero{ grid-template-columns:1fr !important; } }
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; } [data-rv]{ opacity:1 !important; transform:none !important; } }
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans); color:var(--gray-950); background:var(--paper); overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <nav style="position:fixed; top:0; left:0; width:100%; z-index:100; backdrop-filter:saturate(180%) blur(14px); background:rgba(246,243,237,.8); border-bottom:1px solid var(--gray-200);">
+    <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,48px); height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#top" style="display:flex; align-items:center; gap:11px;">
+        <span style="width:30px; height:30px; border-radius:8px; background:var(--green-700); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-size:16px; font-weight:600; letter-spacing:-.02em;">Branch Avenue</span>
+      </a>
+      <div class="w-hide-md" style="display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; color:var(--gray-600);">
+        <a class="w-link" href="#stop">What you stop doing</a>
+        <a class="w-link" href="#results">Results</a>
+        <a class="w-link" href="#handle">What we handle</a>
+        <a class="w-link" href="#faq">FAQ</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <a class="w-link w-hide-md" href="#" style="font-size:14px; font-weight:500; color:var(--gray-600);">Sign in</a>
+        <a class="w-cta" href="#audit" style="background:var(--green-700); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px;">Get my free audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" style="max-width:1200px; margin:0 auto; padding:clamp(120px,16vh,176px) clamp(20px,5vw,48px) clamp(64px,8vh,96px);">
+    <div class="w-hero" style="display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(40px,5vw,72px); align-items:center;">
+      <div>
+        <div data-rv="" style="display:inline-flex; align-items:center; gap:9px; margin-bottom:28px; border:1px solid var(--gray-300); background:#fff; border-radius:999px; padding:6px 14px 6px 11px;">
+          <span style="width:8px; height:8px; border-radius:999px; background:var(--green-500); box-shadow:0 0 0 4px var(--green-100);"></span>
+          <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-600);">For dealership owners, not marketers</span>
+        </div>
+        <h1 data-rv="" style="font-weight:600; font-size:clamp(42px,6.4vw,80px); line-height:1.0; letter-spacing:-.04em; color:var(--gray-950); text-wrap:balance;">You sell cars.<br>We'll handle <span style="color:var(--green-700);">the rest.</span></h1>
+        <p data-rv="" style="margin-top:26px; font-size:clamp(18px,1.6vw,21px); line-height:1.55; color:var(--gray-600); max-width:44ch;">Your website, your search rankings, your ads — built and run by people who do this all day. We bring you the wins. <span style="color:var(--gray-950); font-weight:600;">You just say yes.</span></p>
+        <div data-rv="" style="margin-top:34px; display:flex; flex-wrap:wrap; gap:13px; align-items:center;">
+          <a class="w-cta" href="#audit" style="display:inline-flex; align-items:center; gap:9px; background:var(--green-700); color:#fff; font-size:16px; font-weight:600; padding:16px 28px; border-radius:999px; box-shadow:0 14px 34px -14px rgba(17,84,58,.55);">Get my free audit<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <span class="w-mono" style="font-size:12.5px; color:var(--gray-500); font-weight:500;">No contracts · You own everything</span>
+        </div>
+      </div>
+      <div data-rv="" style="position:relative;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="w-hero" shape="rounded" radius="20" placeholder="Drop a showroom or lot photo" style="width:100%; aspect-ratio:4/5; border-radius:20px;" hint-size="100%,auto"></x-import>
+        <div style="position:absolute; left:-14px; bottom:22px; background:#fff; border:1px solid var(--gray-200); border-radius:16px; padding:16px 18px; box-shadow:0 24px 50px -30px rgba(26,24,20,.45); max-width:230px;">
+          <div class="w-mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">This month, handled</div>
+          <div class="w-mono" style="font-size:28px; font-weight:600; color:var(--green-700); letter-spacing:-.02em; margin-top:4px;">+<span data-countup="312">0</span> leads</div>
+          <div style="font-size:12.5px; color:var(--gray-500); margin-top:2px;">while you ran the floor</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STOP DOING -->
+  <section id="stop" style="background:#fff; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); padding:clamp(80px,11vh,128px) 0; scroll-margin-top:80px;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,48px);">
+      <div data-rv="" style="max-width:680px; margin-bottom:clamp(44px,5vw,60px);">
+        <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">What you stop doing</span>
+        <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.4vw,52px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">The marketing headaches that aren't yours anymore.</h2>
+      </div>
+      <div class="w-2" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(12px,1.6vw,16px);">
+        <div data-rv="" style="display:flex; gap:14px; align-items:flex-start; padding:20px 22px; border:1px solid var(--gray-200); border-radius:14px; background:var(--paper);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg><div><div style="font-size:16px; font-weight:600;">Chasing the agency for a report</div><p style="margin-top:4px; font-size:14px; line-height:1.55; color:var(--gray-600);">No more "let me check with the team." You see the work and the result.</p></div></div>
+        <div data-rv="" style="display:flex; gap:14px; align-items:flex-start; padding:20px 22px; border:1px solid var(--gray-200); border-radius:14px; background:var(--paper);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg><div><div style="font-size:16px; font-weight:600;">Guessing if the ads are working</div><p style="margin-top:4px; font-size:14px; line-height:1.55; color:var(--gray-600);">Every dollar is tied to leads and sales, not impressions you can't bank.</p></div></div>
+        <div data-rv="" style="display:flex; gap:14px; align-items:flex-start; padding:20px 22px; border:1px solid var(--gray-200); border-radius:14px; background:var(--paper);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg><div><div style="font-size:16px; font-weight:600;">Juggling four different vendors</div><p style="margin-top:4px; font-size:14px; line-height:1.55; color:var(--gray-600);">Site, SEO, ads, and conversion all under one roof, all pulling together.</p></div></div>
+        <div data-rv="" style="display:flex; gap:14px; align-items:flex-start; padding:20px 22px; border:1px solid var(--gray-200); border-radius:14px; background:var(--paper);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gray-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path d="m9 9 6 6"></path></svg><div><div style="font-size:16px; font-weight:600;">Learning yet another dashboard</div><p style="margin-top:4px; font-size:14px; line-height:1.55; color:var(--gray-600);">We bring the decisions to you. Approve in a sentence, get back to selling.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER QUOTE -->
+  <section style="max-width:1080px; margin:0 auto; padding:clamp(80px,11vh,132px) clamp(20px,5vw,48px) 0;">
+    <div data-rv="" style="text-align:center;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--green-200)" style="margin:0 auto 8px;"><path d="M9.5 4C6.5 4 4 6.5 4 9.5c0 2.6 1.9 4.8 4.4 5.3-.2 2.4-1.6 3.7-1.6 3.7s4.7-.6 6-4.2c.5-1.3.7-2.6.7-3.8C13.5 6.5 11 4 9.5 4Zm10 0C16.5 4 14 6.5 14 9.5c0 2.6 1.9 4.8 4.4 5.3-.2 2.4-1.6 3.7-1.6 3.7s4.7-.6 6-4.2c.5-1.3.7-2.6.7-3.8C23.5 6.5 21 4 19.5 4Z"></path></svg>
+      <p style="font-size:clamp(24px,3.4vw,40px); line-height:1.25; letter-spacing:-.025em; font-weight:500; text-wrap:balance; max-width:18ch; margin:0 auto;">"I haven't opened an ad account in a year. We've never sold more cars."</p>
+      <div style="margin-top:28px; display:flex; align-items:center; justify-content:center; gap:14px;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="w-owner" shape="circle" placeholder="Photo" style="width:52px; height:52px; border-radius:999px;" hint-size="52px,52px"></x-import>
+        <div style="text-align:left;">
+          <div style="font-size:15px; font-weight:600;">Marcus Hale</div>
+          <div class="w-mono" style="font-size:12.5px; color:var(--gray-500);">Owner · Hale Family Auto, 3 rooftops</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" style="max-width:1200px; margin:0 auto; padding:clamp(80px,11vh,132px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
+    <div data-rv="" style="max-width:680px; margin-bottom:clamp(40px,5vw,56px);">
+      <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Real dealerships, real numbers</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.4vw,52px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">What "we'll handle it" looks like.</h2>
+    </div>
+    <div class="w-2" style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.4vw,26px);">
+      <div class="w-card" data-rv="" style="border:1px solid var(--gray-200); border-radius:18px; background:#fff; overflow:hidden;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="w-case-1" shape="rect" placeholder="Drop a dealership / vehicle photo" style="width:100%; aspect-ratio:16/9;" hint-size="100%,auto"></x-import>
+        <div style="padding:clamp(22px,2.6vw,30px);">
+          <div class="w-mono" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Used-truck specialist</div>
+          <div style="display:flex; align-items:baseline; gap:10px; margin-top:10px;"><span class="w-mono" style="font-size:clamp(34px,4vw,46px); font-weight:600; color:var(--green-700); letter-spacing:-.02em;">+<span data-countup="61">0</span>%</span><span style="font-size:15px; color:var(--gray-600);">qualified leads in 90 days</span></div>
+          <p style="margin-top:12px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Rebuilt their inventory pages, shifted ad spend to high-intent searches, and fed the service drive — without the owner touching a thing.</p>
+        </div>
+      </div>
+      <div class="w-card" data-rv="" style="border:1px solid var(--gray-200); border-radius:18px; background:#fff; overflow:hidden;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="w-case-2" shape="rect" placeholder="Drop a dealership / vehicle photo" style="width:100%; aspect-ratio:16/9;" hint-size="100%,auto"></x-import>
+        <div style="padding:clamp(22px,2.6vw,30px);">
+          <div class="w-mono" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">3-rooftop import group</div>
+          <div style="display:flex; align-items:baseline; gap:10px; margin-top:10px;"><span class="w-mono" style="font-size:clamp(34px,4vw,46px); font-weight:600; color:var(--green-700); letter-spacing:-.02em;">$<span data-countup="57">0</span></span><span style="font-size:15px; color:var(--gray-600);">cost per lead, down from $130</span></div>
+          <p style="margin-top:12px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">One operation across all three stores meant we could move budget to whichever rooftop needed it most, week to week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE HANDOFF -->
+  <section style="max-width:1200px; margin:0 auto; padding:clamp(80px,11vh,132px) clamp(20px,5vw,48px) 0;">
+    <div data-rv="" style="max-width:680px; margin-bottom:clamp(44px,5vw,60px);">
+      <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">How simple it is</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.4vw,52px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">You're three steps from hands-off.</h2>
+    </div>
+    <div class="w-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(16px,2.4vw,26px);">
+      <div data-rv="" style="background:#fff; border:1px solid var(--gray-200); border-radius:16px; padding:clamp(26px,3vw,34px);"><span class="w-mono" style="font-size:11px; font-weight:600; color:var(--gray-400);">01</span><h3 style="margin-top:14px; font-size:20px; font-weight:600; letter-spacing:-.02em;">We audit, for free</h3><p style="margin-top:10px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">We dig through your site, search, and ads and show you the revenue sitting on the table — no charge, no pitch.</p></div>
+      <div data-rv="" style="background:#fff; border:1px solid var(--gray-200); border-radius:16px; padding:clamp(26px,3vw,34px);"><span class="w-mono" style="font-size:11px; font-weight:600; color:var(--gray-400);">02</span><h3 style="margin-top:14px; font-size:20px; font-weight:600; letter-spacing:-.02em;">We take it over</h3><p style="margin-top:10px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Our team builds and runs everything. You keep ownership of your accounts and data — we just do the work.</p></div>
+      <div data-rv="" style="background:var(--green-700); color:#fff; border:1px solid var(--green-700); border-radius:16px; padding:clamp(26px,3vw,34px);"><span class="w-mono" style="font-size:11px; font-weight:600; color:var(--green-200);">03</span><h3 style="margin-top:14px; font-size:20px; font-weight:600; letter-spacing:-.02em;">You approve the wins</h3><p style="margin-top:10px; font-size:14.5px; line-height:1.6; color:rgba(255,255,255,.82);">Each opportunity comes with the revenue we expect it to make. Say yes, and it's live. That's your whole role.</p></div>
+    </div>
+  </section>
+
+  <!-- WHAT WE HANDLE -->
+  <section id="handle" style="background:#fff; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); margin-top:clamp(80px,11vh,132px); padding:clamp(80px,11vh,128px) 0; scroll-margin-top:80px;">
+    <div style="max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,48px);">
+      <div data-rv="" style="max-width:680px; margin-bottom:clamp(44px,5vw,60px);">
+        <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Everything under one roof</span>
+        <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.4vw,52px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">All of it. So none of it is on you.</h2>
+      </div>
+      <div class="w-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px);">
+        <div data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--paper);"><h3 style="font-size:18px; font-weight:600;">Search &amp; SEO</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Showing up when buyers search for your make, model, and town.</p></div>
+        <div data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--paper);"><h3 style="font-size:18px; font-weight:600;">Website</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">A site that's fast, modern, and built to turn visits into leads.</p></div>
+        <div data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--paper);"><h3 style="font-size:18px; font-weight:600;">Google &amp; Meta ads</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Spend aimed at the inventory you need to move, managed daily.</p></div>
+        <div data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--paper);"><h3 style="font-size:18px; font-weight:600;">Conversion (CRO)</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Tuning the pages that matter so more visitors call or book.</p></div>
+        <div data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--paper);"><h3 style="font-size:18px; font-weight:600;">Reporting</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">One honest number a month: what we made you versus what you paid.</p></div>
+        <div data-rv="" style="border:1px solid var(--green-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:var(--green-50); display:flex; flex-direction:column; justify-content:center;"><h3 style="font-size:18px; font-weight:600; color:var(--green-800);">Your part</h3><p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--green-800);">Approve the wins. Sell the cars. Go home on time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width:840px; margin:0 auto; padding:clamp(80px,11vh,132px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
+    <div data-rv="" style="margin-bottom:clamp(28px,3.5vw,40px);">
+      <span class="w-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Straight answers</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.2vw,50px); line-height:1.03; letter-spacing:-.03em;">Fair questions.</h2>
+    </div>
+    <div data-rv="">
+      <details class="w-faq" open=""><summary>If you handle it all, do I lose control?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="w-a">Never. You own your website, content, ad accounts, and data, and nothing ships without your yes. We carry the workload; you keep the wheel.</div></details>
+      <details class="w-faq"><summary>I've been burned by an agency before. What's different?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="w-a">Two things: everything is tied to real revenue, not vanity metrics, and you see each move before it happens with the dollars attached. No mystery retainer, no disappearing account manager.</div></details>
+      <details class="w-faq"><summary>How much of my time does this really take?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="w-a">A few minutes a week to review and approve. No standing calls, no homework. If you'd rather we just run with the routine stuff, we can do that too.</div></details>
+      <details class="w-faq"><summary>What does it cost, and am I locked in?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="w-a">Month-to-month, no long contracts. Your free audit comes back with a flat monthly number and the revenue we expect to find, so you decide with real figures in front of you.</div></details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="audit" style="max-width:1200px; margin:0 auto; padding:clamp(80px,11vh,132px) clamp(20px,5vw,48px) clamp(80px,10vh,120px); scroll-margin-top:80px;">
+    <div data-rv="" style="position:relative; border-radius:26px; overflow:hidden; background:var(--gray-950); color:#fff; padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px);">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(70% 120% at 0% 100%, rgba(31,125,84,.32), transparent 58%); pointer-events:none;"></div>
+      <div style="position:relative; max-width:620px;">
+        <h2 style="font-weight:600; font-size:clamp(34px,5vw,60px); line-height:1.02; letter-spacing:-.035em;">Get back to the floor. We've got the rest.</h2>
+        <p style="margin-top:20px; font-size:clamp(17px,1.5vw,20px); line-height:1.55; color:rgba(255,255,255,.74); max-width:46ch;">Start with a free audit. We'll show you the revenue hiding in your marketing and exactly how we'd go get it. No obligation, no jargon.</p>
+        <div style="margin-top:34px; display:flex; flex-wrap:wrap; gap:13px; align-items:center;">
+          <a class="w-cta" href="#top" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--gray-950); font-size:16px; font-weight:600; padding:16px 28px; border-radius:999px;">Get my free audit<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <span class="w-mono" style="font-size:12.5px; color:rgba(255,255,255,.6); font-weight:500;">15 minutes · Owner to owner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid var(--gray-200); padding:clamp(40px,5vw,56px) clamp(20px,5vw,48px);">
+    <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <span style="width:28px; height:28px; border-radius:8px; background:var(--green-700); display:flex; align-items:center; justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-size:15px; font-weight:600; letter-spacing:-.01em;">Branch Avenue</span>
+      </div>
+      <span class="w-mono" style="font-size:12px; color:var(--gray-400);">You sell cars. We'll handle the rest. · You approve, we do everything</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._reveal();
+    this._counters();
+  }
+
+  _reveal() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-rv]'));
+    if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((e) => io.observe(e));
+  }
+
+  _counters() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-countup]'));
+    if (!els.length) return;
+    const run = (el) => {
+      const target = parseFloat(el.getAttribute('data-countup'));
+      const t0 = performance.now(), dur = 1300;
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * e).toLocaleString('en-US');
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    const io = new IntersectionObserver((es) => {
+      es.forEach((en) => { if (en.isIntersecting && !en.target._done) { en.target._done = 1; run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    els.forEach((el) => io.observe(el));
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

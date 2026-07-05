@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Website Design &amp; Development Agency — Built to Rank, Convert &amp; Scale | Branch Avenue</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://branchavenue.com/#org","name":"Branch Avenue","url":"https://branchavenue.com/","description":"Branch Avenue is a website design and development agency for companies that take their website seriously. We build custom business websites engineered for Core Web Vitals, search engine optimization, and conversion — then manage SEO, CRO, and paid ads on top, with AI agents monitored by human strategists.","knowsAbout":["website design","web development","custom business websites","responsive web design","Core Web Vitals","website redesign","landing page design","search engine optimization","conversion rate optimization","Google Ads management","UX design","website maintenance"],"areaServed":"US"},
+    {"@type":"WebSite","@id":"https://branchavenue.com/#site","url":"https://branchavenue.com/","name":"Branch Avenue","publisher":{"@id":"https://branchavenue.com/#org"}},
+    {"@type":"Service","serviceType":"Website design and development","provider":{"@id":"https://branchavenue.com/#org"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Website services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom website design"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Web development (frontend & backend)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Website redesign & migration"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO, CRO & ads management"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Website maintenance & support"}}]}}
+  ]}
+  </script>
+  <meta name="description" content="We build the website that runs your business — then make it searchable, convert it, and scale it with ads. One serious team, one platform, humans in the loop.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+    :root{
+      --gray-0:#ffffff;--gray-25:#fbfbfc;--gray-50:#f7f8f9;--gray-100:#f0f1f3;--gray-150:#e8eaed;--gray-200:#dfe2e6;--gray-300:#cbcfd4;--gray-400:#a4a9b0;--gray-500:#787e87;--gray-600:#565c65;--gray-700:#3c424b;--gray-800:#272c33;--gray-900:#181c22;--gray-950:#0e1116;
+      --green-50:#ecf5f0;--green-100:#d3e8dd;--green-200:#a9d2bd;--green-300:#74b596;--green-400:#3f9670;--green-500:#1f7d54;--green-600:#166848;--green-700:#11543a;--green-800:#0e442f;--green-900:#0a3122;
+      --amber-50:#fbf1df;--amber-100:#f6e2bd;--amber-600:#a8720f;--amber-700:#875b0c;
+      --violet-50:#f0edfb;--violet-100:#ddd6f5;--violet-600:#5b43b3;--violet-700:#4a3596;
+      --blue-50:#eaf1fb;--blue-100:#d3e2f6;--blue-600:#275ea0;
+      --font-sans:'Geist','Onest',system-ui,-apple-system,'Segoe UI',sans-serif;--font-mono:'Geist Mono','JetBrains Mono',ui-monospace,'SFMono-Regular','Menlo',monospace;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:var(--gray-100); color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    a{ color:inherit; text-decoration:none; }
+    h1,h2,h3,p{ margin:0; }
+    ::selection{ background:var(--green-700); color:#fff; }
+    .ba-mono{ font-family:var(--font-mono); font-feature-settings:'tnum'; }
+    .ba-cta{ transition:transform .16s cubic-bezier(.22,1,.36,1), opacity .18s ease, box-shadow .22s ease, background .18s ease; }
+    .ba-cta:hover{ transform:translateY(-1px); opacity:.97; }
+    .ba-cta:active{ transform:translateY(.5px) scale(.99); }
+    .ba-cta svg{ transition:transform .22s cubic-bezier(.22,1,.36,1); }
+    .ba-cta:hover svg.arr{ transform:translate(3px,-3px); }
+    .ba-link{ position:relative; }
+    .ba-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .ba-link:hover::after{ width:100%; }
+    #ba-progress{ position:fixed; top:0; left:0; height:2px; width:0; background:linear-gradient(90deg,var(--green-700),var(--green-400)); z-index:200; pointer-events:none; box-shadow:0 0 12px -2px rgba(22,104,72,.5); }
+    [data-rv]{ will-change:transform,opacity; }
+    .ba-panel{ position:sticky; background:#fff; border:1px solid var(--gray-200); border-radius:28px 28px 0 0; box-shadow:0 -1px 0 rgba(255,255,255,.7) inset, 0 -24px 60px -40px rgba(14,17,22,.5); }
+    @keyframes ba-rise{ 0%{ transform:scaleY(.2); opacity:.4; } 100%{ transform:scaleY(1); opacity:1; } }
+    @keyframes ba-flow{ 0%{ transform:translateX(0); opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ transform:translateX(var(--flow-x,120px)); opacity:0; } }
+    @keyframes ba-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(31,125,84,.45); } 50%{ box-shadow:0 0 0 12px rgba(31,125,84,0); } }
+    @keyframes ba-blink{ 0%,100%{ opacity:1; } 50%{ opacity:.2; } }
+    @keyframes ba-sweep{ 0%{ transform:translateX(-110%); } 100%{ transform:translateX(320%); } }
+    @keyframes ba-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-7px); } }
+    @keyframes ba-draw{ from{ stroke-dashoffset:1400; } to{ stroke-dashoffset:0; } }
+    .ba-flow-dot{ position:absolute; top:50%; margin-top:-4px; width:8px; height:8px; border-radius:999px; background:var(--green-400); animation:ba-flow 2.6s linear infinite; }
+    .ba-pulse-dot{ animation:ba-pulse 2.4s ease-in-out infinite; }
+    .ba-cursor-blink{ animation:ba-blink 1.1s step-end infinite; }
+    @media (max-width:940px){ .ba-2{ grid-template-columns:1fr !important; } .ba-3{ grid-template-columns:1fr !important; } .ba-hide-md{ display:none !important; } .ba-panel{ position:relative !important; top:auto !important; } }
+    @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } [data-rv]{ opacity:1 !important; transform:none !important; filter:none !important; } }
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans); color:var(--gray-950); background:var(--gray-100); overflow-x:hidden; position:relative;">
+  <div id="ba-progress"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav id="ba-nav" style="position:fixed; top:0; left:0; width:100%; z-index:100; backdrop-filter:saturate(180%) blur(14px); background:rgba(255,255,255,.72); border-bottom:1px solid var(--gray-150);">
+    <div style="max-width:1280px; margin:0 auto; padding:0 clamp(20px,5vw,48px); height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#top" style="display:flex; align-items:center; gap:11px;">
+        <span style="width:30px; height:30px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-size:16px; font-weight:600; letter-spacing:-.02em;">Branch Avenue</span>
+      </a>
+      <div class="ba-hide-md" style="display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; color:var(--gray-600);">
+        <a class="ba-link" href="#web">Website</a>
+        <a class="ba-link" href="#stack">The system</a>
+        <a class="ba-link" href="#support">Support</a>
+        <a class="ba-link" href="#start">Get started</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <a class="ba-link ba-hide-md" href="#" style="font-size:14px; font-weight:500; color:var(--gray-600);">Sign in</a>
+        <a class="ba-cta" href="#start" style="display:inline-flex; align-items:center; gap:8px; background:var(--gray-950); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px;">Book a build call<svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <header id="top" style="position:relative; z-index:1; overflow:hidden; background:radial-gradient(120% 80% at 50% 0%, #fff 0%, var(--gray-100) 70%); padding:148px clamp(20px,5vw,48px) clamp(72px,9vh,110px);">
+    <svg aria-hidden="true" viewBox="0 0 1200 520" preserveAspectRatio="none" style="position:absolute; left:0; bottom:0; width:100%; height:70%; pointer-events:none;">
+      <path d="M -20 400 C 280 400 380 400 520 310 C 630 240 780 240 1220 240" fill="none" stroke="var(--green-100)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .2s both;"></path>
+      <path d="M 520 310 C 660 380 820 430 1220 430" fill="none" stroke="var(--green-100)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .5s both;"></path>
+      <path d="M 520 310 C 660 220 830 110 1220 96" fill="none" stroke="var(--green-200)" stroke-width="2" stroke-dasharray="1400" style="animation:ba-draw 2.4s cubic-bezier(.22,1,.36,1) .8s both;"></path>
+      <circle cx="520" cy="310" r="5" fill="var(--green-600)"></circle>
+      <circle cx="1020" cy="240" r="3.5" fill="var(--green-300)"></circle>
+      <circle cx="1040" cy="118" r="3.5" fill="var(--green-300)"></circle>
+      <circle cx="1010" cy="424" r="3.5" fill="var(--green-300)"></circle>
+    </svg>
+    <div style="position:relative; max-width:920px; margin:0 auto; text-align:center;">
+      <div data-rv="" style="display:inline-flex; align-items:center; gap:9px; margin-bottom:26px; border:1px solid var(--gray-200); background:rgba(255,255,255,.8); border-radius:999px; padding:6px 15px 6px 11px;">
+        <span class="ba-pulse-dot" style="width:8px; height:8px; border-radius:999px; background:var(--green-500);"></span>
+        <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-600);">For companies that take their website seriously</span>
+      </div>
+      <h1 data-rv="" style="font-weight:600; font-size:clamp(40px,6.4vw,80px); line-height:.98; letter-spacing:-.04em; text-wrap:balance;">The website is where<br>your business gets built.</h1>
+      <p data-rv="" style="margin:26px auto 0; font-size:clamp(17px,1.6vw,21px); line-height:1.5; font-weight:500; color:var(--gray-600); max-width:60ch;">We design and engineer the site that runs your company — then make it searchable, convert it, and scale it with ads. One serious team. One platform. You're supported at every step.</p>
+      <div data-rv="" style="margin-top:36px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <a class="ba-cta" href="#start" style="display:inline-flex; align-items:center; gap:9px; background:var(--green-700); color:#fff; font-size:15px; font-weight:600; padding:16px 28px; border-radius:999px; box-shadow:0 14px 34px -14px rgba(17,84,58,.6);">Start your website<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        <a class="ba-cta" href="#stack" style="display:inline-flex; align-items:center; background:#fff; color:var(--gray-950); border:1px solid var(--gray-300); font-size:15px; font-weight:500; padding:16px 28px; border-radius:999px;">See how it works</a>
+      </div>
+      <div data-rv="" class="ba-mono" style="margin-top:30px; display:flex; flex-wrap:wrap; gap:20px; justify-content:center; font-size:12.5px; font-weight:500; color:var(--gray-500);">
+        <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Dedicated build team</span>
+        <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>You own everything</span>
+        <span style="display:inline-flex; align-items:center; gap:7px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Human reviewed</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ STACKED SYSTEM (filled by edits) ══ -->
+  <div id="stack" style="position:relative; background:var(--gray-100); padding-bottom:clamp(40px,6vh,80px);">  <!-- intro -->
+  <div data-rv="" style="max-width:1280px; margin:0 auto; padding:clamp(56px,8vh,96px) clamp(20px,5vw,48px) clamp(8px,3vh,28px); text-align:center;">
+    <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--green-700);">One system · five layers</span>
+    <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.4vw,52px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance; max-width:18ch; margin-left:auto; margin-right:auto;">It starts with the website. Then it never stops compounding.</h2>
+    <p style="margin-top:18px; font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--gray-600); max-width:58ch; margin-left:auto; margin-right:auto;">Scroll the stack. Each layer builds on the one beneath it — and a human signs off before anything ships.</p>
+  </div>
+
+  <!-- PANEL 01 · WEBSITE -->
+  <div style="min-height:104vh; padding:0 clamp(16px,4vw,40px);">
+    <section id="web" data-screen-label="Website" class="ba-panel" data-visual="" style="top:78px; max-width:1280px; margin:0 auto; padding:clamp(36px,4.5vw,64px); border-radius:28px;">
+      <div class="ba-2" style="display:grid; grid-template-columns:1fr 1.06fr; gap:clamp(36px,5vw,64px); align-items:center;">
+        <div data-rv="">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <span style="display:inline-flex; width:40px; height:40px; border-radius:11px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="4" rx="2"></rect><path d="M3 9h18"></path><path d="M7 6.5h.01"></path></svg></span>
+            <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500);">Step 01 · Website</span>
+          </div>
+          <h2 style="font-weight:600; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">A website engineered to be your best salesperson.</h2>
+          <p style="margin-top:18px; font-size:16.5px; line-height:1.62; color:var(--gray-600); max-width:46ch;">We design and build it from the ground up — fast, accessible, and conversion-engineered. Not a template. A real asset your whole business runs on, and that you fully own.</p>
+          <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:13px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Sub-1.5s loads &amp; perfect Core Web Vitals</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Designed mobile-first, built to convert</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Tracking &amp; analytics wired in from day one</li>
+          </ul>
+          <a class="ba-link" href="#start" style="display:inline-flex; align-items:center; gap:7px; margin-top:26px; font-size:14.5px; font-weight:600; color:var(--green-700);">Start with a build call<svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+        <!-- visual: building browser -->
+        <div style="position:relative;">
+          <div style="border:1px solid var(--gray-200); border-radius:16px; background:var(--gray-25); box-shadow:0 40px 80px -50px rgba(14,17,22,.5); overflow:hidden;">
+            <div style="display:flex; align-items:center; gap:7px; padding:13px 16px; border-bottom:1px solid var(--gray-150); background:#fff;">
+              <span style="width:11px; height:11px; border-radius:999px; background:#e5564b;"></span>
+              <span style="width:11px; height:11px; border-radius:999px; background:#e9b03a;"></span>
+              <span style="width:11px; height:11px; border-radius:999px; background:#3fb068;"></span>
+              <span class="ba-mono" style="margin-left:12px; flex:1; font-size:11.5px; color:var(--gray-500); background:var(--gray-50); border:1px solid var(--gray-150); border-radius:7px; padding:5px 11px;">yourcompany.com<span class="ba-cursor-blink" style="color:var(--green-600);">▍</span></span>
+            </div>
+            <div style="position:relative; padding:18px; display:flex; flex-direction:column; gap:12px; height:320px; overflow:hidden;">
+              <div style="position:absolute; top:0; left:0; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent); animation:ba-sweep 2.8s ease-in-out infinite; pointer-events:none;"></div>
+              <div style="display:flex; gap:10px; align-items:center;"><div style="width:30px; height:30px; border-radius:8px; background:var(--green-600);"></div><div style="flex:1; height:10px; border-radius:5px; background:var(--gray-200);"></div><div style="width:64px; height:24px; border-radius:7px; background:var(--gray-900);"></div></div>
+              <div style="display:flex; gap:12px; align-items:flex-end; flex:1;">
+                <div style="flex:1.4; display:flex; flex-direction:column; gap:9px; justify-content:flex-end; height:100%;">
+                  <div style="width:80%; height:16px; border-radius:6px; background:var(--gray-900);"></div>
+                  <div style="width:62%; height:10px; border-radius:5px; background:var(--gray-200);"></div>
+                  <div style="width:120px; height:30px; border-radius:8px; background:var(--green-600); margin-top:6px;"></div>
+                </div>
+                <div data-grow="84" style="flex:1; border-radius:10px; background:linear-gradient(180deg,var(--green-100),var(--gray-100)); border:1px solid var(--gray-200); transform-origin:bottom; height:84%;"></div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:46px; transform-origin:bottom;"></div>
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:46px; transform-origin:bottom;"></div>
+                <div data-grow="70" style="border-radius:9px; background:var(--gray-100); border:1px solid var(--gray-200); height:70%; min-height:46px; transform-origin:bottom;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="position:absolute; bottom:-16px; right:-10px; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:11px 15px; box-shadow:0 18px 40px -22px rgba(14,17,22,.5);">
+            <span style="position:relative; width:38px; height:38px;"><svg width="38" height="38" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--gray-150)" stroke-width="4"></circle><circle cx="18" cy="18" r="15" fill="none" stroke="var(--green-500)" stroke-width="4" stroke-linecap="round" stroke-dasharray="94.2" stroke-dashoffset="0" transform="rotate(-90 18 18)"></circle></svg><span class="ba-mono" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:var(--green-700);">100</span></span>
+            <div><div class="ba-mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500);">Lighthouse</div><div style="font-size:13px; font-weight:600; color:var(--gray-950);">Performance</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- PANEL 02 · SEO -->
+  <div style="min-height:104vh; padding:0 clamp(16px,4vw,40px);">
+    <section id="seo" data-screen-label="SEO" class="ba-panel" data-visual="" style="top:90px; max-width:1280px; margin:0 auto; padding:clamp(36px,4.5vw,64px); border-radius:28px;">
+      <div class="ba-2" style="display:grid; grid-template-columns:1.06fr 1fr; gap:clamp(36px,5vw,64px); align-items:center;">
+        <!-- visual: ranking climb -->
+        <div class="ba-hide-md" style="position:relative; order:0;">
+          <div style="border:1px solid var(--gray-200); border-radius:16px; background:#fff; box-shadow:0 40px 80px -50px rgba(14,17,22,.5); padding:20px 20px 14px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+              <span class="ba-mono" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500);">"plumber near me"</span>
+              <span style="display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; color:var(--green-700); background:var(--green-50); border:1px solid var(--green-100); padding:4px 9px; border-radius:999px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>Page 1</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; align-items:center; gap:11px; padding:11px 13px; border:1px solid var(--green-200); border-radius:11px; background:var(--green-50);">
+                <span class="ba-mono" style="width:22px; height:22px; border-radius:7px; background:var(--green-600); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600;">1</span>
+                <div style="flex:1;"><div style="height:9px; width:70%; border-radius:5px; background:var(--green-600);"></div><div style="height:7px; width:46%; border-radius:4px; background:var(--green-200); margin-top:6px;"></div></div>
+                <span style="font-size:11px; font-weight:600; color:var(--green-700);">You</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:11px; padding:11px 13px; border:1px solid var(--gray-150); border-radius:11px; opacity:.75;"><span class="ba-mono" style="width:22px; height:22px; border-radius:7px; background:var(--gray-100); color:var(--gray-500); display:flex; align-items:center; justify-content:center; font-size:12px;">2</span><div style="flex:1;"><div style="height:9px; width:58%; border-radius:5px; background:var(--gray-200);"></div></div></div>
+              <div style="display:flex; align-items:center; gap:11px; padding:11px 13px; border:1px solid var(--gray-150); border-radius:11px; opacity:.55;"><span class="ba-mono" style="width:22px; height:22px; border-radius:7px; background:var(--gray-100); color:var(--gray-500); display:flex; align-items:center; justify-content:center; font-size:12px;">3</span><div style="flex:1;"><div style="height:9px; width:64%; border-radius:5px; background:var(--gray-200);"></div></div></div>
+            </div>
+            <div style="display:flex; align-items:flex-end; gap:7px; height:80px; margin-top:18px; padding-top:14px; border-top:1px solid var(--gray-150);">
+              <div data-grow="22" style="flex:1; background:var(--green-100); border-radius:5px 5px 0 0; height:22%;"></div>
+              <div data-grow="34" style="flex:1; background:var(--green-200); border-radius:5px 5px 0 0; height:34%;"></div>
+              <div data-grow="48" style="flex:1; background:var(--green-300); border-radius:5px 5px 0 0; height:48%;"></div>
+              <div data-grow="63" style="flex:1; background:var(--green-400); border-radius:5px 5px 0 0; height:63%;"></div>
+              <div data-grow="82" style="flex:1; background:var(--green-500); border-radius:5px 5px 0 0; height:82%;"></div>
+              <div data-grow="100" style="flex:1; background:var(--green-600); border-radius:5px 5px 0 0; height:100%;"></div>
+            </div>
+          </div>
+          <div style="position:absolute; top:-16px; left:-12px; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:10px 14px; box-shadow:0 18px 40px -22px rgba(14,17,22,.5);">
+            <div><div class="ba-mono" data-countup="312" data-suffix="%" style="font-size:20px; font-weight:600; color:var(--green-700); letter-spacing:-.02em;">312%</div><div style="font-size:11px; color:var(--gray-500);">organic traffic</div></div>
+          </div>
+        </div>
+        <div data-rv="">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <span style="display:inline-flex; width:40px; height:40px; border-radius:11px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+            <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500);">Step 02 · SEO</span>
+          </div>
+          <h2 style="font-weight:600; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Then we make it the answer people find.</h2>
+          <p style="margin-top:18px; font-size:16.5px; line-height:1.62; color:var(--gray-600); max-width:46ch;">A great site nobody finds is wasted. We research your market, build the content and pages that rank, and earn the authority that compounds — month after month.</p>
+          <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:13px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Market &amp; keyword research mapped to intent</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Technical SEO &amp; content built to rank</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Authority that keeps compounding</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- PANEL 03 · CRO -->
+  <div style="min-height:104vh; padding:0 clamp(16px,4vw,40px);">
+    <section id="cro" data-screen-label="CRO" class="ba-panel" data-visual="" style="top:102px; max-width:1280px; margin:0 auto; padding:clamp(36px,4.5vw,64px); border-radius:28px;">
+      <div class="ba-2" style="display:grid; grid-template-columns:1fr 1.06fr; gap:clamp(36px,5vw,64px); align-items:center;">
+        <div data-rv="">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <span style="display:inline-flex; width:40px; height:40px; border-radius:11px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></span>
+            <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500);">Step 03 · CRO</span>
+          </div>
+          <h2 style="font-weight:600; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Then we turn more visitors into customers.</h2>
+          <p style="margin-top:18px; font-size:16.5px; line-height:1.62; color:var(--gray-600); max-width:46ch;">Traffic without conversion is wasted spend. We run disciplined experiments on copy, layout, forms, and offers — and lock in every winner. Each month outperforms the last.</p>
+          <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:13px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>A/B tests with statistical rigor</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Funnel &amp; behavior analysis</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Every winning variant locked in</li>
+          </ul>
+        </div>
+        <!-- visual: A/B test -->
+        <div style="position:relative;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div style="border:1px solid var(--gray-200); border-radius:14px; background:#fff; padding:16px; opacity:.7;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;"><span class="ba-mono" style="font-size:11px; color:var(--gray-500);">Variant A</span><span style="font-size:11px; color:var(--gray-400);">control</span></div>
+              <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:9px; width:80%; border-radius:5px; background:var(--gray-200);"></div><div style="height:7px; width:60%; border-radius:4px; background:var(--gray-150);"></div><div style="height:26px; width:74px; border-radius:8px; background:var(--gray-300); margin-top:6px;"></div></div>
+              <div style="margin-top:16px; padding-top:12px; border-top:1px solid var(--gray-150);"><div class="ba-mono" style="font-size:19px; font-weight:600; color:var(--gray-700); letter-spacing:-.02em;">4.1%</div><div style="font-size:11px; color:var(--gray-500);">conversion</div></div>
+            </div>
+            <div style="border:1.5px solid var(--green-300); border-radius:14px; background:linear-gradient(168deg,var(--green-50),#fff); padding:16px; position:relative; box-shadow:0 24px 50px -34px rgba(17,84,58,.5);">
+              <div style="position:absolute; top:-11px; right:12px; display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:600; color:#fff; background:var(--green-600); padding:4px 9px; border-radius:999px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Winner</div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;"><span class="ba-mono" style="font-size:11px; color:var(--green-700);">Variant B</span></div>
+              <div style="display:flex; flex-direction:column; gap:8px;"><div style="height:9px; width:80%; border-radius:5px; background:var(--green-600);"></div><div style="height:7px; width:60%; border-radius:4px; background:var(--green-200);"></div><div style="height:26px; width:90px; border-radius:8px; background:var(--green-600); margin-top:6px;"></div></div>
+              <div style="margin-top:16px; padding-top:12px; border-top:1px solid var(--green-100);"><div class="ba-mono" style="font-size:19px; font-weight:600; color:var(--green-700); letter-spacing:-.02em;">6.8%</div><div style="font-size:11px; color:var(--green-700);">conversion</div></div>
+            </div>
+          </div>
+          <div style="margin-top:14px; border:1px solid var(--gray-200); border-radius:14px; background:#fff; padding:16px 18px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;"><span style="font-size:12.5px; font-weight:600; color:var(--gray-700);">Predicted lift</span><span class="ba-mono" data-countup="66" data-prefix="+" data-suffix="%" style="font-size:15px; font-weight:600; color:var(--green-700);">+66%</span></div>
+            <div style="height:9px; border-radius:999px; background:var(--gray-100); overflow:hidden;"><span data-bar="78" style="display:block; height:100%; width:78%; border-radius:999px; background:linear-gradient(90deg,var(--green-600),var(--green-400));"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- PANEL 04 · ADS -->
+  <div style="min-height:104vh; padding:0 clamp(16px,4vw,40px);">
+    <section id="ads" data-screen-label="Ads" class="ba-panel" data-visual="" style="top:114px; max-width:1280px; margin:0 auto; padding:clamp(36px,4.5vw,64px); border-radius:28px;">
+      <div class="ba-2" style="display:grid; grid-template-columns:1.06fr 1fr; gap:clamp(36px,5vw,64px); align-items:center;">
+        <!-- visual: ads channels + ROAS -->
+        <div class="ba-hide-md" style="position:relative;">
+          <div style="border:1px solid var(--gray-200); border-radius:16px; background:#fff; box-shadow:0 40px 80px -50px rgba(14,17,22,.5); padding:20px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;"><span class="ba-mono" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500);">Channels · last 30 days</span><span style="display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:var(--green-700);"><span class="ba-pulse-dot" style="width:7px; height:7px; border-radius:999px; background:var(--green-500);"></span>Live</span></div>
+            <div style="display:flex; flex-direction:column; gap:13px;">
+              <div><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:6px;"><span style="font-weight:600; color:var(--gray-800);">Google Search</span><span class="ba-mono" style="color:var(--gray-500);">5.1x ROAS</span></div><div style="height:8px; border-radius:999px; background:var(--gray-100); overflow:hidden;"><span data-bar="88" style="display:block; height:100%; width:88%; border-radius:999px; background:var(--green-500);"></span></div></div>
+              <div><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:6px;"><span style="font-weight:600; color:var(--gray-800);">Meta</span><span class="ba-mono" style="color:var(--gray-500);">3.9x ROAS</span></div><div style="height:8px; border-radius:999px; background:var(--gray-100); overflow:hidden;"><span data-bar="68" style="display:block; height:100%; width:68%; border-radius:999px; background:var(--blue-600);"></span></div></div>
+              <div><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:6px;"><span style="font-weight:600; color:var(--gray-800);">Performance Max</span><span class="ba-mono" style="color:var(--gray-500);">4.4x ROAS</span></div><div style="height:8px; border-radius:999px; background:var(--gray-100); overflow:hidden;"><span data-bar="76" style="display:block; height:100%; width:76%; border-radius:999px; background:var(--amber-600);"></span></div></div>
+            </div>
+            <div style="margin-top:18px; padding:14px 16px; border-radius:12px; background:var(--gray-950); display:flex; align-items:center; justify-content:space-between;">
+              <div style="display:flex; align-items:center; gap:11px;"><span class="ba-mono" style="font-size:11px; color:rgba(255,255,255,.6);">$8,000</span><span style="position:relative; width:60px; height:2px; background:rgba(255,255,255,.18); border-radius:2px; overflow:visible;"><span class="ba-flow-dot" style="--flow-x:60px;"></span></span><span class="ba-mono" style="font-size:11px; color:var(--green-300);">revenue</span></div>
+              <div style="text-align:right;"><div class="ba-mono" data-countup="44200" data-prefix="$" style="font-size:20px; font-weight:600; color:#fff; letter-spacing:-.02em;">$44,200</div></div>
+            </div>
+          </div>
+          <div style="margin-top:16px; display:flex; align-items:center; gap:16px;">
+            <span class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-400);">Running on</span>
+            <span style="display:inline-flex; align-items:center; gap:7px; padding:7px 12px; border:1px solid var(--gray-200); border-radius:9px; background:#fff;">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-label="Google"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"></path><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"></path></svg>
+              <span style="font-size:12.5px; font-weight:600; color:var(--gray-800);">Google</span>
+            </span>
+            <span style="display:inline-flex; align-items:center; gap:7px; padding:7px 12px; border:1px solid var(--gray-200); border-radius:9px; background:#fff;">
+              <svg width="17" height="17" viewBox="0 0 24 24" aria-label="Meta"><path fill="#0866FF" d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.157-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.087-.265z"></path></svg>
+              <span style="font-size:12.5px; font-weight:600; color:var(--gray-800);">Meta</span>
+            </span>
+          </div>
+          <div style="position:absolute; bottom:-16px; right:-12px; display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:10px 15px; box-shadow:0 18px 40px -22px rgba(14,17,22,.5);">
+            <div><div class="ba-mono" data-countup="42" data-suffix="x" style="font-size:20px; font-weight:600; color:var(--green-700); letter-spacing:-.02em;">42x</div><div style="font-size:11px; color:var(--gray-500);">blended ROAS</div></div>
+          </div>
+        </div>
+        <div data-rv="">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <span style="display:inline-flex; width:40px; height:40px; border-radius:11px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg></span>
+            <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500);">Step 04 · Ads</span>
+          </div>
+          <h2 style="font-weight:600; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance;">Then we pour fuel on what already works.</h2>
+          <p style="margin-top:18px; font-size:16.5px; line-height:1.62; color:var(--gray-600); max-width:46ch;">Once the site converts, paid becomes an accelerator instead of a gamble. We run Google, Meta, and PMax to your CAC target — and reallocate budget to whatever's winning.</p>
+          <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:13px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Targeting &amp; segmentation that finds buyers</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Creative tested across every platform</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--gray-700);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Budget that follows the returns</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- PANEL 05 · AI STACK -->
+  <div style="min-height:106vh; padding:0 clamp(16px,4vw,40px);">
+    <section id="ai" data-screen-label="AI stack" data-visual="" class="ba-panel" style="top:126px; max-width:1280px; margin:0 auto; padding:clamp(36px,4.5vw,64px); border-radius:28px; background:var(--gray-950); border-color:var(--gray-900); box-shadow:0 -24px 70px -40px rgba(0,0,0,.8); overflow:hidden;">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(70% 90% at 82% 0%, rgba(91,67,179,.26), transparent 56%); pointer-events:none;"></div>
+      <div class="ba-2" style="position:relative; display:grid; grid-template-columns:1fr 1.06fr; gap:clamp(36px,5vw,64px); align-items:center;">
+        <div data-rv="">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <span style="display:inline-flex; width:40px; height:40px; border-radius:11px; background:rgba(91,67,179,.18); align-items:center; justify-content:center; color:#b9a8ef;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path></svg></span>
+            <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#b9a8ef;">The platform · AI + humans</span>
+          </div>
+          <h2 style="font-weight:600; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.03em; text-wrap:balance; color:#fff;">An AI stack runs underneath. Real people run the calls.</h2>
+          <p style="margin-top:18px; font-size:16.5px; line-height:1.62; color:rgba(255,255,255,.62); max-width:46ch;">Every layer above is watched by agents that surface opportunities around the clock. But nothing ships on its own — a strategist reviews each move, and you approve what matters. Agents propose, humans dispose.</p>
+          <ul style="list-style:none; padding:0; margin:24px 0 0; display:flex; flex-direction:column; gap:13px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:rgba(255,255,255,.82);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#74b596" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>Agents monitor web, SEO, CRO &amp; ads continuously</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:rgba(255,255,255,.82);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#74b596" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>A senior strategist validates every proposal</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:rgba(255,255,255,.82);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#74b596" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg>You approve — in minutes, from one place</li>
+          </ul>
+        </div>
+        <!-- visual: approval inbox -->
+        <div style="position:relative;">
+          <div style="border:1px solid var(--gray-800); border-radius:16px; background:#14181e; box-shadow:0 40px 80px -40px rgba(0,0,0,.7); overflow:hidden;">
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--gray-800);">
+              <span class="ba-mono" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5);">Approval queue</span>
+              <span style="display:inline-flex; align-items:center; gap:7px; font-size:11.5px; font-weight:600; color:#d6c9ff; background:rgba(91,67,179,.22); border:1px solid rgba(91,67,179,.4); padding:4px 10px; border-radius:999px;"><span class="ba-pulse-dot" style="width:6px; height:6px; border-radius:999px; background:#a78bfa;"></span>3 waiting on you</span>
+            </div>
+            <div style="padding:14px; display:flex; flex-direction:column; gap:10px;">
+              <div style="border:1px solid var(--gray-800); border-radius:12px; background:#191e25; padding:14px 15px;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;"><span class="ba-mono" style="font-size:10px; color:#b9a8ef; background:rgba(91,67,179,.18); padding:2px 7px; border-radius:5px;">CRO agent</span><span class="ba-mono" style="font-size:10.5px; color:rgba(255,255,255,.4);">prp_8841</span></div>
+                <div style="font-size:13.5px; font-weight:600; color:#fff; line-height:1.4;">Swap hero CTA on /book — predicts +18% lead rate</div>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:12px;">
+                  <span class="ba-cta" style="display:inline-flex; align-items:center; gap:6px; flex:1; justify-content:center; background:var(--green-600); color:#fff; font-size:12.5px; font-weight:600; padding:9px; border-radius:9px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Approve</span>
+                  <span style="font-size:12.5px; font-weight:500; color:rgba(255,255,255,.6); border:1px solid var(--gray-700); padding:9px 16px; border-radius:9px;">Snooze</span>
+                </div>
+              </div>
+              <div style="border:1px solid var(--gray-800); border-radius:12px; background:#191e25; padding:14px 15px; opacity:.82;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;"><span class="ba-mono" style="font-size:10px; color:#b9a8ef; background:rgba(91,67,179,.18); padding:2px 7px; border-radius:5px;">Ads agent</span><span class="ba-mono" style="font-size:10.5px; color:rgba(255,255,255,.4);">prp_8839</span></div>
+                <div style="font-size:13.5px; font-weight:600; color:#fff; line-height:1.4;">Reallocate $1,200 to converting search terms</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; padding:13px 18px; border-top:1px solid var(--gray-800); background:#121519;">
+              <span style="width:28px; height:28px; border-radius:999px; background:linear-gradient(135deg,var(--green-500),var(--green-700)); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#fff;">DR</span>
+              <div style="flex:1;"><div style="font-size:12px; font-weight:600; color:#fff;">Dana Ruiz · your strategist</div><div style="font-size:11px; color:rgba(255,255,255,.45);">Reviewed all 3 · ready for you</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+  <!-- ══ TAIL (filled by edits) ══ -->
+  <div id="tail">
+
+  <!-- ══ SUPPORT / PARTNERSHIP ══ -->
+  <section id="support" data-screen-label="Support" style="background:#fff; border-top:1px solid var(--gray-200); padding:clamp(80px,11vh,130px) clamp(20px,5vw,48px);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div data-rv="" style="max-width:760px; margin-bottom:clamp(44px,5vw,60px);">
+        <span class="ba-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--green-700);">You're never doing this alone</span>
+        <h2 style="margin-top:16px; font-weight:600; font-size:clamp(32px,4.4vw,54px); line-height:1.03; letter-spacing:-.03em; text-wrap:balance;">Built with you. Supported for the long run.</h2>
+        <p style="margin-top:18px; font-size:18px; line-height:1.6; color:var(--gray-600); max-width:56ch;">This is a serious build for a serious business — so you get a real team, real timelines, and a single place to see everything. No tickets into the void.</p>
+      </div>
+      <div class="ba-3" data-rv="" style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        <div style="border:1px solid var(--gray-200); border-radius:18px; padding:clamp(26px,2.6vw,34px); background:#fff;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700); margin-bottom:20px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+          <h3 style="font-size:20px; font-weight:600; letter-spacing:-.02em; margin-bottom:10px;">A dedicated team</h3>
+          <p style="font-size:14.5px; line-height:1.6; color:var(--gray-600);">A strategist, a designer, and an engineer who learn your business — not a rotating queue of strangers.</p>
+        </div>
+        <div style="border:1px solid var(--gray-200); border-radius:18px; padding:clamp(26px,2.6vw,34px); background:#fff;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700); margin-bottom:20px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+          <h3 style="font-size:20px; font-weight:600; letter-spacing:-.02em; margin-bottom:10px;">You own it all</h3>
+          <p style="font-size:14.5px; line-height:1.6; color:var(--gray-600);">Your website, content, data, and ad accounts are yours. Month-to-month, no lock-in, no hostage situations.</p>
+        </div>
+        <div style="border:1px solid var(--gray-200); border-radius:18px; padding:clamp(26px,2.6vw,34px); background:#fff;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:var(--green-50); align-items:center; justify-content:center; color:var(--green-700); margin-bottom:20px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+          <h3 style="font-size:20px; font-weight:600; letter-spacing:-.02em; margin-bottom:10px;">One clear view</h3>
+          <p style="font-size:14.5px; line-height:1.6; color:var(--gray-600);">Every proposal, experiment, and result in one portal — so you always know what's happening and what's next.</p>
+        </div>
+      </div>
+      <!-- testimonial + receipt -->
+      <div data-rv="" class="ba-2" style="margin-top:clamp(28px,3vw,36px); border:1px solid var(--gray-200); border-radius:18px; background:#fff; display:grid; grid-template-columns:1.15fr 1fr; overflow:hidden;">
+        <div style="padding:clamp(24px,2.8vw,32px); border-right:1px solid var(--gray-150); display:flex; flex-direction:column; justify-content:center;">
+          <p style="font-size:16.5px; font-weight:500; line-height:1.55; letter-spacing:-.005em; color:var(--gray-900);">"I stopped getting surprised by my own stores. The Monday report tells me who's up, who's soft, and what the system already did about it."</p>
+          <div style="display:flex; align-items:center; gap:10px; margin-top:16px;">
+            <span style="width:34px; height:34px; border-radius:999px; background:linear-gradient(135deg,var(--green-500),var(--green-700)); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#fff; flex:none;">MH</span>
+            <div><div style="font-size:12.5px; font-weight:600; color:var(--gray-900);">Mark Herrick</div><div style="font-size:11.5px; color:var(--gray-500);">Principal, 14-rooftop dealership group</div></div>
+          </div>
+        </div>
+        <div style="padding:clamp(22px,2.6vw,28px) clamp(24px,2.8vw,32px); background:var(--gray-25);">
+          <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-500); margin-bottom:12px;">Every change has a receipt</div>
+          <div style="display:flex; align-items:center; gap:9px; padding:8px 0; border-bottom:1px solid var(--gray-150);"><span style="width:7px; height:7px; border-radius:999px; background:var(--violet-600); flex:none;"></span><span style="font-size:12.5px; color:var(--gray-700); flex:1;">An agent proposed the change</span><span class="ba-mono" style="font-size:10.5px; color:var(--gray-400);">14:02</span></div>
+          <div style="display:flex; align-items:center; gap:9px; padding:8px 0; border-bottom:1px solid var(--gray-150);"><span style="width:7px; height:7px; border-radius:999px; background:var(--green-600); flex:none;"></span><span style="font-size:12.5px; color:var(--gray-700); flex:1;">Your strategist approved it</span><span class="ba-mono" style="font-size:10.5px; color:var(--gray-400);">14:09</span></div>
+          <div style="display:flex; align-items:center; gap:9px; padding:8px 0;"><span style="width:7px; height:7px; border-radius:999px; background:var(--blue-600); flex:none;"></span><span style="font-size:12.5px; color:var(--gray-700); flex:1;">Rolled out · reversible for 30 days</span><span class="ba-mono" style="font-size:10.5px; color:var(--gray-400);">14:11</span></div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+            <span style="display:inline-flex; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">SOC 2 Type II</span>
+            <span style="display:inline-flex; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">99.98% uptime</span>
+            <span style="display:inline-flex; font-size:11px; font-weight:600; color:var(--gray-600); border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:4px 10px;">You own your data</span>
+          </div>
+        </div>
+      </div>
+      <!-- stats band -->
+      <div data-rv="" style="margin-top:clamp(28px,3vw,36px); display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,3vw,40px); border:1px solid var(--gray-200); border-radius:18px; background:var(--gray-25); padding:clamp(30px,3.5vw,44px) clamp(28px,3vw,44px);">
+        <div><div class="ba-mono" data-countup="240" data-suffix="+" style="font-size:clamp(30px,3.4vw,42px); font-weight:600; letter-spacing:-.03em; color:var(--gray-950);">240+</div><div style="font-size:13px; color:var(--gray-600); margin-top:4px;">Websites built &amp; managed</div></div>
+        <div><div class="ba-mono" data-countup="312" data-suffix="%" style="font-size:clamp(30px,3.4vw,42px); font-weight:600; letter-spacing:-.03em; color:var(--green-700);">312%</div><div style="font-size:13px; color:var(--gray-600); margin-top:4px;">Avg organic traffic lift</div></div>
+        <div><div class="ba-mono" data-countup="4" data-suffix="x" style="font-size:clamp(30px,3.4vw,42px); font-weight:600; letter-spacing:-.03em; color:var(--gray-950);">4x</div><div style="font-size:13px; color:var(--gray-600); margin-top:4px;">Median blended ROAS</div></div>
+        <div><div class="ba-mono" style="font-size:clamp(30px,3.4vw,42px); font-weight:600; letter-spacing:-.03em; color:var(--gray-950);">&lt;1 day</div><div style="font-size:13px; color:var(--gray-600); margin-top:4px;">Typical response time</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══ -->
+  <section id="start" data-screen-label="Get started" style="padding:clamp(80px,11vh,130px) clamp(20px,5vw,48px); background:var(--gray-100);">
+    <div data-rv="" style="position:relative; max-width:1280px; margin:0 auto; border-radius:28px; overflow:hidden; background:linear-gradient(160deg,var(--green-700),var(--green-900)); padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px); text-align:center;">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(60% 80% at 50% 0%, rgba(116,181,150,.3), transparent 60%); pointer-events:none;"></div>
+      <div style="position:relative;">
+        <h2 style="font-weight:600; font-size:clamp(34px,5vw,62px); line-height:1.02; letter-spacing:-.035em; color:#fff; text-wrap:balance; max-width:18ch; margin:0 auto;">Let's build the website your business deserves.</h2>
+        <p style="margin:22px auto 0; font-size:clamp(16px,1.5vw,19px); line-height:1.55; color:rgba(255,255,255,.82); max-width:52ch;">Start with a free build call. We'll review where you are, what to build first, and the fastest path to growth — no obligation.</p>
+        <div style="margin-top:36px; display:flex; flex-wrap:wrap; gap:13px; justify-content:center;">
+          <a class="ba-cta" href="#" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--green-800); font-size:15px; font-weight:600; padding:16px 30px; border-radius:999px;">Book a build call<svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <a class="ba-cta" href="#" style="display:inline-flex; align-items:center; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); font-size:15px; font-weight:500; padding:16px 30px; border-radius:999px;">Get a free site audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer style="background:var(--gray-950); color:var(--gray-300); padding:clamp(56px,8vh,88px) clamp(20px,5vw,48px) 36px;">
+    <div style="max-width:1280px; margin:0 auto;">
+      <!-- brand row -->
+      <div class="ba-2" style="display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(32px,5vw,72px); align-items:start; padding-bottom:clamp(36px,4vw,52px); border-bottom:1px solid var(--gray-800);">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--gray-950)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+            <span style="font-size:19px; font-weight:600; letter-spacing:-.02em; color:#fff;">Branch Avenue</span>
+          </div>
+          <p style="margin-top:18px; font-size:14.5px; line-height:1.65; color:var(--gray-400); max-width:52ch;">Branch Avenue is a <b style="color:var(--gray-200); font-weight:600;">website design and development agency</b> for companies that take their site seriously. We build custom business websites engineered for speed, Core Web Vitals, and conversion — then run the <a class="ba-link" href="Service-SEO.dc.html" style="color:var(--gray-200);">SEO</a>, <a class="ba-link" href="Service-CRO.dc.html" style="color:var(--gray-200);">conversion rate optimization</a>, and <a class="ba-link" href="Service-Ads.dc.html" style="color:var(--gray-200);">paid ads</a> on top. AI agents watch it all; a human strategist approves every change.</p>
+          <a class="ba-cta" href="#start" style="display:inline-flex; align-items:center; gap:9px; margin-top:24px; background:#fff; color:var(--gray-950); font-size:14px; font-weight:600; padding:13px 24px; border-radius:999px;">Book a build call<svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+        <div class="ba-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,36px);">
+          <div>
+            <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">The system</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;">
+              <a class="ba-link" href="#web" style="color:var(--gray-300);">Website</a>
+              <a class="ba-link" href="#seo" style="color:var(--gray-300);">SEO</a>
+              <a class="ba-link" href="#cro" style="color:var(--gray-300);">CRO</a>
+              <a class="ba-link" href="#ads" style="color:var(--gray-300);">Ads</a>
+              <a class="ba-link" href="#ai" style="color:var(--gray-300);">The AI stack</a>
+            </div>
+          </div>
+          <div>
+            <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">Services</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;">
+              <a class="ba-link" href="Service-Web-Design.dc.html" style="color:var(--gray-300);">Website design</a>
+              <a class="ba-link" href="Service-SEO.dc.html" style="color:var(--gray-300);">SEO</a>
+              <a class="ba-link" href="Service-Ads.dc.html" style="color:var(--gray-300);">Ads management</a>
+              <a class="ba-link" href="Service-CRO.dc.html" style="color:var(--gray-300);">CRO</a>
+            </div>
+          </div>
+          <div>
+            <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">Industries</div>
+            <div style="display:flex; flex-direction:column; gap:11px; font-size:13.5px;">
+              <a class="ba-link" href="Industry-Automotive.dc.html" style="color:var(--gray-300);">Dealerships</a>
+              <a class="ba-link" href="Industry-Contractors.dc.html" style="color:var(--gray-300);">Contractors</a>
+              <a class="ba-link" href="Industry-Franchise.dc.html" style="color:var(--gray-300);">Franchises</a>
+              <a class="ba-link" href="Industry-Shopify.dc.html" style="color:var(--gray-300);">Shopify stores</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- topic coverage -->
+      <div style="padding:clamp(26px,3vw,36px) 0; border-bottom:1px solid var(--gray-800);">
+        <div class="ba-mono" style="font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:14px;">What we build, in plain terms</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Custom website design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Web development · frontend &amp; backend</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Website redesign &amp; migration</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Responsive &amp; mobile-first design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Core Web Vitals &amp; site speed</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Landing page design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">UX &amp; conversion-focused design</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Ecommerce &amp; Shopify builds</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">CMS &amp; content architecture</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Technical SEO built in</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Analytics &amp; call tracking wired in</span>
+          <span style="font-size:12px; font-weight:500; color:var(--gray-400); border:1px solid var(--gray-800); border-radius:999px; padding:5px 12px;">Website maintenance &amp; support</span>
+        </div>
+      </div>
+      <!-- legal row -->
+      <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; padding-top:26px;">
+        <span class="ba-mono" style="font-size:12px; color:var(--gray-500);">© 2026 Branch Avenue · Website design &amp; development</span>
+        <div style="display:flex; gap:22px; font-size:12.5px; color:var(--gray-500);">
+          <a class="ba-link" href="#support" style="color:var(--gray-500);">Support</a>
+          <a class="ba-link" href="#start" style="color:var(--gray-500);">Get started</a>
+          <a class="ba-link" href="Home v8 (agentic).dc.html" style="color:var(--gray-500);">Digital marketing</a>
+        </div>
+        <span class="ba-mono" style="font-size:12px; color:var(--gray-600);">The website is where your business gets built.</span>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    try { this._initProgress(); } catch (e) {}
+    try { this._initNav(); } catch (e) {}
+    const reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || this.props.reduceMotion;
+    if (reduce) { this._showAll(); return; }
+    try { this._initReveals(); } catch (e) { this._showAll(); }
+    try { this._initCounters(); } catch (e) {}
+    try { this._initVisuals(); } catch (e) {}
+    setTimeout(() => this._showAll(), 2800);
+  }
+
+  _showAll() {
+    Array.prototype.slice.call(document.querySelectorAll('[data-rv]')).forEach((el) => {
+      el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none';
+    });
+  }
+
+  _initProgress() {
+    const bar = document.getElementById('ba-progress');
+    if (!bar) return;
+    const upd = () => {
+      const se = document.scrollingElement || document.documentElement;
+      const max = se.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (se.scrollTop / max) * 100 : 0).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  }
+
+  _initNav() {
+    const nav = document.getElementById('ba-nav');
+    if (!nav) return;
+    nav.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, background .3s ease';
+    let last = 0;
+    const onScroll = () => {
+      const y = (document.scrollingElement || document.documentElement).scrollTop;
+      if (y > 12) { nav.style.boxShadow = '0 12px 34px -24px rgba(14,17,22,.55)'; nav.style.background = 'rgba(255,255,255,.9)'; }
+      else { nav.style.boxShadow = 'none'; nav.style.background = 'rgba(255,255,255,.72)'; }
+      if (y > 280 && y > last + 4) nav.style.transform = 'translateY(-100%)';
+      else if (y < last - 4 || y < 280) nav.style.transform = 'translateY(0)';
+      last = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  _initReveals() {
+    const vh = window.innerHeight || 800;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-rv]'));
+    els.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < vh * 0.95) { el._done = 1; return; }
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.filter = 'blur(8px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1), filter .8s ease';
+    });
+    const fire = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none'; };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => {
+          if (e.isIntersecting && !e.target._done) { e.target._done = 1; fire(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach((el) => { if (!el._done) io.observe(el); });
+    } else { els.forEach(fire); }
+  }
+
+  _initCounters() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-countup]'));
+    if (!els.length) return;
+    const fmt = (n, prefix, suffix) => (prefix || '') + Math.round(n).toLocaleString('en-US') + (suffix || '');
+    const run = (el) => {
+      const target = parseFloat(el.getAttribute('data-countup'));
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      const dur = 1200, start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmt(target * e, prefix, suffix);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting && !e.target._c) { e.target._c = 1; run(e.target); io.unobserve(e.target); } });
+      }, { threshold: 0.5 });
+      els.forEach((el) => io.observe(el));
+    }
+  }
+
+  _initVisuals() {
+    // play bar-rise + width animations when a panel's visual enters view
+    const vis = Array.prototype.slice.call(document.querySelectorAll('[data-visual]'));
+    if (!vis.length) return;
+    const play = (root) => {
+      Array.prototype.slice.call(root.querySelectorAll('[data-bar]')).forEach((b) => {
+        const pct = b.getAttribute('data-bar') + '%';
+        b.style.transition = 'none'; b.style.width = '0%';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          b.style.transition = 'width 1.1s cubic-bezier(.22,1,.36,1)'; b.style.width = pct;
+        }));
+      });
+      Array.prototype.slice.call(root.querySelectorAll('[data-grow]')).forEach((g, i) => {
+        const h = g.getAttribute('data-grow') + '%';
+        g.style.transition = 'none'; g.style.height = '6%';
+        setTimeout(() => {
+          g.style.transition = 'height .9s cubic-bezier(.22,1,.36,1)'; g.style.height = h;
+        }, 80 + i * 110);
+      });
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) play(e.target); });
+      }, { threshold: 0.4 });
+      vis.forEach((v) => io.observe(v));
+    } else { vis.forEach(play); }
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Home v9 (web-first)";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>

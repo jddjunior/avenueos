@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Branch Avenue — Hand over the keys. We run your dealership's marketing.</title>
+  <meta name="description" content="The done-for-you marketing operation for car dealerships. We build it, run it, and bring you the wins. You just approve. SEO, websites, Google &amp; Meta ads, and CRO — handled.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+    :root{
+      --gray-0:#ffffff;--gray-25:#fbfbfc;--gray-50:#f7f8f9;--gray-100:#f0f1f3;--gray-150:#e8eaed;--gray-200:#dfe2e6;--gray-300:#cbcfd4;--gray-400:#a4a9b0;--gray-500:#787e87;--gray-600:#565c65;--gray-700:#3c424b;--gray-800:#272c33;--gray-900:#181c22;--gray-950:#0e1116;
+      --green-50:#ecf5f0;--green-100:#d3e8dd;--green-200:#a9d2bd;--green-300:#74b596;--green-400:#3f9670;--green-500:#1f7d54;--green-600:#166848;--green-700:#11543a;--green-800:#0e442f;--green-900:#0a3122;
+      --amber-50:#fbf1df;--amber-600:#a8720f;--violet-600:#5b43b3;
+      --font-sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;--font-mono:'Geist Mono',ui-monospace,'SFMono-Regular','Menlo',monospace;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; background:#fff; color:var(--gray-950); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    a{ color:inherit; text-decoration:none; }
+    h1,h2,h3,p{ margin:0; }
+    ::selection{ background:var(--green-700); color:#fff; }
+    .k-mono{ font-family:var(--font-mono); font-feature-settings:'tnum'; }
+    .k-cta{ transition:transform .16s cubic-bezier(.22,1,.36,1), box-shadow .22s ease, background .18s ease; }
+    .k-cta:hover{ transform:translateY(-1px); }
+    .k-cta:active{ transform:translateY(.5px) scale(.99); }
+    .k-cta svg{ transition:transform .22s cubic-bezier(.22,1,.36,1); }
+    .k-cta:hover svg{ transform:translate(3px,-3px); }
+    .k-link{ position:relative; }
+    .k-link::after{ content:""; position:absolute; left:0; bottom:-3px; height:1px; width:0; background:currentColor; transition:width .28s cubic-bezier(.22,1,.36,1); }
+    .k-link:hover::after{ width:100%; }
+    #k-progress{ position:fixed; top:0; left:0; height:2px; width:0; background:linear-gradient(90deg,var(--green-700),var(--green-400)); z-index:200; pointer-events:none; }
+    [data-rv]{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    [data-rv].in{ opacity:1; transform:none; }
+    .k-word{ display:inline-block; opacity:0; transform:translateY(0.5em); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+    .k-word.in{ opacity:1; transform:none; }
+    .k-prop{ transition:border-color .25s ease, transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background .3s ease; }
+    .k-prop:hover{ border-color:var(--gray-300); transform:translateY(-2px); box-shadow:0 20px 44px -30px rgba(14,17,22,.4); }
+    .k-prop.approved{ border-color:var(--green-300); background:var(--green-50); }
+    .k-approve{ transition:background .18s ease, color .18s ease, transform .14s ease, border-color .18s ease; }
+    .k-approve:hover{ background:var(--green-800); }
+    .k-approve:active{ transform:scale(.97); }
+    .k-approve.done{ background:#fff; color:var(--green-700); border:1px solid var(--green-300); cursor:default; }
+    .k-svc{ transition:border-color .25s ease, transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s ease; }
+    .k-svc:hover{ transform:translateY(-3px); border-color:var(--gray-300); box-shadow:0 22px 48px -32px rgba(14,17,22,.42); }
+    .k-faq{ border-bottom:1px solid var(--gray-200); }
+    .k-faq summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:24px 4px; font-size:19px; font-weight:600; letter-spacing:-.01em; }
+    .k-faq summary::-webkit-details-marker{ display:none; }
+    .k-faq summary svg{ flex:none; transition:transform .28s cubic-bezier(.22,1,.36,1); color:var(--gray-400); }
+    .k-faq[open] summary svg{ transform:rotate(45deg); }
+    .k-faq .k-a{ padding:0 4px 26px; font-size:16px; line-height:1.62; color:var(--gray-600); max-width:64ch; }
+    @keyframes k-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
+    @keyframes k-ring{ 0%{ box-shadow:0 0 0 0 rgba(31,125,84,.45); } 70%,100%{ box-shadow:0 0 0 16px rgba(31,125,84,0); } }
+    .k-key{ animation:k-float 5s ease-in-out infinite; }
+    @media (max-width:940px){ .k-2{ grid-template-columns:1fr !important; } .k-3{ grid-template-columns:1fr !important; } .k-hide-md{ display:none !important; } .k-steps{ grid-template-columns:1fr !important; } }
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; } [data-rv],.k-word{ opacity:1 !important; transform:none !important; } }
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans); color:var(--gray-950); background:#fff; overflow-x:hidden; position:relative;">
+
+  <div id="k-progress"></div>
+
+  <!-- NAV -->
+  <nav style="position:fixed; top:0; left:0; width:100%; z-index:100; backdrop-filter:saturate(180%) blur(14px); background:rgba(255,255,255,.78); border-bottom:1px solid var(--gray-150);">
+    <div style="max-width:1220px; margin:0 auto; padding:0 clamp(20px,5vw,48px); height:68px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#top" style="display:flex; align-items:center; gap:11px;">
+        <span style="width:30px; height:30px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-size:16px; font-weight:600; letter-spacing:-.02em;">Branch Avenue</span>
+      </a>
+      <div class="k-hide-md" style="display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; color:var(--gray-600);">
+        <a class="k-link" href="#how">How it works</a>
+        <a class="k-link" href="#approve">You approve</a>
+        <a class="k-link" href="#handled">What we handle</a>
+        <a class="k-link" href="#faq">FAQ</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <a class="k-link k-hide-md" href="#" style="font-size:14px; font-weight:500; color:var(--gray-600);">Sign in</a>
+        <a class="k-cta" href="#audit" style="background:var(--gray-950); color:#fff; font-size:14px; font-weight:500; padding:10px 18px; border-radius:999px;">Get my free audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" style="position:relative; max-width:1220px; margin:0 auto; padding:clamp(120px,17vh,184px) clamp(20px,5vw,48px) clamp(70px,9vh,110px);">
+    <div class="k-2" style="display:grid; grid-template-columns:1.18fr .82fr; gap:clamp(40px,5vw,76px); align-items:center;">
+      <div>
+        <div data-rv="" style="display:inline-flex; align-items:center; gap:9px; margin-bottom:30px; border:1px solid var(--gray-200); background:#fff; border-radius:999px; padding:6px 14px 6px 11px;">
+          <span style="width:8px; height:8px; border-radius:999px; background:var(--green-500); box-shadow:0 0 0 4px var(--green-100);"></span>
+          <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-600);">Done-for-you marketing for dealerships</span>
+        </div>
+        <h1 id="k-headline" style="font-weight:600; font-size:clamp(46px,8vw,104px); line-height:.94; letter-spacing:-.045em; color:var(--gray-950);">
+          <span class="k-word">Hand</span> <span class="k-word">over</span><br><span class="k-word" style="color:var(--green-700);">the</span> <span class="k-word" style="color:var(--green-700);">keys.</span>
+        </h1>
+        <p data-rv="" style="margin-top:30px; font-size:clamp(18px,1.6vw,22px); line-height:1.5; color:var(--gray-600); max-width:46ch; font-weight:450;">We build, run, and manage your entire marketing operation — website, search, ads, and conversion. You don't lift a finger. <span style="color:var(--gray-950); font-weight:600;">You just approve the wins.</span></p>
+        <div data-rv="" style="margin-top:38px; display:flex; flex-wrap:wrap; gap:13px; align-items:center;">
+          <a class="k-cta" href="#audit" style="display:inline-flex; align-items:center; gap:9px; background:var(--green-700); color:#fff; font-size:16px; font-weight:600; padding:17px 30px; border-radius:999px; box-shadow:0 14px 34px -14px rgba(17,84,58,.6);">Get my free audit<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <span class="k-mono" style="font-size:12.5px; color:var(--gray-500); font-weight:500;">No contracts · You own everything</span>
+        </div>
+      </div>
+
+      <!-- hero approve card, floating -->
+      <div data-rv="" style="position:relative;">
+        <div class="k-key" style="position:relative; z-index:2; border:1px solid var(--gray-200); border-radius:18px; background:#fff; box-shadow:0 44px 96px -52px rgba(14,17,22,.5); overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:10px; padding:15px 18px; border-bottom:1px solid var(--gray-150); background:var(--gray-25);">
+            <span style="width:26px; height:26px; border-radius:7px; background:var(--green-600); display:flex; align-items:center; justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2 13.5 9.5"></path><path d="m15.5 7.5 3 3"></path><circle cx="7.5" cy="15.5" r="5.5"></circle></svg></span>
+            <span style="font-size:13px; font-weight:600;">Your approval queue</span>
+            <span class="k-mono" style="margin-left:auto; font-size:11px; color:var(--gray-500);">3 waiting</span>
+          </div>
+          <div style="padding:14px; display:flex; flex-direction:column; gap:10px;">
+            <div style="border:1px solid var(--gray-200); border-radius:12px; padding:13px 14px;">
+              <div class="k-mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Website</div>
+              <div style="font-size:14px; font-weight:600; margin-top:4px;">Rebuild the F-150 inventory page</div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:11px;">
+                <span class="k-mono" style="font-size:13px; font-weight:600; color:var(--green-700);">+$14,200<span style="color:var(--gray-400); font-weight:400;">/mo est.</span></span>
+                <span style="font-size:11px; font-weight:600; color:#fff; background:var(--green-700); padding:5px 12px; border-radius:999px; animation:k-ring 2.6s ease-in-out infinite;">Approve</span>
+              </div>
+            </div>
+            <div style="border:1px solid var(--gray-200); border-radius:12px; padding:13px 14px; opacity:.62;">
+              <div class="k-mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-400);">Google Ads</div>
+              <div style="font-size:14px; font-weight:600; margin-top:4px;">Shift budget to used trucks</div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-top:11px;">
+                <span class="k-mono" style="font-size:13px; font-weight:600; color:var(--green-700);">+$6,800<span style="color:var(--gray-400); font-weight:400;">/mo est.</span></span>
+                <span style="font-size:11px; font-weight:600; color:var(--gray-500); border:1px solid var(--gray-200); padding:5px 12px; border-radius:999px;">Approve</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div aria-hidden="true" style="position:absolute; inset:-40px -20px -60px; z-index:1; background:radial-gradient(60% 50% at 60% 30%, rgba(31,125,84,.16), transparent 70%); filter:blur(8px); pointer-events:none;"></div>
+      </div>
+    </div>
+
+    <!-- trust strip -->
+    <div data-rv="" style="margin-top:clamp(56px,7vh,84px); border-top:1px solid var(--gray-150); padding-top:clamp(28px,3.5vw,40px); display:flex; flex-wrap:wrap; gap:clamp(24px,5vw,64px); align-items:center;">
+      <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-400);">Trusted by dealership groups running</span>
+      <div style="display:flex; flex-wrap:wrap; gap:clamp(20px,3vw,40px); align-items:center; font-size:15px; font-weight:600; color:var(--gray-400); letter-spacing:-.01em;">
+        <span>New &amp; used</span><span style="color:var(--gray-200);">/</span><span>Service &amp; parts</span><span style="color:var(--gray-200);">/</span><span>Single rooftop</span><span style="color:var(--gray-200);">/</span><span>20+ location groups</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOW: build / run / approve -->
+  <section id="how" style="background:var(--gray-50); border-top:1px solid var(--gray-150); border-bottom:1px solid var(--gray-150); padding:clamp(80px,11vh,128px) 0; scroll-margin-top:80px;">
+    <div style="max-width:1220px; margin:0 auto; padding:0 clamp(20px,5vw,48px);">
+      <div data-rv="" style="max-width:680px; margin-bottom:clamp(48px,6vw,68px);">
+        <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">What hands-off actually means</span>
+        <h2 style="margin-top:16px; font-weight:600; font-size:clamp(32px,4.6vw,56px); line-height:1.02; letter-spacing:-.03em; text-wrap:balance;">We do the work. You make the call.</h2>
+        <p style="margin-top:18px; font-size:18px; line-height:1.6; color:var(--gray-600); max-width:52ch;">Three roles, and only one of them is yours. There's no learning a tool, no managing freelancers, no weekly homework.</p>
+      </div>
+      <div class="k-steps" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(16px,2.4vw,26px);">
+        <div data-rv="" style="background:#fff; border:1px solid var(--gray-200); border-radius:16px; padding:clamp(26px,3vw,34px); position:relative;">
+          <span class="k-mono" style="font-size:11px; font-weight:600; color:var(--gray-400);">01</span>
+          <h3 style="margin-top:14px; font-size:21px; font-weight:600; letter-spacing:-.02em;">We build it</h3>
+          <p style="margin-top:11px; font-size:15px; line-height:1.6; color:var(--gray-600);">A faster site, ranked pages, dialed-in ad campaigns, and conversion fixes — built by specialists, not a single overworked account manager.</p>
+        </div>
+        <div data-rv="" style="background:#fff; border:1px solid var(--gray-200); border-radius:16px; padding:clamp(26px,3vw,34px);">
+          <span class="k-mono" style="font-size:11px; font-weight:600; color:var(--gray-400);">02</span>
+          <h3 style="margin-top:14px; font-size:21px; font-weight:600; letter-spacing:-.02em;">We run it</h3>
+          <p style="margin-top:11px; font-size:15px; line-height:1.6; color:var(--gray-600);">Every day, our AI watches your traffic, leads, and spend and surfaces the next highest-value move — checked by a senior strategist before it reaches you.</p>
+        </div>
+        <div data-rv="" style="background:var(--gray-950); color:#fff; border:1px solid var(--gray-950); border-radius:16px; padding:clamp(26px,3vw,34px);">
+          <span class="k-mono" style="font-size:11px; font-weight:600; color:var(--green-300);">03</span>
+          <h3 style="margin-top:14px; font-size:21px; font-weight:600; letter-spacing:-.02em;">You approve</h3>
+          <p style="margin-top:11px; font-size:15px; line-height:1.6; color:rgba(255,255,255,.66);">One tap. Approve a win and we ship it — then show you exactly what it earned. Reject it and we move on. You stay in control without doing the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROVE — interactive centerpiece -->
+  <section id="approve" style="max-width:1220px; margin:0 auto; padding:clamp(88px,12vh,140px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
+    <div data-rv="" style="text-align:center; max-width:720px; margin:0 auto clamp(40px,5vw,56px);">
+      <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Your whole job, on one screen</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(32px,4.6vw,56px); line-height:1.02; letter-spacing:-.03em; text-wrap:balance;">This is the only thing you have to do.</h2>
+      <p style="margin-top:16px; font-size:18px; line-height:1.55; color:var(--gray-600);">We bring you ready-to-ship opportunities, each with the revenue we expect it to make. Tap approve — we handle the rest. Try it.</p>
+    </div>
+
+    <div data-rv="" style="border:1px solid var(--gray-200); border-radius:20px; background:#fff; overflow:hidden; box-shadow:0 50px 110px -58px rgba(14,17,22,.5);">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 22px; border-bottom:1px solid var(--gray-150); background:var(--gray-25);">
+        <div style="display:flex; align-items:center; gap:11px;">
+          <span style="width:28px; height:28px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+          <div>
+            <div style="font-size:13.5px; font-weight:600;">Approval queue</div>
+            <div class="k-mono" style="font-size:11px; color:var(--gray-500);">Lone Star Auto Group · this week</div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="k-mono" data-approved-val="" style="font-size:20px; font-weight:600; color:var(--green-700); letter-spacing:-.01em;">$0</div>
+          <div class="k-mono" style="font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--gray-400);">Approved revenue</div>
+        </div>
+      </div>
+      <div data-queue="" style="padding:clamp(16px,2vw,22px); display:flex; flex-direction:column; gap:12px;"></div>
+      <div data-empty="" style="display:none; padding:48px 22px 56px; text-align:center;">
+        <div style="width:52px; height:52px; margin:0 auto 16px; border-radius:999px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div>
+        <h3 style="font-size:22px; font-weight:600; letter-spacing:-.02em;">Queue cleared. Nice.</h3>
+        <p style="margin-top:8px; font-size:15px; color:var(--gray-600);">That's a normal week. <span data-empty-val="" style="font-weight:600; color:var(--green-700);">$0</span> in new revenue approved — and you didn't build a thing.</p>
+        <button data-reset="" class="k-cta" type="button" style="margin-top:20px; background:#fff; border:1px solid var(--gray-300); color:var(--gray-950); font-size:14px; font-weight:600; padding:11px 20px; border-radius:999px; cursor:pointer;">Run it again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDLED — what we run -->
+  <section id="handled" style="max-width:1220px; margin:0 auto; padding:clamp(88px,12vh,140px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
+    <div data-rv="" style="max-width:720px; margin-bottom:clamp(44px,5vw,60px);">
+      <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Your whole marketing department</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(32px,4.6vw,56px); line-height:1.02; letter-spacing:-.03em; text-wrap:balance;">Five teams. One bill. Zero meetings you have to run.</h2>
+    </div>
+    <div class="k-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:clamp(14px,2vw,22px);">
+      <div class="k-svc" data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:#fff;">
+        <span style="width:40px; height:40px; border-radius:11px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+        <h3 style="margin-top:16px; font-size:18px; font-weight:600; letter-spacing:-.01em;">Search &amp; SEO</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Owning the searches that put buyers on your lot — model pages, local, and AI search.</p>
+      </div>
+      <div class="k-svc" data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:#fff;">
+        <span style="width:40px; height:40px; border-radius:11px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="5" rx="2"></rect><path d="M3 9h18"></path></svg></span>
+        <h3 style="margin-top:16px; font-size:18px; font-weight:600; letter-spacing:-.01em;">Website</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">A fast, modern dealership site that loads instantly and turns visits into leads.</p>
+      </div>
+      <div class="k-svc" data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:#fff;">
+        <span style="width:40px; height:40px; border-radius:11px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></span>
+        <h3 style="margin-top:16px; font-size:18px; font-weight:600; letter-spacing:-.01em;">Google &amp; Meta ads</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Every dollar pointed at the inventory you most need to move — managed daily.</p>
+      </div>
+      <div class="k-svc" data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:#fff;">
+        <span style="width:40px; height:40px; border-radius:11px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path><path d="M12 2v2"></path><path d="m4.9 4.9 1.4 1.4"></path></svg></span>
+        <h3 style="margin-top:16px; font-size:18px; font-weight:600; letter-spacing:-.01em;">Conversion (CRO)</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">Constant testing on the pages that matter so more of your traffic books or buys.</p>
+      </div>
+      <div class="k-svc" data-rv="" style="border:1px solid var(--gray-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:#fff;">
+        <span style="width:40px; height:40px; border-radius:11px; background:var(--green-50); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span>
+        <h3 style="margin-top:16px; font-size:18px; font-weight:600; letter-spacing:-.01em;">Reporting</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--gray-600);">One clear number every month: revenue we found, shipped, and the return you got.</p>
+      </div>
+      <div class="k-svc" data-rv="" style="border:1px solid var(--green-200); border-radius:16px; padding:clamp(24px,2.6vw,30px); background:linear-gradient(165deg,var(--green-50),#fff); display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="font-size:18px; font-weight:600; letter-spacing:-.01em; color:var(--green-800);">Your job</h3>
+        <p style="margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--green-800);">Read the queue. Tap approve. Sell more cars. That's the entire commitment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF band -->
+  <section style="margin-top:clamp(88px,12vh,140px); background:var(--gray-950); color:#fff; padding:clamp(72px,10vh,116px) 0; position:relative; overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(58% 90% at 50% 0%, rgba(31,125,84,.2), transparent 62%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:1220px; margin:0 auto; padding:0 clamp(20px,5vw,48px);">
+      <div data-rv="" style="text-align:center; max-width:640px; margin:0 auto clamp(48px,6vw,64px);">
+        <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--green-300);">What hands-off earns</span>
+        <h2 style="margin-top:14px; font-weight:600; font-size:clamp(28px,3.8vw,46px); line-height:1.05; letter-spacing:-.03em;">The work happens whether you're at the dealership or not.</h2>
+      </div>
+      <div class="k-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.6vw,28px);">
+        <div data-rv="" style="border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:clamp(26px,3vw,36px); background:rgba(255,255,255,.04);">
+          <div class="k-mono" style="font-size:clamp(40px,5.5vw,60px); font-weight:600; letter-spacing:-.03em;">+<span data-countup="38">0</span>%</div>
+          <p style="margin-top:10px; font-size:15px; line-height:1.55; color:rgba(255,255,255,.66);">average lift in qualified leads within 90 days</p>
+        </div>
+        <div data-rv="" style="border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:clamp(26px,3vw,36px); background:rgba(255,255,255,.04);">
+          <div class="k-mono" style="font-size:clamp(40px,5.5vw,60px); font-weight:600; letter-spacing:-.03em;"><span data-countup="0" data-prefix="" data-suffix="">0</span><span style="font-size:.5em; color:var(--green-300);"> hrs</span></div>
+          <p style="margin-top:10px; font-size:15px; line-height:1.55; color:rgba(255,255,255,.66);">a week you spend managing it — beyond approving</p>
+        </div>
+        <div data-rv="" style="border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:clamp(26px,3vw,36px); background:rgba(255,255,255,.04);">
+          <div class="k-mono" style="font-size:clamp(40px,5.5vw,60px); font-weight:600; letter-spacing:-.03em;"><span data-countup="250">0</span>+</div>
+          <p style="margin-top:10px; font-size:15px; line-height:1.55; color:rgba(255,255,255,.66);">rooftops running their marketing on Branch Avenue</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width:840px; margin:0 auto; padding:clamp(88px,12vh,140px) clamp(20px,5vw,48px) 0; scroll-margin-top:80px;">
+    <div data-rv="" style="margin-bottom:clamp(28px,3.5vw,40px);">
+      <span class="k-mono" style="font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-500);">Before you hand over the keys</span>
+      <h2 style="margin-top:16px; font-weight:600; font-size:clamp(30px,4.2vw,50px); line-height:1.03; letter-spacing:-.03em;">Fair questions.</h2>
+    </div>
+    <div data-rv="">
+      <details class="k-faq" open=""><summary>If you run everything, am I locked out?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="k-a">The opposite. Nothing ships without your approval, and you own your website, content, ad accounts, and data outright. Hands-off means we do the work — not that you lose control.</div></details>
+      <details class="k-faq"><summary>What if I want to approve some things and not others?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="k-a">That's the design. Every opportunity is a separate decision. Approve the ones you like, reject the rest, and set anything routine to auto-approve once you trust the pattern.</div></details>
+      <details class="k-faq"><summary>How fast does something happen after I approve?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="k-a">Most approved changes — ad shifts, page edits, content — ship within days, not the weeks a typical agency takes. You'll see the result measured against the estimate we showed you.</div></details>
+      <details class="k-faq"><summary>Do you only work with dealerships?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="k-a">Automotive is our home turf — new, used, service, and multi-rooftop groups. We also run the same operation for contractors, franchises, and local brands.</div></details>
+      <details class="k-faq"><summary>What does it cost, and am I in a contract?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></summary><div class="k-a">Month-to-month, no long contracts. Your free audit comes back with a flat monthly number and the revenue we expect to find — so you decide with real figures, not a sales pitch.</div></details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="audit" style="max-width:1220px; margin:0 auto; padding:clamp(88px,12vh,140px) clamp(20px,5vw,48px) clamp(80px,10vh,120px); scroll-margin-top:80px;">
+    <div data-rv="" style="position:relative; border-radius:26px; overflow:hidden; background:var(--green-700); color:#fff; padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px);">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(70% 120% at 100% 0%, rgba(255,255,255,.14), transparent 55%); pointer-events:none;"></div>
+      <div style="position:relative; max-width:640px;">
+        <h2 style="font-weight:600; font-size:clamp(34px,5vw,62px); line-height:1.0; letter-spacing:-.035em;">Ready to stop managing it yourself?</h2>
+        <p style="margin-top:20px; font-size:clamp(17px,1.5vw,20px); line-height:1.55; color:rgba(255,255,255,.82); max-width:46ch;">Get a free audit. We'll show you the revenue hiding in your website, search, and ads — and exactly what we'd do about it. Then you decide.</p>
+        <div style="margin-top:34px; display:flex; flex-wrap:wrap; gap:13px; align-items:center;">
+          <a class="k-cta" href="#top" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:var(--green-800); font-size:16px; font-weight:600; padding:17px 30px; border-radius:999px;">Get my free audit<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+          <span class="k-mono" style="font-size:12.5px; color:rgba(255,255,255,.7); font-weight:500;">Takes 15 minutes · No obligation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid var(--gray-150); padding:clamp(40px,5vw,56px) clamp(20px,5vw,48px);">
+    <div style="max-width:1220px; margin:0 auto; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <span style="width:28px; height:28px; border-radius:8px; background:var(--gray-950); display:flex; align-items:center; justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span>
+        <span style="font-size:15px; font-weight:600; letter-spacing:-.01em;">Branch Avenue</span>
+      </div>
+      <span class="k-mono" style="font-size:12px; color:var(--gray-400);">Done-for-you marketing for dealerships · You approve, we do everything</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._reveal();
+    this._headline();
+    this._progress();
+    this._buildQueue();
+    this._counters();
+  }
+
+  _reveal() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-rv]'));
+    if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((e) => io.observe(e));
+  }
+
+  _headline() {
+    const words = Array.prototype.slice.call(document.querySelectorAll('#k-headline .k-word'));
+    words.forEach((w, i) => { setTimeout(() => w.classList.add('in'), 180 + i * 110); });
+  }
+
+  _progress() {
+    const bar = document.getElementById('k-progress');
+    if (!bar) return;
+    let ticking = false;
+    const upd = () => {
+      ticking = false;
+      const h = document.documentElement;
+      const max = (h.scrollHeight - h.clientHeight) || 1;
+      bar.style.width = (Math.min(1, h.scrollTop / max) * 100).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+
+  _data() {
+    return [
+      { ch: 'Website', title: 'Rebuild the F-150 inventory page', why: 'It loads slow and buries the lead form. A faster, cleaner layout converts more of the truck shoppers already landing here.', val: 14200, conf: 'High' },
+      { ch: 'Google Ads', title: 'Shift budget to used trucks', why: 'Used truck searches are up 31% locally and your new-car campaigns are over-funded. Reallocating captures cheaper, hotter leads.', val: 6800, conf: 'High' },
+      { ch: 'SEO', title: 'Win "Toyota service near me"', why: 'Your service pages rank #7. A targeted content + local push can move you into the top 3 and feed the service drive.', val: 9400, conf: 'Medium' },
+      { ch: 'Conversion', title: 'Add finance pre-qual to VDPs', why: 'Shoppers bounce at price. A soft pre-qual on vehicle pages keeps them in the funnel and books more appointments.', val: 11600, conf: 'High' }
+    ];
+  }
+
+  _money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  _buildQueue() {
+    const queue = document.querySelector('[data-queue]');
+    const empty = document.querySelector('[data-empty]');
+    const valEl = document.querySelector('[data-approved-val]');
+    const emptyVal = document.querySelector('[data-empty-val]');
+    if (!queue) return;
+    const self = this;
+    let approved = 0;
+
+    const tickTo = (target) => {
+      const start = approved, t0 = performance.now(), dur = 700;
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        const cur = start + (target - start) * e;
+        if (valEl) valEl.textContent = self._money(cur);
+        if (t < 1) requestAnimationFrame(step);
+        else approved = target;
+      };
+      requestAnimationFrame(step);
+    };
+
+    const render = () => {
+      const data = self._data();
+      queue.innerHTML = '';
+      approved = 0;
+      if (valEl) valEl.textContent = '$0';
+      empty.style.display = 'none';
+      queue.style.display = 'flex';
+      data.forEach((d) => {
+        const card = document.createElement('div');
+        card.className = 'k-prop';
+        card.style.cssText = 'border:1px solid var(--gray-200); border-radius:14px; background:#fff; padding:clamp(16px,1.8vw,20px); display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center;';
+        card.innerHTML =
+          '<div>' +
+            '<div style="display:flex; align-items:center; gap:9px; margin-bottom:7px;">' +
+              '<span class="k-mono" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500); border:1px solid var(--gray-200); padding:3px 8px; border-radius:999px;">' + d.ch + '</span>' +
+              '<span class="k-mono" style="font-size:10.5px; color:var(--gray-400);">confidence ' + d.conf + '</span>' +
+            '</div>' +
+            '<div style="font-size:17px; font-weight:600; letter-spacing:-.01em;">' + d.title + '</div>' +
+            '<p style="margin-top:6px; font-size:13.5px; line-height:1.55; color:var(--gray-600); max-width:58ch;">' + d.why + '</p>' +
+          '</div>' +
+          '<div style="text-align:right; display:flex; flex-direction:column; align-items:flex-end; gap:11px; white-space:nowrap;">' +
+            '<div><div class="k-mono" style="font-size:19px; font-weight:600; color:var(--green-700); letter-spacing:-.01em;">+' + self._money(d.val) + '</div>' +
+            '<div class="k-mono" style="font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--gray-400);">est. / mo</div></div>' +
+            '<button type="button" class="k-approve" style="background:var(--green-700); color:#fff; border:1px solid var(--green-700); font-size:13px; font-weight:600; padding:9px 20px; border-radius:999px; cursor:pointer;">Approve</button>' +
+          '</div>';
+        const btn = card.querySelector('.k-approve');
+        btn.addEventListener('click', () => {
+          if (card.classList.contains('approved')) return;
+          card.classList.add('approved');
+          btn.classList.add('done');
+          btn.innerHTML = '<span style="display:inline-flex; align-items:center; gap:6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Shipping</span>';
+          tickTo(approved + d.val);
+          card._done = true;
+          // collapse after a beat
+          setTimeout(() => {
+            card.style.transition = 'opacity .45s ease, transform .45s ease, max-height .5s ease, margin .5s ease, padding .5s ease';
+            card.style.overflow = 'hidden';
+            card.style.maxHeight = card.offsetHeight + 'px';
+            requestAnimationFrame(() => {
+              card.style.opacity = '0';
+              card.style.transform = 'translateX(40px)';
+              card.style.maxHeight = '0px';
+              card.style.paddingTop = '0px';
+              card.style.paddingBottom = '0px';
+              card.style.marginTop = '-12px';
+            });
+            setTimeout(() => {
+              card.remove();
+              if (!queue.querySelector('.k-prop')) {
+                queue.style.display = 'none';
+                empty.style.display = 'block';
+                if (emptyVal) emptyVal.textContent = self._money(approved);
+              }
+            }, 520);
+          }, 620);
+        });
+        queue.appendChild(card);
+      });
+    };
+
+    const resetBtn = document.querySelector('[data-reset]');
+    if (resetBtn) resetBtn.addEventListener('click', render);
+    render();
+  }
+
+  _counters() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-countup]'));
+    if (!els.length) return;
+    const run = (el) => {
+      const target = parseFloat(el.getAttribute('data-countup'));
+      const t0 = performance.now(), dur = 1200;
+      const step = (now) => {
+        const t = Math.min(1, (now - t0) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * e).toLocaleString('en-US');
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    const io = new IntersectionObserver((es) => {
+      es.forEach((en) => { if (en.isIntersecting && !en.target._done) { en.target._done = 1; run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    els.forEach((el) => io.observe(el));
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
