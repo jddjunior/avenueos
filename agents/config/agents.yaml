@@ -1,0 +1,209 @@
+# AvenueOS Agent Definitions
+# All agents use Anthropic Managed Agents (beta).
+# Agents are persistent objects — create once, reference by ID stored in environment.
+# Sessions are per-task; agents are NOT recreated per request.
+
+defaults:
+  model: claude-opus-4-8
+  thinking:
+    type: adaptive
+  resources:
+    - type: github_repository
+      repository:
+        owner: jddjunior
+        name: avenueos
+      branch: main
+
+agents:
+  # ─── Master Coordinator ───────────────────────────────────────────────────
+  orchestrator:
+    name: "AvenueOS Orchestrator"
+    description: >
+      Master coordinator for all AvenueOS marketing agent workflows.
+      Accepts high-level marketing tasks and routes to the appropriate
+      specialist sub-agents (SEO, Ads, CRO, Web, Call, Report).
+      Enforces triple-check validation before committing any output.
+      Manages GitHub version control for every change.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/builderio/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+        config:
+          allowed_domains:
+            - builder.io
+            - docs.anthropic.com
+            - github.com
+    multiagent:
+      type: coordinator
+      agents:
+        - $ref: seo-agent
+        - $ref: ads-agent
+        - $ref: cro-agent
+        - $ref: web-agent
+        - $ref: call-agent
+        - $ref: report-agent
+        - $ref: validator-agent
+
+  # ─── Specialist Agents ────────────────────────────────────────────────────
+  seo-agent:
+    name: "SEO Agent"
+    description: >
+      Handles all organic search optimization tasks: on-page SEO, meta tags,
+      schema markup, content optimization, technical audits, and internal linking
+      for automotive, contractor, franchise, and Shopify verticals.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/builderio/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+
+  ads-agent:
+    name: "Ads Agent"
+    description: >
+      Manages paid advertising workflows: Google Ads copy, Meta ad creative,
+      landing page alignment, bid strategy recommendations, and ad performance
+      analysis across all tenant verticals.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/builderio/SKILL.md
+      - path: agents/skills/ads/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+
+  cro-agent:
+    name: "CRO Agent"
+    description: >
+      Conversion rate optimization: A/B test ideation, CTA copy improvements,
+      form optimization, trust signal placement, and funnel analysis for all
+      AvenueOS landing page templates.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/builderio/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+
+  web-agent:
+    name: "Web Agent"
+    description: >
+      Website production tasks: building and editing DC components, applying
+      design changes, managing content in Builder.io, and ensuring cross-device
+      responsiveness for all tenant sites.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/builderio/SKILL.md
+      - path: agents/skills/web/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+
+  call-agent:
+    name: "Call Agent"
+    description: >
+      Call tracking and voice marketing: call script optimization, IVR flows,
+      call-to-action placement, phone number tracking strategy, and call
+      recording analysis summaries.
+    skills:
+      - path: agents/skills/call/SKILL.md
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+
+  report-agent:
+    name: "Report Agent"
+    description: >
+      Marketing performance reporting: aggregating KPIs across channels,
+      generating executive summaries, building visual dashboards, and
+      producing client-ready PDF/HTML reports with insights and next steps.
+    skills:
+      - path: agents/skills/report/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+
+  # ─── Platform Agents ──────────────────────────────────────────────────────────
+  wordpress-agent:
+    name: "WordPress Agent"
+    description: >
+      Full-stack WordPress developer for any client running a WordPress site.
+      Covers REST API v2, WooCommerce REST API, ACF, WP-CLI, custom post types,
+      custom endpoints, Gutenberg blocks, headless/decoupled architecture,
+      WPGraphQL, MCP server integration, webhooks, multisite, and security best
+      practices. Works alongside the SEO, Ads, CRO, and Web agents for clients
+      whose sites are built on WordPress.
+    skills:
+      - path: agents/skills/wordpress/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+        config:
+          allowed_domains:
+            - developer.wordpress.org
+            - woocommerce.com
+            - wp-cli.org
+            - github.com
+
+  webflow-agent:
+    name: "Webflow Agent"
+    description: >
+      Full-stack Webflow developer for any client running a Webflow site.
+      Covers Webflow Data API v2, CMS Collections CRUD, Ecommerce API,
+      Memberships API, Logic automation, Webhooks, Designer Extension API,
+      Webflow.js scripting, registered scripts, custom code injection,
+      MCP server integration, localization, and publishing workflow.
+      Works alongside the SEO, Ads, CRO, and Web agents for clients whose
+      sites are built on Webflow.
+    skills:
+      - path: agents/skills/webflow/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+      - path: agents/skills/github/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
+      - type: web_search
+        config:
+          allowed_domains:
+            - developers.webflow.com
+            - university.webflow.com
+            - github.com
+
+  # ─── Validation Agent ─────────────────────────────────────────────────────
+  validator-agent:
+    name: "Validator Agent"
+    description: >
+      Independent quality grader. Never produces original work — only validates.
+      Scores agent outputs on correctness, brand compliance, DC syntax validity,
+      SEO best practices, and conversion impact. Returns structured rubric scores.
+      Used in the triple-check pipeline: pass-1 and pass-2 validation are both
+      routed here with different prompts to prevent anchoring bias.
+    skills:
+      - path: agents/skills/dc-system/SKILL.md
+      - path: agents/skills/seo/SKILL.md
+      - path: agents/skills/cro/SKILL.md
+    tools:
+      - type: bash
+      - type: file_editor
